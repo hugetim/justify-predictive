@@ -1,0 +1,7 @@
+.DS_Store
+~*
+*.html
+*.png
+*.ipynb
+**/.ipynb_checkpoints/
+**/*.pyc
