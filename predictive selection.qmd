@@ -1,5 +1,5 @@
 ---
-title: Predictive performance as a basis for model selection
+title: A universal approach to model selection
 author:
   - name: Tim Huegerich
     acknowledgements: This essay has benefited from the feedback of Sam Merten.
@@ -19,7 +19,11 @@ Predictive ability is the measure of scientific knowledge. Whereas rationalizing
 
 Put simply, to predict something, one ought to use the method that has (or could have) performed best in making similar predictions.[^1] This principle gives us a model selection criterion for any problem that can be formulated in terms of a prediction. And almost any statistical question can be thought of in terms of predictions. For instance, though we do not usually think of it this way, estimating the average height of a group of people based on a random sample can be thought of as “predicting” the overall average height we would find if we were to literally measure the heights of the whole population. Or one can equivalently ask how best to predict the height of a randomly selected person.
 
-[^1]: This essay has benefited from the feedback of Sam Merten.
+[^1]: Elsewhere I argue that this simple principle provides a way out of the philosopher David Hume’s “problem of induction,” solving the problem of underdetermination. That is, I claim it provides the proper perspective for thinking about the reliability of science and all inductive inference. But this paper mostly sets aside those broader aims.
+
+::: callout-note
+Cite [@hansen2005] and [@busemeyer2000]
+:::
 
 ### Example: Average height by age and gender
 
@@ -84,6 +88,10 @@ To illustrate this last issue, consider an extension of the height example discu
 ![Mean Squared Prediction Error for Different Prediction Tasks, by Ages Held Out for Prediction](different-tasks.png)
 
 The specification ‘*female age age2 c.female#(c.age c.age2)*’ turns out to perform best, on average, whether you limit attention to (A) through (J) or also include (K) through (O). The table below summarizes each specification’s performance, alongside the LOO R^2^ from earlier, for comparison.
+
+::: callout-note
+Should weight the validation tests based on similarity to the task for which it will be used. That may simply mean equal weights (when LOO is appropriate, for example).
+:::
 
 ![LOO R^2^ and Average Mean Squared Prediction Error Across Prediction Task Groups](loo-comparison.png)
 
