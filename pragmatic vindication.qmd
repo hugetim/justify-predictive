@@ -12,6 +12,18 @@ fig-cap-location: top
 bibliography: references.bib
 ---
 
+Any inductive inference from known information to unknown can be thought of as a prediction.^[I'm defining prediction broadly here. As [@forster2008] puts it, "Suppose I choose a card and place it face down on the table. You have to predict whether I chose a diamond. Even though the event you are predicting happened in the past, we are comfortable with using the word 'predict,' as opposed to 'postdict.'"] I have in mind both the everyday projections made automatically by our brains as we navigate the world and the sophisticated mathematical predictions of scientists.
+
+::: {#prp-valid}
+A prediction should be made using a predictive method that has worked---or could have worked---to make similar predictions.
+:::
+
+This principle underlies 
+
+In both cases, the everyday and the scientific, predictive methods tend to be a rather complicated thing. Consider the seemingly simply prediction, "If a bird is a swan, its color will be white." 
+
+ 
+
 # Introduction
 
 In his book *The Knowledge Machine*, Michael Strevens provides a compelling account of how science works, a lucid synthesis of decades of insights from history and philosophy of science, albeit with one unsettling limitation. Strevens makes the quandaries of philosophers actually fun to read about, including David Hume’s problem of induction, the lack of a reasoned justification for generalizing from experience. On the stakes of this problem, he quotes Bertrand Russell, who said that if inductive reasoning cannot be justified, “there is no intellectual difference between sanity and insanity” (p. 17) And Russell is not alone. As Strevens puts it, almost all philosophers of science “believe that induction is essential to human existence” (p. 21).[^1] Yet, “there is still no widely accepted justification for induction” (p. 17).
