@@ -1,0 +1,115 @@
+---
+title: "The pragmatic vindication of predictive inference"
+author:
+  - name: Tim Huegerich
+
+format: 
+  html:
+    toc: true
+    embed-resources: true
+theme: default
+fig-cap-location: top
+bibliography: references.bib
+---
+
+# Introduction
+
+In his book *The Knowledge Machine*, Michael Strevens provides a compelling account of how science works, a lucid synthesis of decades of insights from history and philosophy of science, albeit with one unsettling limitation. Strevens makes the quandaries of philosophers actually fun to read about, including David Hume’s problem of induction, the lack of a reasoned justification for generalizing from experience. On the stakes of this problem, he quotes Bertrand Russell, who said that if inductive reasoning cannot be justified, “there is no intellectual difference between sanity and insanity” (p. 17) And Russell is not alone. As Strevens puts it, almost all philosophers of science “believe that induction is essential to human existence” (p. 21).[^1] Yet, “there is still no widely accepted justification for induction” (p. 17).
+
+[^1]: “Some believe that Hume’s problem must have a solution—that is, a philosophical argument showing that it is reasonable to suppose that nature is uniform in certain respects... Some believe, like Hume himself, that it has no solution but that we must go on thinking inductively regardless, both in our science and in our everyday lives” (p. 21). Strevens does not make clear to which camp he himself belongs.
+
+—
+
+In his lecture notes on Bayesian confirmation theory, Strevens characterizes Hume’s problem of induction this way:[^2]
+
+[^2]: His notes dated June 2017, available as of August 2024 at <http://www.strevens.org/bct/BCT.pdf>, Ch. 7.
+
+> The old-fashioned problem of induction is the problem of finding *a priori*, objective grounds for preferring some hypotheses to others on the basis of what we observe (where the hypotheses have a scope that goes beyond our observations).
+
+He also lists three features of the natural human approach to inductive reasoning (which Strevens then argues Bayesianism does *not* provide a priori, objective grounds for):
+
+> 1.  Our expectation that the future will resemble the past, that is, our belief in the uniformity of nature,
+> 2.  Our preference for hypotheses that are not framed using “grue-like” predicates, and
+> 3.  Our preference for simpler over more complex hypotheses, when the competing hypotheses are otherwise equally successful in accounting for the data.
+
+My claim is that reframing the problem in terms of predictive methods enables a solid pragmatic rational for induction.[^3] In terms of predictive methods—rather than in terms of assessing the truth of hypotheses—there are *a priori*, objective grounds for inductive reasoning, including each of the features of natural inductive reasoning Strevens identifies.
+
+[^3]: What follows omits comparisons with previous attempts at pragmatic justification of induction, for ease of exposition. See Appendix B for a discussion of previous literature.
+
+By “predictive method” I mean a method for predicting some unknown (observable) measure, Y, based on some available information, the inputs.[^4] It is best thought of not as a hypothesis but a procedure.[^5] By way of example, consider the predictive method of a least-mean-squared-error best-fit line. Given some known (X, Y) data, the procedure is to find the line that minimizes the sum of the squared differences (in Y) between the known outcomes and the corresponding points on the line, and then to use that line to predict unknown outcomes.
+
+[^4]: A predictive method is more fully specified than a typical hypothesis or “theory.” In philosophy of science terms, it must include all “auxiliary assumptions” needed to get from the inputs to a concrete prediction.
+
+[^5]: The reproducibility of predictive methods is key, as we will see. Using a predictive method is an action that can be repeated, checking the outcome each time. To apply a predictive method is to reproduce the same procedure that has been (or could have been) found successful in the past. By contrast, when conceiving of induction in terms of generalizations, an instance of *confirming* a hypothesis with some test or evidence is a different sort of thing from an instance of *applying* a hypothesis, drawing a conclusion from its truth (or some specific probability of it being true).
+
+Now here’s my central assertion, simply stated: to predict some unknown outcome, one should use a predictive method that has, or could have, been successful at predicting that outcome. In short: use what works.
+
+The justification for this claim begins with recognizing that making predictions is necessary for purposeful action. That is, forming some expectations of the outcomes of our actions—however provisional or implicit those expectations may be—is required. To have any basis for choosing one action over another, we would need a way of using known information to predict the unknown outcomes, a predictive method.
+
+Still, even supposing we have a predictive method that has worked in the past, what justifies us in using it to predict as-yet-unknown outcomes? Well, if prior predictive success is not informative of future success, prediction is not possible. So we actually have nothing to lose by assuming that it is possible to use known information to predict the unknown.[^6] Assuming that prior predictive success generalizes is a prerequisite for purposeful action.[^7]
+
+[^6]: The basis for this claim is empiricism: our only possible way to judge whether a method is generally reliable is whether it has (or could have) worked in the past. Suppose there were some other way of identifying a reliable predictive method: using a Quija board, say. The only way we could assess whether the Quija board reveals reliable predictive methods is to check whether the methods it dictates work.
+
+[^7]: The investing disclaimer that “past performance is not indicative of future results” does not apply here in the same way (though it is true that future results are not guaranteed by a so-far successful predictive method). What is meant by “past performance” in the investment context is different from assessing the performance of a predictive method. On the contrary, research has shown that mutual funds’ past “performance” in the ROI sense is *not* predictive of future returns. That is, the investing disclaimer could be restated as “naively extrapolating past returns forward is a poor predictive method.”
+
+I am not saying that we *know* a successful method will continue to work for future predictions. There are no such guarantees (and in that sense the problem of induction remains unsolved and presumably unsolvable). And when a previously successful method fails, we should revise it. But unless or until that happens, we are justified in using a predictive method that has worked.
+
+To clarify the nature of this claim, consider an example even simpler than a best-fit line. Imagine a child letting go of a spoon she was holding. Will it fall to the ground? Yes, it does. She tries again, with the same result. She is surely justified in predicting, going forward, that spoons will fall if she lets go of them. (It might even be said that repeating the same thing and expecting different results would be insanity.) That is what I mean by “use what works.”
+
+Thought of as a hypothesis, of course, the statement that a spoon always falls is false. An adult handing her a spoon tied to a large helium balloon will know that the result will be different. But until something like that happens, the child’s predictive method will have been useful. And even the final, doomed prediction involving the helium balloon is rationally justified. She should of course revise her predictive method after that failure (coming one step closer to the adult’s more sophisticated predictive method for the motion of spoons). But her “always falls” prediction, considered *a priori*, was sound.
+
+To sum up the argument so far, purposeful action requires a method that can use known information to predict something unknown. So if you have a method with the potential to fill that requirement, use it.
+
+## Why assume nature is uniform?
+
+So much for Strevens’ first feature of natural human inductive reasoning: expecting that the future will resemble the past. I have shown that we ought to *act as if there were* uniformity of nature in a specific sense: that successful predictive methods will continue to work. Otherwise prediction (and thus purposeful action) is impossible. One can choose to act in this way (or consciously assent in good faith to one’s natural inductive tendencies) despite acknowledging intellectually that nature may not be reliably uniform in any sense. Again, there’s nothing to lose by acting in this way. If past experience offers usable information, this approach will use it. If not, purposeful action was impossible anyway.
+
+## Why prefer simplicity?
+
+This line of reasoning would fail, of course, if predictive methods were as vulnerable to the problem of underdetermination as is induction in terms of hypotheses. Returning to the curve-fitting context, for example, suppose the known (X, Y) measurements are exactly linear. (The case of “noisy” data and probabilistic predictions, requiring a more technical treatment, is addressed in Appendix A.) An infinite number of functions pass through these points, so why prefer a simple line for predicting unknown outcomes? Well, thinking in terms of predictive methods, only linear predictions would have worked to predict in the past. This can be seen by imagining we only had a subset of the currently known data points and used them to predict the remaining, held-out points (as in cross-validation). Only linear prediction could have plausibly predicted them. So thinking in terms of predictive methods also explains our natural preference for simpler over more complex hypotheses.
+
+## Why not “grue”?
+
+Goodman’s “new riddle of induction” concerns a specific form of underdetermination. As Strevens puts it:
+
+> ...a solution to the riddle is an *a priori* argument for preferring hypotheses couched using standard predicates such as black to hypotheses couched using non-standard predicates such as blite. (An object is blite if it is black and first observed before the year 3000, or white and first observed after 3000.)
+
+In terms of predictive methods, the riddle is that we seem to have two methods that have been equally successful for predicting the color of ravens, say, but that predict different things about the future: (1) “All ravens are black” and (2) “All ravens are blite.” Understanding why we should prefer the first starts with recalling that predictive methods are not propositions but procedures. Spelled out as a procedure, “All ravens are blite” means: First determine whether something is a raven (as identified by characteristics other than color), and second check whether it is observed before the year 3000, predicting that it will appear black if so, and white otherwise.[^8] Well, prior to the year 3000 as we are, that second step makes literally no difference. It was not really part of the predictive method at all, properly speaking. Rather, the successful predictive method was simply determining whether something is a raven and, if so, predicting black as its color. According to my central claim above, then, *that* is the method to use for predictions going forward. In other words, implied in the “use what works” principle is a certain form of “Occam’s razor”: if a step or input in a predictive method can be identified as having no effect on predictions it has (or could have) made, it is not actually part of what has “worked” and should therefore be discarded for future use.
+
+[^8]: The color observation could be instrumentalized in terms of the RGB values of a digital photograph, say, something independent of one’s preference between the words “black” and “blite.”
+
+\[Address issue of multiple methods that work. Using linear and quadratic as example.\]
+
+------------------------------------------------------------------------
+
+To sum up, my claim is that the underlying logic of inductive reasoning is, essentially, “use a predictive method that works.” I have provided an *a priori* justification for this principle. And I have shown how it accounts for the three features of the natural human approach to inductive reasoning that Strevens identifies.
+
+\[Brief note re brain as predictive machine, citing a recent article\]
+
+------------------------------------------------------------------------
+
+Still, perhaps you are thinking, “So what?” Perhaps only a philosopher could care whether common-sense attitudes can be grounded in a more foundational rationale. Well, elsewhere I argue that this refined grounding for inductive reasoning does have wide-reaching practical implications for how science should be conducted and interpreted. But for now I would just situate the relevance of these considerations by returning to Strevens’ *The Knowledge Machine* (which you really have to read to appreciate his novel, incisive account of what is unique about modern science and how it originated)*.*
+
+Strevens’ book goes on to argue that the power of modern science stems from how it forces scientists to relentlessly prioritize tedious empirical observations over the aesthetic, religious, or philosophical considerations to which pre-modern students of the natural world dedicated the bulk of their attention and writing. But Strevens never returns to the basic question of how generalizing from all those meticulous observations can be justified in the first place.[^9] Strevens’ readers, despite his forceful presentation of Hume’s problem of induction in the first chapter, will probably have safely forgotten this disturbing quandary by the end of his subsequent thirteen chapters. But the justification of inductive reasoning presented here allows a proper appreciation of why all that careful observation Strevens celebrates matters: by eliminating rival predictive methods, we are left not with a bewildering infinitude of theories yet capable of fitting our still-finite observations but rather, for so many practical purposes, a single relevant predictive method, enabling our ever-expanding technical mastery.
+
+[^9]: Strevens gestures toward “Baconian convergence” but does not attempt to explain why this seems to work so well rather than being defeated by the underdetermination that seems so inevitable when confirmation theory is considered in the abstract.
+
+# Appendix A: Predicting Uncertainty
+
+If the data are approximately linear,[^10] a best-fit line will be able to predict well with relatively few known measurements available as inputs. The method of instead, given \_n \_known data points, fitting a polynomial \_p \_of degree \_n – 1 \_will fit the known data exactly but will likely fluctuate wildly up and down in between the known points and thus predict unknown data poorly.[^11] We can reject other alternative hypotheses in the same way, leaving the best-fit line as the most successful predictive method.[^12]
+
+[^10]: To fix ideas, assume the true data-generating process is a linear function plus Gaussian noise.
+
+[^11]: Yet, what can we say about the predictive method that simply prescribes predicting points to be on the polynomial *p*, rather than prescribing a method for fitting a polynomial to the points? This method would have been successful at predicting all *n* points without requiring knowledge of any of them. Well, if you had arrived at this method before knowing of the data and you predicted all n points exactly, I would counsel you to continue using this method. However, if there was no way for you to know of *p* without knowledge of the data, you cannot accurately say that you could have predicted the data with this method. It is misleading to even consider it a complete method if your actual method included deriving *p* from the data. Thus, we can deny this contrivance the status of a successful method without even appealing to a need for further tests of its predictions.
+
+[^12]: The line method is not the only method that would work to produce good predictions of approximately linear data, but it is the one that allows the most robust predictions for a given size of input dataset. Fitting second (or third) degree polynomials to linear data would lead to approximately linear prediction curves if enough points are taken into consideration, so these would also give successful predictions with large known datasets. In that case, any low-order polynomial will give essentially equivalent predictions, so that the choice between them is immaterial (since what matters is the prediction, not isolating a unique method for “confirmation”). But fitting a line to the data will perform better (again, assuming approximately linear data) for few data points—that is, when the difference between methods matters.
+
+First Gaussian noise as simplest example, but then also present sin curve fitting example, in which linear is best (even without truly random noise)
+
+# Appendix B: Related Literature
+
+Situate within recent literature: Stanford entry, contrasting with Reichenbach and more recent pragmatic attempt (ML-inspired formulation that doesn't actually fit with ML practice)
+
+::: callout-note
+June 2024: Address the critique of "most successful" in that induction paper.
+:::
