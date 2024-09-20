@@ -1,5 +1,5 @@
 ---
-title: A universal approach to model selection
+title: Towards a universal approach to model selection
 author:
   - name: Tim Huegerich
     acknowledgements: This essay has benefited from the feedback of Sam Merten.

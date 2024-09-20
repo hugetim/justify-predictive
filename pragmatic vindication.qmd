@@ -40,7 +40,7 @@ As an example, suppose our data consists of 10 exactly collinear (X, Y) points. 
 
 If this best-fit line were merely a *hypothesis* consistent with the known observations, that wouldn't be saying much. There are uncountably many functions consistent with those 10 observations, functions which vary wildly for X values other than those 10 points, generically speaking. But predictive methods corresponding to those nonlinear functions would not plausibly have been able to predict the Y values of held-out data. Predictive ability, even in just the holdout validation sense, is sufficient to differentiate the line from the vast majority of alternatives in this case.
 
-\[See [@barrosorojo2023] for a broader argument against analyzing inductive inference in terms of hypotheses, or what he terms the "linguistic approach to analyzing induction." \[Citing [@forster2011] and others, he cites Whewell as exemplifying a different way.\]\]
+\[See [@dethier2018] for a discussion, citing [@forster2011] and others, of William Whewell's approach to inductive inference as an alternative to "the more sentence- or proposition-focused accounts of induction prevalent in twentieth-century debates."\]
 
 \[Address issue of multiple methods that work. Using linear and quadratic as example.\]
 
@@ -143,6 +143,8 @@ Strevens’ book goes on to argue that the power of modern science stems from ho
 [^13]: Strevens gestures toward “Baconian convergence” but does not attempt to explain why this seems to work so well rather than being defeated by the underdetermination that seems so inevitable when confirmation theory is considered in the abstract.
 
 ## Choosing a probabilistic predictive method {#sec-prob}
+
+\[Maybe use [@myrvold2002] orbital period chart example\]
 
 If the data are approximately linear,[^14] a best-fit line will be able to predict well with relatively few known measurements available as inputs. The method of instead, given \_n \_known data points, fitting a polynomial \_p \_of degree \_n – 1 \_will fit the known data exactly but will likely fluctuate wildly up and down in between the known points and thus predict unknown data poorly.[^15] We can reject other alternative hypotheses in the same way, leaving the best-fit line as the most successful predictive method.[^16]
 
