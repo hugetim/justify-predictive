@@ -62,7 +62,7 @@ In terms of predictive methods, the riddle is that we seem to have two methods t
 
 [^3]: The color observation could be instrumentalized in terms of the RGB values of a digital photograph, say, something independent of one’s preference between the words “black” and “blite.”
 
-## A justification for working predictive methods {#sec-prag}
+## A justification for certain predictive methods {#sec-prag}
 
 Though we never know for certain whether a predictive method will work, our continued use of successful predictive methods has a clear pragmatic justification. Prior predictive performance is our only source of information about whether a predictive method will work going forward.[^4] That is, if past performance is not informative of future success, prediction is simply not possible. So we have nothing to lose by assuming that it is possible to use known information to predict the unknown. And we do have something to gain, since purposeful action requires predicting the impacts of our actions. Therefore:
 
@@ -142,7 +142,7 @@ Strevens’ book goes on to argue that the power of modern science stems from ho
 
 [^13]: Strevens gestures toward “Baconian convergence” but does not attempt to explain why this seems to work so well rather than being defeated by the underdetermination that seems so inevitable when confirmation theory is considered in the abstract.
 
-## Choosing a probabilistic predictive method {#sec-prob}
+## Choosing among uncertain predictive methods {#sec-prob}
 
 \[Maybe use [@myrvold2002] orbital period chart example\]
 
