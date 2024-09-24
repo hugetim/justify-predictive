@@ -2,6 +2,7 @@
 title: "A pragmatic justification for predictive methods"
 author:
   - name: Tim Huegerich
+abstract: A pragmatic justification is given for expecting a predictive method to perform the same in the future as in the past.
 
 format: 
   html:
@@ -11,6 +12,8 @@ theme: default
 fig-cap-location: top
 bibliography: references.bib
 ---
+
+[If multiple equally (or similarly) successful predictive methods given different predictions, there is reason for caution. That is the reason for caution about insufficiently tested methods.]
 
 ## Introduction
 
