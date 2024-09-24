@@ -25,7 +25,7 @@ The aim of this paper is to provide a self-standing philosophical justification 
 
 The argument proceeds as follows. @sec-under shows how thinking in terms of "predictive methods" alleviates the problem of underdetermination. Given that, @sec-prag lays out the pragmatic justification for the case of deterministic predictions. @sec-prob extends the argument to probabilistic predictions. @sec-induct addresses the major arguments against Reichenbach's pragmatic justification of induction. @sec-schurz relates the framework of this paper to a prominent recent attempt to justify induction with reference to prediction.
 
-## Predictive methods lessen underdetermination {#sec-under}
+## Predictive methods are less underdetermined {#sec-under}
 
 It would generally be difficult to fully specify the method used to make a given prediction, whether of the everyday or scientific variety. Even for an apparently basic prediction like "All ravens are black," to fully spell out how to determine whether something is a swan may be quite involved.[^2] Often enough, though, and particularly for scientific predictions, we can identify a "predictive method," the reproducible procedure used to make a given prediction.
 
@@ -41,22 +41,22 @@ Of course, the more common way to speak about "All ravens are black" is as a "hy
 
 [^4]: Here I follow the terminology of [@hansen2021, p. 867]. He goes on to explain that it is sometimes "desirable to make a tripartite division of the sample into (1) training, (2) model selection, and (3) final estimation and assessment. This can be particularly useful when it is desired to obtain a parameter estimator whose distribution is not distorted by the model selection process."
 
-As an example, suppose our data consists of 10 exactly collinear (X, Y) points. Consider the predictive method of a least-mean-squared-error (LMSE) best-fit line. Given some input data, the procedure is to find the line that minimizes the sum of the squared differences between the known outcomes (Y) and the corresponding points on the line, then using that line to predict unknown outcomes for other values of X.[^5] Now, whether or not the best-fit-line predictive method was used to make any predictions prior to these 10 data points being known, it *could have* successfully predicted the Y values of any held-out evaluation set, as long as the training set contains at least two points.
+Setting the ravens aside for a moment to more simply demonstrate the concept of hold-out evaluation, suppose our data consists of 10 exactly collinear (X, Y) points. Consider the predictive method of a least-mean-squared-error (LMSE) best-fit line. Given some input data, the procedure is to find the line that minimizes the sum of the squared differences between the known outcomes (Y) and the corresponding points on the line, then using that line to predict unknown outcomes for other values of X.[^5] Now, whether or not the best-fit-line predictive method was used to make any predictions prior to these 10 data points being known, it *could have* successfully predicted the Y values of any held-out evaluation set, as long as the training set contains at least two points.
 
-[^5]: In some previous literature, it is a "family of curves" (or models) that is under evaluation. This LMSE best-fit line "predictive method" is analogous to the family of all straight lines, as defined in [@forster1994], for example. But a predictive method must also specify how the specific curve is chosen from among the family. And the concept of a predictive method is also broader than that of a family of curves, encompassing the application of theories that cannot be represented as a family of curves, for example.
+[^5]: In some previous literature, it is a "family of curves" (or models) that is under evaluation. This LMSE best-fit line "predictive method" is analogous to the family of all straight lines, as defined in [@forster1994], for example. But a predictive method must also specify how the specific curve is chosen from among the family, given some input data. And the concept of a predictive method is also broader than that of a family of curves, encompassing the application of concepts and theories that cannot be represented as a family of curves, such as the ravens example.
 
 To be merely a *hypothesis* consistent with the known observations is much lower bar than to be a successful predictive method. There are uncountably many functions consistent with those 10 observations, functions which vary wildly for X values other than those 10 points, generically speaking. But predictive methods corresponding to those nonlinear functions would not plausibly have been able to predict the Y values of held-out data. Predictive ability, even in just the hold-out evaluation sense, is sufficient to differentiate the line from the vast majority of alternatives in this case.
 
-Still, we cannot necessarily conclude that the best-fit line is the unique predictive method capable of predicting any held-out subset if this data. Let's consider potential alternative validated predictive methods in two categories:
+Still, we cannot necessarily conclude that the best-fit line is the unique predictive method capable of predicting any held-out subset of this data. Let's consider such potential alternative predictive methods in two categories:
 
 1)  Those which, given all 10 data points as inputs, make exactly the same predictions for all unknown outcomes as the LMSE line.
 2)  Those which differ in their predictions of some unknown values.
 
-Given our purpose of predictions, Case 1 is no problem. The same predictions are justified regardless. For example, the best-fit quadratic curve gives equivalent predictions in this example. There is no need to prefer one to the other because the purpose is the predictions.[^6]
+When the goal is making predictions, Case 1 is no problem. The same predictions are justified regardless. For example, the best-fit quadratic curve gives equivalent predictions in this example. There is no need to prefer one to the other if the purpose is the predictions themselves.[^6]
 
 [^6]: [@forster2002] \[p. S131\] similarly points out that selection of a model with more parameters than the minimum necessary to represent the true curve is irrelevant in the limit as $N \to \infty$ "with respect to the goal of predictive accuracy*."*
 
-Yet, what if there were a predictive method that could plausibly predict any held out point but differed from the best-fit line in its predictions for unknown points? If multiple equally (or similarly) successful predictive methods give different predictions about unknown data, there is reason for caution. Indeed, I will argue below that this is the proper criterion for whether a predictive method has been sufficiently tested.
+Yet, what if there were a predictive method that could have plausibly predicted any held out point but differs from the best-fit line in its predictions for unknown points? 
 
 But it is difficult to imagine a Case 2 predictive method that would match the best-fit line in the example at hand, and that is the case for many other predictive methods.
 
@@ -74,71 +74,53 @@ In summary, when thinking in terms of predictive methods rather than hypotheses,
 
 ## A justification for certain predictive methods {#sec-prag}
 
-Though we never know for certain whether a predictive method will work, our continued use of successful predictive methods has a clear pragmatic justification. Prior predictive performance is our only source of information about whether a predictive method will work going forward.[^10] That is, if past performance is not informative of future success, prediction is simply not possible. So we have nothing to lose by assuming that it is possible to use known information to predict the unknown. And we do have something to gain, since purposeful action requires predicting the impacts of our actions. Therefore:
+We never know for certain whether a successful predictive method will continue working, but there is a pragmatic justification for assuming past performance is informative of future success: otherwise, prediction is simply not possible.   Prior predictive performance is our only source of information about whether a predictive method will work going forward. The basis for this claim is empiricism: our only possible way to judge whether a method works is whether it has (or could have) worked in the past.[^10] So we have nothing to lose by assuming that it is possible to use known information to predict the unknown. 
 
-[^10]: The basis for this claim is empiricism: our only possible way to judge whether a method is generally reliable is whether it has (or could have) worked in the past. Suppose there were some other way of identifying a reliable predictive method: using a Ouija board, say. The only way we could assess whether the Ouija board reveals reliable predictive methods is to check whether the methods it dictates work.
+[^10]:  Suppose there were some other way of identifying a reliable predictive method: using a Ouija board, say. The only way we could assess whether the Ouija board reveals reliable predictive methods is to check whether the methods it dictates work.
+
+A key feature of predictive methods here is that they are repeatable: their procedures can be repeated, checking the outcome each time. And to apply a predictive method is to reproduce the same procedure that has been (or could have been) found successful in the past. Past outcomes of predictive methods are of the same kind as intended future outcomes, commensurable.^[By contrast, if the goal is arriving at the truth (or higher probability) of a hypothesis, an observation "confirming" the hypothesis is not the same kind of thing as the desired outcome.] So there is a unique, natural generalization of past to future performance:[^18]
+
+[^18]: The investing disclaimer that “past performance is not indicative of future results” does not apply here in the same way (though it is true that future results are not guaranteed by a so-far successful predictive method). What is meant by “past performance” in the investment context is different from assessing the performance of a predictive method. On the contrary, research has shown that mutual funds’ past “performance” in the ROI sense is *not* predictive of future returns. That is, the investing disclaimer could be restated as “naively extrapolating past returns forward is a poor predictive method.”
+
+::: {#prp-same}
+It is reasonable to expect that a predictive method's future performance will match its past performance for similar predictions.
+:::
+
+What counts as "similar" predictions may be considered to be part of the predictive method itself, without vicious circularity. A method characterizes its scope of applicability, and its past success is judged accordingly. 
+
+Implicit here, by the way, is a Baconian exhaustiveness in evaluating a predictive method's past success. One should not leap to conclusions based on a small number of successes without considering whether it would have worked in all other known instances, according to its defined scope of applicability.
+
+Given @prp-same, we can make a stronger statement that using successful predictive methods is rationally compelled:
 
 ::: {#prp-worked}
 A prediction should be made using a predictive method that has worked---or could have worked---to make similar predictions.
 :::
 
-Any inductive inference from known information to unknown can be thought of as a prediction, broadly construed, so @prp-worked is a pragmatic justification for induction.[^11]
+The justification for @prp-worked begins with recognizing that, not only do we have nothing to lose by making predictions, but we have something to gain: predictions are necessary for purposeful action.[^11] That is, forming expectations of the outcomes of our actions---however provisional or implicit those expectations may be---is required. To have any basis for choosing one action over another, we need a way of using known information to predict the unknown outcomes, a predictive method.
 
-[^11]: This argument follows Reichenbach's pragmatic vindication of induction (see [@henderson2022]), except that he attempted to justify the use of "straight rule" induction, which lacks the protection against underdetermination of validated predictive methods.
+[^11]: This argument follows Reichenbach's pragmatic vindication of induction (see [@henderson2022]), except that he attempted to justify the use of "straight rule" induction, which lacks the protection against underdetermination of validated predictive methods. 
 
-More tentatively, I would like to propose that how theory confirmation works in science could be better understand in terms of predictive methods.
+Simply stated, to predict some unknown outcome, one should use a predictive method that has, or could have, been successful at predicting that outcome. In short: use what works.
 
-In his book *The Knowledge Machine*, Michael Strevens provides a compelling account of how science works, a lucid synthesis of decades of insights from history and philosophy of science, albeit with one unsettling limitation. Strevens makes the quandaries of philosophers actually fun to read about, including David Hume’s problem of induction, the lack of a reasoned justification for generalizing from experience. On the stakes of this problem, he quotes Bertrand Russell, who said that if inductive reasoning cannot be justified, “there is no intellectual difference between sanity and insanity” (p. 17) And Russell is not alone. As Strevens puts it, almost all philosophers of science “believe that induction is essential to human existence” (p. 21).[^12] Yet, “there is still no widely accepted justification for induction” (p. 17).
+Again, I am not saying that we *know* a successful method will continue to work for future predictions. There are no such guarantees.^[In this sense Hume's problem of induction remains unsolved and presumably unsolvable. See @sec-hume.] And when a previously successful method fails, we should revise it. But unless or until that happens, we are justified in using a predictive method that has worked.
 
-[^12]: “Some believe that Hume’s problem must have a solution—that is, a philosophical argument showing that it is reasonable to suppose that nature is uniform in certain respects... Some believe, like Hume himself, that it has no solution but that we must go on thinking inductively regardless, both in our science and in our everyday lives” (p. 21). Strevens does not make clear to which camp he himself belongs.
+To clarify the nature of this claim, consider an example even simpler than a best-fit line. Imagine a child letting go of a spoon she was holding. Will it fall to the ground? Yes, it does. She tries again, with the same result. She surely predict, going forward, that spoons will fall if she lets go of them. (It might even be said that repeating the same thing and expecting different results would be insanity.) That is what I mean by “use what works.”
 
-—
-
-In his lecture notes on Bayesian confirmation theory, Strevens characterizes Hume’s problem of induction this way:[^13]
-
-[^13]: His notes dated June 2017, available as of August 2024 at <http://www.strevens.org/bct/BCT.pdf>, Ch. 7.
-
-> The old-fashioned problem of induction is the problem of finding *a priori*, objective grounds for preferring some hypotheses to others on the basis of what we observe (where the hypotheses have a scope that goes beyond our observations).
-
-He also lists three features of the natural human approach to inductive reasoning (which Strevens then argues Bayesianism does *not* provide a priori, objective grounds for):
-
-> 1.  Our expectation that the future will resemble the past, that is, our belief in the uniformity of nature,
-> 2.  Our preference for hypotheses that are not framed using “grue-like” predicates, and
-> 3.  Our preference for simpler over more complex hypotheses, when the competing hypotheses are otherwise equally successful in accounting for the data.
-
-My claim is that reframing the problem in terms of predictive methods enables a solid pragmatic rational for induction.[^14] In terms of predictive methods—rather than in terms of assessing the truth of hypotheses—there are *a priori*, objective grounds for inductive reasoning, including each of the features of natural inductive reasoning Strevens identifies.
-
-[^14]: What follows omits comparisons with previous attempts at pragmatic justification of induction, for ease of exposition. See Appendix B for a discussion of previous literature.
-
-By “predictive method” I mean a method for predicting some unknown (observable) measure, Y, based on some available information, the inputs.[^15] It is best thought of not as a hypothesis but a procedure.[^16] By way of example, consider the predictive method of a least-mean-squared-error best-fit line. Given some known (X, Y) data, the procedure is to find the line that minimizes the sum of the squared differences (in Y) between the known outcomes and the corresponding points on the line, and then to use that line to predict unknown outcomes.
-
-[^15]: A predictive method is more fully specified than a typical hypothesis or “theory.” In philosophy of science terms, it must include all “auxiliary assumptions” needed to get from the inputs to a concrete prediction.
-
-[^16]: The reproducibility of predictive methods is key, as we will see. Using a predictive method is an action that can be repeated, checking the outcome each time. To apply a predictive method is to reproduce the same procedure that has been (or could have been) found successful in the past. By contrast, when conceiving of induction in terms of generalizations, an instance of *confirming* a hypothesis with some test or evidence is a different sort of thing from an instance of *applying* a hypothesis, drawing a conclusion from its truth (or some specific probability of it being true).
-
-Now here’s my central assertion, simply stated: to predict some unknown outcome, one should use a predictive method that has, or could have, been successful at predicting that outcome. In short: use what works.
-
-The justification for this claim begins with recognizing that making predictions is necessary for purposeful action. That is, forming some expectations of the outcomes of our actions—however provisional or implicit those expectations may be—is required. To have any basis for choosing one action over another, we would need a way of using known information to predict the unknown outcomes, a predictive method.
-
-Still, even supposing we have a predictive method that has worked in the past, what justifies us in using it to predict as-yet-unknown outcomes? Well, if prior predictive success is not informative of future success, prediction is not possible. So we actually have nothing to lose by assuming that it is possible to use known information to predict the unknown.[^17] Assuming that prior predictive success generalizes is a prerequisite for purposeful action.[^18]
-
-[^17]: The basis for this claim is empiricism: our only possible way to judge whether a method is generally reliable is whether it has (or could have) worked in the past. Suppose there were some other way of identifying a reliable predictive method: using a Quija board, say. The only way we could assess whether the Quija board reveals reliable predictive methods is to check whether the methods it dictates work.
-
-[^18]: The investing disclaimer that “past performance is not indicative of future results” does not apply here in the same way (though it is true that future results are not guaranteed by a so-far successful predictive method). What is meant by “past performance” in the investment context is different from assessing the performance of a predictive method. On the contrary, research has shown that mutual funds’ past “performance” in the ROI sense is *not* predictive of future returns. That is, the investing disclaimer could be restated as “naively extrapolating past returns forward is a poor predictive method.”
-
-I am not saying that we *know* a successful method will continue to work for future predictions. There are no such guarantees (and in that sense the problem of induction remains unsolved and presumably unsolvable). And when a previously successful method fails, we should revise it. But unless or until that happens, we are justified in using a predictive method that has worked.
-
-To clarify the nature of this claim, consider an example even simpler than a best-fit line. Imagine a child letting go of a spoon she was holding. Will it fall to the ground? Yes, it does. She tries again, with the same result. She is surely justified in predicting, going forward, that spoons will fall if she lets go of them. (It might even be said that repeating the same thing and expecting different results would be insanity.) That is what I mean by “use what works.”
-
-Thought of as a hypothesis, of course, the statement that a spoon always falls is false. An adult handing her a spoon tied to a large helium balloon will know that the result will be different. But until something like that happens, the child’s predictive method will have been useful. And even the final, doomed prediction involving the helium balloon is rationally justified. She should of course revise her predictive method after that failure (coming one step closer to the adult’s more sophisticated predictive method for the motion of spoons). But her “always falls” prediction, considered *a priori*, was sound.
+Thought of as a hypothesis, of course, the statement that a spoon always falls is false. An adult handing her a spoon tied to a large helium balloon will know that the result will be different. But until something like that happens, the child’s predictive method will have been useful. And even the final, doomed prediction involving the helium balloon is rationally justified. She should of course revise her predictive method after that failure (coming one step closer to the adult’s more sophisticated predictive method for the motion of spoons). But her “always falls” prediction, considered *a priori*, was sound---and even rationally compelled.
 
 To sum up the argument so far, purposeful action requires a method that can use known information to predict something unknown. So if you have a method with the potential to fill that requirement, use it.
 
 ### Why assume nature is uniform?
 
-So much for Strevens’ first feature of natural human inductive reasoning: expecting that the future will resemble the past. I have shown that we ought to *act as if there were* uniformity of nature in a specific sense: that successful predictive methods will continue to work. Otherwise prediction (and thus purposeful action) is impossible. One can choose to act in this way (or consciously assent in good faith to one’s natural inductive tendencies) despite acknowledging intellectually that nature may not be reliably uniform in any sense. Again, there’s nothing to lose by acting in this way. If past experience offers usable information, this approach will use it. If not, purposeful action was impossible anyway.
+Another way to put this is that we ought to *act as if there were* uniformity of nature in a specific sense: that successful predictive methods will continue to work. Otherwise prediction (and thus purposeful action) is impossible. One can choose to act in this way (or consciously assent in good faith to one’s natural inductive tendencies) despite acknowledging intellectually that nature may not be reliably uniform in any sense. Again, there’s nothing to lose by acting in this way, and there is potentially something to gain. If past experience offers usable information, this approach will use it. If not, purposeful action was impossible anyway.
 
-------------------------------------------------------------------------
+### How to distinguish insufficiently tested methods?
+
+Surely N of 1 is not enough? ...
+
+If there are two equally successful predictive methods that give different predictions about unknown data, there is reason for caution before using either of them. Indeed, I will argue below that this is the proper criterion for whether a predictive method has been sufficiently tested.
+
+---
 
 To sum up, my claim is that the underlying logic of inductive reasoning is, essentially, “use a predictive method that works.” I have provided an *a priori* justification for this principle. And I have shown how it accounts for the three features of the natural human approach to inductive reasoning that Strevens identifies.
 
@@ -175,3 +157,17 @@ Situate within recent literature: Stanford entry, contrasting with Reichenbach a
 ::: callout-note
 June 2024: Address the critique of "most successful" in that induction paper.
 :::
+
+## Induction {#sec-hume}
+
+In his book *The Knowledge Machine*, Michael Strevens provides a compelling account of how science works, a lucid synthesis of decades of insights from history and philosophy of science, albeit with one unsettling limitation. Strevens makes the quandaries of philosophers actually fun to read about, including David Hume’s problem of induction, the lack of a reasoned justification for generalizing from experience. On the stakes of this problem, he quotes Bertrand Russell, who said that if inductive reasoning cannot be justified, “there is no intellectual difference between sanity and insanity” (p. 17) And Russell is not alone. As Strevens puts it, almost all philosophers of science “believe that induction is essential to human existence” (p. 21).[^12] Yet, “there is still no widely accepted justification for induction” (p. 17).
+
+[^12]: “Some believe that Hume’s problem must have a solution—that is, a philosophical argument showing that it is reasonable to suppose that nature is uniform in certain respects... Some believe, like Hume himself, that it has no solution but that we must go on thinking inductively regardless, both in our science and in our everyday lives” (p. 21). Strevens does not make clear to which camp he himself belongs.
+
+Any inductive inference from known information to unknown can be thought of as a prediction, broadly construed, so @prp-worked is a pragmatic justification for induction.
+
+## Science
+
+More tentatively, I would like to propose that how theory confirmation works in science could be better understand in terms of predictive methods.
+
+## Statistics
