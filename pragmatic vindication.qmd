@@ -15,11 +15,15 @@ bibliography: references.bib
 
 ## Introduction
 
-I use the word "prediction" broadly. As @forster2008 put it, "Suppose I choose a card and place it face down on the table. You have to predict whether I chose a diamond. Even though the event you are predicting happened in the past, we are comfortable with using the word 'predict,' as opposed to 'postdict.'"
+The aim of this paper is to provide a self-standing philosophical justification for continuing to use methods of prediction that have proven successful. That is, this justification of predictive methods is intended to be independent of claims about the confirmation of broader theories---or the truth of narrower inductive inferences---upon which predictions may otherwise be thought to derive from.
 
-Predictions, so construed, are ubiquitous. They range from the everyday projections made automatically by our brains as we navigate the world to the sophisticated scientific predictions of particle physicists.
+I use the word "prediction" broadly. As @forster2008 put it, "Suppose I choose a card and place it face down on the table. You have to predict whether I chose a diamond. Even though the event you are predicting happened in the past, we are comfortable with using the word 'predict,' as opposed to 'postdict.'" Predictions, so construed, are ubiquitous. They range from the everyday projections made automatically by our brains as we navigate the world to the sophisticated scientific predictions of particle physicists.
 
-The aim of this paper is to provide a self-standing philosophical justification for continuing to use methods of prediction that have proven successful. That is, this justification of predictive methods is intended to be independent of claims about the confirmation of broader theories---or the truth of narrower inductive inferences---upon which predictions may be based. It is a pragmatic justification along the lines of Reichenbach's pragmatic vindication of induction.[^1] Of course, some serious objections have been made to Reichenbach's argument, but I will argue that those objections do not apply here.
+Many machine learning researchers already seem to regard successful predictions (under the rubric of cross-validation and related approaches) as a direct rationale for using a given model, so that embracing the argument here would have little or no impact on their practice. Others, however, (such as most economists, in my experience) regard the use of cross-validation for model selection as something that could only be justified in terms of more traditional statistics concepts, if at all. In any case, though this argument is closely related to the prior philosophy literature in many ways, I am not aware of this approach being taken previously. Suggestive of that is the following comment in the Stanford Encyclopedia article on "Philosophy of Statistics" in a section on model comparisons: "We leave aside methods that use cross-validation as they have, unduly, not received as much attention in the philosophical literature."[^sep]
+
+[^sep]: 2022.
+
+The argument here is a pragmatic justification along the lines of Reichenbach's pragmatic vindication of induction.[^1] Of course, some serious objections have been made to Reichenbach's argument, but I will argue that those objections do not apply here.
 
 [^1]: See [@henderson2022].
 
