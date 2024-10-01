@@ -60,7 +60,9 @@ When the goal is making predictions, Case 1 is no problem. The same predictions 
 
 [^8]: [@forster2002] \[p. S131\] similarly points out that selection of a model with more parameters than the minimum necessary to represent the true curve is irrelevant in the limit as $N \to \infty$ "with respect to the goal of predictive accuracy*."*
 
-Yet, what if there were a predictive method that could have plausibly predicted any held out point but differs from the best-fit line in its predictions for unknown points? It is difficult to imagine a Case 2 predictive method that would match the best-fit line in the example at hand, and that is the case for many other predictive methods. But that is not always the case, and we will revisit such cases in the following section.
+Yet, what if there were a predictive method that could have plausibly predicted any held out point but differs from the best-fit line in its predictions for unknown points? 
+
+* Add curve-fitting analog of grue, with discussion of grue in footnote.
 
 For now, what of that particular form of Case 2 predictive method that, while unlikely to arise in practice, has some prominence within philosophical discussion of prediction in terms of hypotheses? I am referring to hypotheses that include words like "blite," defined as "black and first observed before the year 3000, or white and first observed after 3000."[^9] In terms of hypotheses, it has proven difficult to explain our natural preference for "All ravens are black" over the equally-consistent-with-the-data hypothesis "All ravens are blite." In terms of predictive methods, the riddle is that we seem to have two methods that are equally successful at predicting the color of ravens but that predict different things about the future---and similar "Case 2" predictive methods could be created for *any* predictive method.
 
@@ -72,7 +74,7 @@ Spelled out as a predictive procedure, however, "All ravens are blite" means: Fi
 
 [^11]: In the 10 linear points example above, this "razor" provides another way to handle the "Case 1" best-fit quadratic curve predictive method. More generally, though, there are situations in practice in which this "razor" does not strictly apply, particularly in the context of the probabilistic predictions we turn to in @sec-prob below. Then when we have two similarly successful predictive methods, the distinction between "Case 1" (both predict the same thing for the purpose at hand) and "Case 2" (the choice matters for the purpose at hand) will matter more.
 
-In summary, when thinking in terms of predictive methods rather than hypotheses, underdetermination is less of a concern. There may be some instances in which similarly successful predictive methods diverge in their predictions, but it is also quite plausible for there to be a uniquely successful predictive method known for a given purpose.
+It is difficult to imagine a legit Case 2 predictive method that would match the best-fit line in the example at hand, and that is the case for many other predictive methods. When thinking in terms of predictive methods rather than hypotheses, it is quite plausible that there be a uniquely successful predictive method for a given purpose. But there will also be situations in which equally successful predictive methods diverge in their predictions, and such situations will also be addressed in the following section.
 
 ## A justification for certain predictive methods {#sec-prag}
 
@@ -122,7 +124,9 @@ To sum up the argument so far, purposeful action requires a method that can use 
 
 One feature of this approach is that a greater quantity of successes, in itself, does not increase the justification for using a predictive method. And that may seem like a problem: how can it be the case that the rational warrant for using a predictive method known to work once is the same as for one used successfully thousands of times? Well, though a small number of instances is not a problem in itself, it is a problem to the extent the available evidence is not sufficient to distinguish alternative predictive methods.
 
-If two equally successful predictive methods give different predictions about unknown data, *that* is the reason for caution before using either of them. That this is the proper criterion for whether a predictive method has been "sufficiently tested."
+If two equally successful predictive methods give different predictions about unknown data, *that* is the reason for caution before using either of them. This is the proper criterion for whether a predictive method has been "sufficiently tested." In such situations, there is no good reason to rely on one method rather than the other, and there is a special impetus to test the conflicting predictions in the hopes of establishing a uniquely successful predictive method than should then be used.^[This aspect of the approach proposed here is akin to the importance Karl Popper placed on scientists trying to falsify theories.] 
+
+* Clarify Popper relationship
 
 ------------------------------------------------------------------------
 
