@@ -60,11 +60,9 @@ When the goal is making predictions, Case 1 is no problem. The same predictions 
 
 [^8]: [@forster2002] \[p. S131\] similarly points out that selection of a model with more parameters than the minimum necessary to represent the true curve is irrelevant in the limit as $N \to \infty$ "with respect to the goal of predictive accuracy*."*
 
-Yet, what if there were a predictive method that could have plausibly predicted any held out point but differs from the best-fit line in its predictions for unknown points?
+Yet, what if there were a predictive method that could have plausibly predicted any held out point but differs from the best-fit line in its predictions for unknown points? It is difficult to imagine a Case 2 predictive method that would match the best-fit line in the example at hand, and that is the case for many other predictive methods. But that is not always the case, and we will revisit such cases in the following section.
 
-But it is difficult to imagine a Case 2 predictive method that would match the best-fit line in the example at hand, and that is the case for many other predictive methods.
-
-What of that particular form of Case 2 predictive method that, while unlikely to arise in practice, has some prominence within philosophical discussion of prediction in terms of hypotheses? I am referring to hypotheses that include words like "blite," defined as "black and first observed before the year 3000, or white and first observed after 3000."[^9] In terms of hypotheses, it has proven difficult to explain our natural preference for "All ravens are black" over the equally-consistent-with-the-data hypothesis "All ravens are blite." In terms of predictive methods, the riddle is that we seem to have two methods that are equally successful at predicting the color of ravens but that predict different things about the future---and similar "Case 2" predictive methods could be created for *any* predictive method.
+For now, what of that particular form of Case 2 predictive method that, while unlikely to arise in practice, has some prominence within philosophical discussion of prediction in terms of hypotheses? I am referring to hypotheses that include words like "blite," defined as "black and first observed before the year 3000, or white and first observed after 3000."[^9] In terms of hypotheses, it has proven difficult to explain our natural preference for "All ravens are black" over the equally-consistent-with-the-data hypothesis "All ravens are blite." In terms of predictive methods, the riddle is that we seem to have two methods that are equally successful at predicting the color of ravens but that predict different things about the future---and similar "Case 2" predictive methods could be created for *any* predictive method.
 
 [^9]: This follows the presentation in [@strevens2017, p. 64] of Nelson Goodman’s "new riddle of induction."
 
@@ -94,7 +92,7 @@ It is reasonable to expect that a predictive method's future performance will ma
 
 What counts as "similar" predictions may be considered to be part of the predictive method itself, without vicious circularity. A method characterizes its scope of applicability, and its past success is judged accordingly.
 
-Implicit here, by the way, is a Baconian exhaustiveness in evaluating a predictive method's past success. One should not leap to conclusions based on a small number of successes without considering whether it would have worked in all other known instances, according to its defined scope of applicability.
+Implicit here, by the way, is a Baconian exhaustiveness in evaluating a predictive method's past success. One should not leap to conclusions based on a blinkered consideration of small number of successes without considering whether it would have worked in all other known instances, according to its defined scope of applicability.
 
 Given @prp-same, we can make a stronger statement that using successful predictive methods is rationally compelled:
 
@@ -104,29 +102,27 @@ A prediction should be made using a predictive method that has worked---or could
 
 The justification for @prp-worked begins with recognizing that, not only do we have nothing to lose by making predictions, but we have something to gain: predictions are necessary for purposeful action.[^15] That is, forming expectations of the outcomes of our actions---however provisional or implicit those expectations may be---is required. To have any basis for choosing one action over another, we need a way of using known information to predict the unknown outcomes, a predictive method.
 
-[^15]: This argument follows Reichenbach's pragmatic vindication of induction (see [@henderson2022]), except that he attempted to justify the use of "straight rule" induction, which lacks the protection against underdetermination of validated predictive methods.
+[^15]: This argument follows Reichenbach's pragmatic vindication of induction (see [@henderson2022]), except that he attempted to justify the use of "straight rule" induction, which lacks the protection against underdetermination of validated predictive methods. See @sec-induct.
 
 Simply stated, to predict some unknown outcome, one should use a predictive method that has, or could have, been successful at predicting that outcome. In short: use what works.
 
-Again, I am not saying that we *know* a successful method will continue to work for future predictions. There are no such guarantees.[^16] And when a previously successful method fails, we should revise it. But unless or until that happens, we are justified in using a predictive method that has worked.
+Again, I am not saying that we *know* a successful method will continue to work for future predictions. There are no such guarantees.[^16] And when a previously successful method fails, we should revise it. But unless or until that happens, we ought to use a predictive method that has worked.
 
 [^16]: In this sense Hume's problem of induction remains unsolved and presumably unsolvable. See @sec-hume.
 
-To clarify the nature of this claim, consider an example even simpler than a best-fit line. Imagine a child letting go of a spoon she was holding. Will it fall to the ground? Yes, it does. She tries again, with the same result. She surely predict, going forward, that spoons will fall if she lets go of them. (It might even be said that repeating the same thing and expecting different results would be insanity.) That is what I mean by “use what works.”
+To clarify the nature of this claim, consider an example even simpler than a best-fit line. Imagine a child letting go of a spoon she was holding. Will it fall to the ground? Yes, it does. She tries again, with the same result. She surely should predict, going forward, that spoons will fall if she lets go of them. That is what I mean by “use what works.”
 
 Thought of as a hypothesis, of course, the statement that a spoon always falls is false. An adult handing her a spoon tied to a large helium balloon will know that the result will be different. But until something like that happens, the child’s predictive method will have been useful. And even the final, doomed prediction involving the helium balloon is rationally justified. She should of course revise her predictive method after that failure (coming one step closer to the adult’s more sophisticated predictive method for the motion of spoons). But her “always falls” prediction, considered *a priori*, was sound---and even rationally compelled.
 
+Another way to put @prp-worked is that we ought to *act as if there were* uniformity of nature in a specific sense: that successful predictive methods will continue to work. Otherwise prediction (and thus purposeful action) is impossible. One can choose to act in this way (or consciously assent in good faith to one’s natural inductive tendencies) despite acknowledging intellectually that nature may not be reliably uniform in any sense. Again, there’s nothing to lose by acting in this way, and there is potentially something to gain. If past experience offers usable information, this approach will use it. If not, purposeful action was impossible anyway.
+
 To sum up the argument so far, purposeful action requires a method that can use known information to predict something unknown. So if you have a method with the potential to fill that requirement, use it.
-
-### Why assume nature is uniform?
-
-Another way to put this is that we ought to *act as if there were* uniformity of nature in a specific sense: that successful predictive methods will continue to work. Otherwise prediction (and thus purposeful action) is impossible. One can choose to act in this way (or consciously assent in good faith to one’s natural inductive tendencies) despite acknowledging intellectually that nature may not be reliably uniform in any sense. Again, there’s nothing to lose by acting in this way, and there is potentially something to gain. If past experience offers usable information, this approach will use it. If not, purposeful action was impossible anyway.
 
 ### How to distinguish insufficiently tested methods?
 
-Surely N of 1 is not enough? ...
+One feature of this approach is that a greater quantity of successes, in itself, does not increase the justification for using a predictive method. And that may seem like a problem: how can it be the case that the rational warrant for using a predictive method known to work once is the same as for one used successfully thousands of times? Well, though a small number of instances is not a problem in itself, it is a problem to the extent the available evidence is not sufficient to distinguish alternative predictive methods.
 
-If there are two equally successful predictive methods that give different predictions about unknown data, there is reason for caution before using either of them. Indeed, I will argue below that this is the proper criterion for whether a predictive method has been sufficiently tested.
+If two equally successful predictive methods give different predictions about unknown data, *that* is the reason for caution before using either of them. That this is the proper criterion for whether a predictive method has been "sufficiently tested."
 
 ------------------------------------------------------------------------
 
