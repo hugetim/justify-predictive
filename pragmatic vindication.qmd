@@ -128,23 +128,12 @@ If two equally successful predictive methods give different predictions about un
 
 * Clarify Popper relationship
 
-------------------------------------------------------------------------
-
-To sum up, my claim is that the underlying logic of inductive reasoning is, essentially, “use a predictive method that works.” I have provided an *a priori* justification for this principle. And I have shown how it accounts for the three features of the natural human approach to inductive reasoning that Strevens identifies.
-
-\[Brief note re brain as predictive machine, citing a recent article\]
-
-------------------------------------------------------------------------
-
-Still, perhaps you are thinking, “So what?” Perhaps only a philosopher could care whether common-sense attitudes can be grounded in a more foundational rationale. Well, elsewhere I argue that this refined grounding for inductive reasoning does have wide-reaching practical implications for how science should be conducted and interpreted. But for now I would just situate the relevance of these considerations by returning to Strevens’ *The Knowledge Machine* (which you really have to read to appreciate his novel, incisive account of what is unique about modern science and how it originated)*.*
-
-Strevens’ book goes on to argue that the power of modern science stems from how it forces scientists to relentlessly prioritize tedious empirical observations over the aesthetic, religious, or philosophical considerations to which pre-modern students of the natural world dedicated the bulk of their attention and writing. But Strevens never returns to the basic question of how generalizing from all those meticulous observations can be justified in the first place.[^17] Strevens’ readers, despite his forceful presentation of Hume’s problem of induction in the first chapter, will probably have safely forgotten this disturbing quandary by the end of his subsequent thirteen chapters. But the justification of inductive reasoning presented here allows a proper appreciation of why all that careful observation Strevens celebrates matters: by eliminating rival predictive methods, we are left not with a bewildering infinitude of theories yet capable of fitting our still-finite observations but rather, for so many practical purposes, a single relevant predictive method, enabling our ever-expanding technical mastery.
-
-[^17]: Strevens gestures toward “Baconian convergence” but does not attempt to explain why this seems to work so well rather than being defeated by the underdetermination that seems so inevitable when confirmation theory is considered in the abstract.
-
 ## Choosing among uncertain predictive methods {#sec-prob}
 
-\[Maybe use [@myrvold2002] orbital period chart example\]
+* First Gaussian noise as simplest example, but then also maybe present sin curve fitting example, in which linear is best (even without truly random noise)
+* Generalize proposition with "most successful" and explain that the measure is generally context-specific (but generically likelihood)
+* Then make point about generalization, maybe with age-height example
+  * Maybe use [@myrvold2002] orbital period chart example
 
 If the data are approximately linear,[^18] a best-fit line will be able to predict well with relatively few known measurements available as inputs. The method of instead, given \_n \_known data points, fitting a polynomial \_p \_of degree \_n – 1 \_will fit the known data exactly but will likely fluctuate wildly up and down in between the known points and thus predict unknown data poorly.[^19] We can reject other alternative hypotheses in the same way, leaving the best-fit line as the most successful predictive method.[^20]
 
@@ -154,7 +143,7 @@ If the data are approximately linear,[^18] a best-fit line will be able to predi
 
 [^20]: The line method is not the only method that would work to produce good predictions of approximately linear data, but it is the one that allows the most robust predictions for a given size of input dataset. Fitting second (or third) degree polynomials to linear data would lead to approximately linear prediction curves if enough points are taken into consideration, so these would also give successful predictions with large known datasets. In that case, any low-order polynomial will give essentially equivalent predictions, so that the choice between them is immaterial (since what matters is the prediction, not isolating a unique method for “confirmation”). But fitting a line to the data will perform better (again, assuming approximately linear data) for few data points—that is, when the difference between methods matters.
 
-First Gaussian noise as simplest example, but then also present sin curve fitting example, in which linear is best (even without truly random noise)
+
 
 ## The objections to Reichenbach's pragmatic justification {#sec-induct}
 
@@ -173,6 +162,20 @@ In his book *The Knowledge Machine*, Michael Strevens provides a compelling acco
 [^21]: “Some believe that Hume’s problem must have a solution—that is, a philosophical argument showing that it is reasonable to suppose that nature is uniform in certain respects... Some believe, like Hume himself, that it has no solution but that we must go on thinking inductively regardless, both in our science and in our everyday lives” (p. 21). Strevens does not make clear to which camp he himself belongs.
 
 Any inductive inference from known information to unknown can be thought of as a prediction, broadly construed, so @prp-worked is a pragmatic justification for induction.
+
+------------------------------------------------------------------------
+
+To sum up, my claim is that the underlying logic of inductive reasoning is, essentially, “use a predictive method that works.” I have provided an *a priori* justification for this principle. And I have shown how it accounts for the three features of the natural human approach to inductive reasoning that Strevens identifies.
+
+\[Brief note re brain as predictive machine, citing a recent article\]
+
+------------------------------------------------------------------------
+
+Still, perhaps you are thinking, “So what?” Perhaps only a philosopher could care whether common-sense attitudes can be grounded in a more foundational rationale. Well, elsewhere I argue that this refined grounding for inductive reasoning does have wide-reaching practical implications for how science should be conducted and interpreted. But for now I would just situate the relevance of these considerations by returning to Strevens’ *The Knowledge Machine* (which you really have to read to appreciate his novel, incisive account of what is unique about modern science and how it originated)*.*
+
+Strevens’ book goes on to argue that the power of modern science stems from how it forces scientists to relentlessly prioritize tedious empirical observations over the aesthetic, religious, or philosophical considerations to which pre-modern students of the natural world dedicated the bulk of their attention and writing. But Strevens never returns to the basic question of how generalizing from all those meticulous observations can be justified in the first place.[^17] Strevens’ readers, despite his forceful presentation of Hume’s problem of induction in the first chapter, will probably have safely forgotten this disturbing quandary by the end of his subsequent thirteen chapters. But the justification of inductive reasoning presented here allows a proper appreciation of why all that careful observation Strevens celebrates matters: by eliminating rival predictive methods, we are left not with a bewildering infinitude of theories yet capable of fitting our still-finite observations but rather, for so many practical purposes, a single relevant predictive method, enabling our ever-expanding technical mastery.
+
+[^17]: Strevens gestures toward “Baconian convergence” but does not attempt to explain why this seems to work so well rather than being defeated by the underdetermination that seems so inevitable when confirmation theory is considered in the abstract.
 
 ## Science
 
