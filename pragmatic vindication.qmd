@@ -144,7 +144,19 @@ The best predictive method for a given purpose will not necessarily correspond t
 
 Since our specified aim is making predictions, though, identifying the true data-generating process need not concern us directly.[^18] It may be helpful to consider a more concrete, albeit contrived, example.
 
-[^18]: In many cases, especially in the softer sciences, we have no hope of correctly specifying the true model anyhow. See @sec-science for further discussion.
+### Example: Predicting height by age and sex
+
+Suppose we have data on age, sex, and height for a random sample of those aged 20-74 in a given population.[^2a] And suppose the goal is to predict the height of someone aged 20-74, chosen at random.[^3a] We consider a range of predictive methods, which each involve estimating, by ordinary least squares, a statistical model in which height is specified as a function of age and sex. Leave-one-out (LOO) cross-validation is the natural choice for quantifying predictive performance in this context, but it is shown alongside other standard measures in the table below.[^4a]  The most successful method is the specification ‘*female age age2*’. In other words, projecting height onto a linear combination of gender, age and age squared performs best for predicting height. So that is the model we should use to predict the height of someone aged 20-74 in this population.
+
+[^2a]: And suppose we have no other information to go on. The data for this example is Stata’s “nhanes2d” dataset, downsampled in such a way that each observation in the resulting sample has equal weight, to avoid the complications of accounting for stratified sampling.
+
+[^3a]: Use the (negative) mean squared error is the measure of success.
+
+[^4a]: The LOO R^2^ is calculated by predicting each observation using only the other observations to estimate the model (by OLS, here), then tallying up the squared prediction errors and expressing the average as an R^2^. It has been shown to be asymptotically equivalent to the AIC by @stone1977, explaining their equivalent rankings.)
+
+![Example Comparative Model Selection Measures](example-measures.png)
+
+This selected model is most certainly *not* the true data-generating process---nor is any other parametric model, it is safe to say. But it is the best predictive method we have available.
 
 ### Example: Predicting height by age and sex
 
@@ -171,6 +183,12 @@ If the data are approximately linear,[^19] a best-fit line will be able to predi
 [^20]: Yet, what can we say about the predictive method that simply prescribes predicting points to be on the polynomial *p*, rather than prescribing a method for fitting a polynomial to the points? This method would have been successful at predicting all *n* points without requiring knowledge of any of them. Well, if you had arrived at this method before knowing of the data and you predicted all n points exactly, I would counsel you to continue using this method. However, if there was no way for you to know of *p* without knowledge of the data, you cannot accurately say that you could have predicted the data with this method. It is misleading to even consider it a complete method if your actual method included deriving *p* from the data. Thus, we can deny this contrivance the status of a successful method without even appealing to a need for further tests of its predictions.
 
 [^21]: The line method is not the only method that would work to produce good predictions of approximately linear data, but it is the one that allows the most robust predictions for a given size of input dataset. Fitting second (or third) degree polynomials to linear data would lead to approximately linear prediction curves if enough points are taken into consideration, so these would also give successful predictions with large known datasets. In that case, any low-order polynomial will give essentially equivalent predictions, so that the choice between them is immaterial (since what matters is the prediction, not isolating a unique method for “confirmation”). But fitting a line to the data will perform better (again, assuming approximately linear data) for few data points—that is, when the difference between methods matters.
+
+### Potential for incommensurability
+
+In @sec-prag, we considered the definition of what counts as "similar predictions" in @prp-same as part of the predictive method in question. This presents a potential complication when it comes to comparing the success of predictive methods, as in @prp-best, as opposed to assessing the success of a single method as in @prp-worked. Rival predictive methods may conceptualize the data differently, so that certain predictions considered similar to the target prediction by method A may not be considered such by B, and vice versa. Or they may have different input data requirements, so that method B may not capable of producing predictions for some of the scenarios in method A's track record.
+
+In some cases, method A may preform better on both its own "similar predictions" and those prescribed by method B. Or the "similar predictions" prescribed by the two methods may overlap, enabling a comparison on the intersection. Otherwise, though, @prp-best is not capable of specifying a single best predictive method. 
 
 ## The objections to Reichenbach's pragmatic justification {#sec-induct}
 
@@ -207,5 +225,7 @@ Strevens’ book goes on to argue that the power of modern science stems from ho
 ## Science {#sec-science}
 
 More tentatively, I would like to propose that how theory confirmation works in science could be better understand in terms of predictive methods.
+
+In many cases, especially in the softer sciences, we have no hope of correctly specifying the true model anyhow.
 
 ## Statistics {#sec-stats}
