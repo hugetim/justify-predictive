@@ -146,6 +146,22 @@ Since our specified aim is making predictions, though, identifying the true data
 
 [^18]: In many cases, especially in the softer sciences, we have no hope of correctly specifying the true model anyhow. See @sec-science for further discussion.
 
+### Example: Predicting height by age and sex
+
+Suppose we have data on age, sex, and height for a random sample of those aged 20-74 in a given population.[^2a] And suppose the goal is to predict the height of someone aged 20-74, chosen at random.[^3a] Leave-one-out (LOO) cross-validation is the natural choice for quantifying predictive performance in this context.[^4a] We consider a range of predictive methods, which each involve estimating, by ordinary least squares, a statistical model in which height is specified as a function of age and sex. The most successful method is the specification ‘*female age age2*’. In other words, projecting height onto a linear combination of gender, age and age squared performs best for predicting height. So that is the model we should use to predict the height of someone aged 20-74 in this population.
+
+[^2a]: And suppose we have no other information to go on. The data for this example is Stata’s “nhanes2d” dataset, downsampled in such a way that each observation in the resulting sample has equal weight, to avoid the complications of accounting for stratified sampling.
+
+[^3a]: Use the (negative) mean squared error is the measure of success.
+
+[^4a]: The LOO R^2^ is calculated by predicting each observation using only the other observations to estimate the model (by OLS, here), then tallying up the squared prediction errors and expressing the average as an R^2^. (It has been shown to be asymptotically equivalent to the AIC, explaining their equivalent rankings.: [@stone1977].)
+
+![Example Comparative Model Selection Measures](example-measures.png)
+
+This selected model is most certainly *not* the true data-generating process---nor is any other parametric model, it is safe to say. But it is the best predictive method we have available.
+
+-   Try model averaging.
+
 -   Maybe use [@myrvold2002] orbital period chart example
 
 If the data are approximately linear,[^19] a best-fit line will be able to predict well with relatively few known measurements available as inputs. The method of instead, given \_n \_known data points, fitting a polynomial \_p \_of degree \_n – 1 \_will fit the known data exactly but will likely fluctuate wildly up and down in between the known points and thus predict unknown data poorly.[^20] We can reject other alternative hypotheses in the same way, leaving the best-fit line as the most successful predictive method.[^21]
