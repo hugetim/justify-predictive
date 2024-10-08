@@ -37,7 +37,7 @@ To make things concrete, consider a random sample of 1,482 height measurements f
 
 [^5]: And it also clearly outperforms the fully general interacted model ‘*i.female##i.age*’.
 
-![Example Comparative Model Selection Measures](example-measures.png)
+![Example Comparative Model Selection Measures](images/example-measures.png)
 
 This selected model is most certainly *not* the true data-generating process—nor is any other parametric model, it is safe to say. Grounding model selection in predictive performance allows us to explicitly acknowledge that reality. Can we also re-frame other forms of statistical reasoning typically premised on pretending we know the true data-generating process?[^6]
 
@@ -85,7 +85,7 @@ There is perhaps the most potential for dispute in determining what counts as **
 
 To illustrate this last issue, consider an extension of the height example discussed above. Suppose we’re interested in extrapolating from this data, which is limited to ages 20-74. Suppose we want to use it to predict the average heights of people aged 75-85. The leave-one-out prediction measure used above is less suitable for evaluating a model specification’s ability to extrapolate the heights of other ages because it is less closely analogous to the prediction task of interest. The table below shows the mean squared predictive error for 15 more closely analogous prediction tasks that can be checked with the available data (so here, lower is better). (A) involves predicting heights for ages 73-74 using data on only ages 20-72. Among these 15 alternatives, it is most like the prediction task of interest in terms of how much data it has available to fit the model. (J), predicting ages 64-74 using data for ages 20-63, is most like the desired prediction task in terms of how many years out it is extrapolating, but it differs in that it has 11 fewer years of data with which to fit the model. There are a range of prediction tests between (A) and (J). (K)-(O) are also included as alternative tests of extrapolating 11 years out, though they differ increasingly from the desired prediction task in other respects (both in terms of the predicted age range and the amount of data available to fit the model). It’s not clear which of these alternatives is the best single test of predictive performance akin to extrapolating from ages 20-74 to ages 75-85. But each of them is more closely analogous to the desired prediction task than is the leave-one-out prediction used above.
 
-![Mean Squared Prediction Error for Different Prediction Tasks, by Ages Held Out for Prediction](different-tasks.png)
+![Mean Squared Prediction Error for Different Prediction Tasks, by Ages Held Out for Prediction](images/different-tasks.png)
 
 The specification ‘*female age age2 c.female#(c.age c.age2)*’ turns out to perform best, on average, whether you limit attention to (A) through (J) or also include (K) through (O). The table below summarizes each specification’s performance, alongside the LOO R^2^ from earlier, for comparison.
 
@@ -93,7 +93,7 @@ The specification ‘*female age age2 c.female#(c.age c.age2)*’ turns out to p
 Should weight the validation tests based on similarity to the task for which it will be used. That may simply mean equal weights (when LOO is appropriate, for example).
 :::
 
-![LOO R^2^ and Average Mean Squared Prediction Error Across Prediction Task Groups](loo-comparison.png)
+![LOO R^2^ and Average Mean Squared Prediction Error Across Prediction Task Groups](images/loo-comparison.png)
 
 Amidst the apparent noise, one can see a general pattern of simpler models performing better with less data to train on (that is, longer held-out periods like in (J)-(O)), and vice versa.[^15] Indeed, there could be an argument for using a simpler model like ‘*female age2*’ for extrapolating to ages 75-85, based on its superior performance in tests (J)-(O), which each likewise involves extrapolating 11 years out. Or one could argue for the more general model \`*female age age2 age3 female#(age age2)*’ based on its superior performance in tests (F)-(J), which allow training on data closer to the full dataset that will be used to extrapolate in the prediction task of interest. Again, though, ‘*female age age2 c.female#(c.age c.age2)*’ performs best overall across all these tests.[^16]
 
