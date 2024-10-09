@@ -15,7 +15,7 @@ bibliography: references.bib
 
 ## Introduction
 
-The aim of this paper is to provide a self-standing philosophical justification for continuing to use methods of prediction that have proven successful. That is, this justification of predictive methods is intended to be independent of claims about the confirmation of broader theories---or the truth of narrower inductive inferences---upon which predictions may otherwise be thought to derive from. Simply stated, to predict some unknown outcome, one should use a predictive method that has, or could have, been successful at predicting that outcome.
+The aim of this paper is to provide a self-standing philosophical justification for continuing to use methods of prediction that have proven successful. That is, this justification of predictive methods is intended to be independent of claims about the confirmation of broader theories---or the truth of narrower inductive inferences---upon which predictions may otherwise be thought to derive from. Simply stated, to predict some unknown outcome, one should use a predictive method that has, or could have, been successful at similar predictions.
 
 I use the word "prediction" broadly. As @forster2008 put it, "Suppose I choose a card and place it face down on the table. You have to predict whether I chose a diamond. Even though the event you are predicting happened in the past, we are comfortable with using the word 'predict,' as opposed to 'postdict.'" Predictions, so construed, are ubiquitous. They range from the everyday projections made automatically by our brains as we navigate the world to the sophisticated scientific predictions of particle physicists.
 
@@ -27,7 +27,7 @@ The argument proceeds as follows. @sec-under shows how thinking in terms of "pre
 
 [^2]: See [@henderson2022].
 
-## Predictive methods are less underdetermined {#sec-under}
+## Predictive methods help tame underdetermination {#sec-under}
 
 It would generally be difficult to fully specify the method used to make a given prediction, whether of the everyday or scientific variety. Even for an apparently basic prediction like "All ravens are black," to fully spell out how to determine whether something is a swan may be quite involved.[^3] In principle, though, we can identify a "predictive method," the reproducible procedure used to make a given prediction.
 
@@ -45,7 +45,7 @@ Of course, the more common way to speak about "All ravens are black" is as a "hy
 
 [^6]: Here I follow the terminology of [@hansen2021, p. 867]. He goes on to explain that it is sometimes "desirable to make a tripartite division of the sample into (1) training, (2) model selection, and (3) final estimation and assessment. This can be particularly useful when it is desired to obtain a parameter estimator whose distribution is not distorted by the model selection process."
 
-Setting the ravens aside for a moment to more simply demonstrate the concept of hold-out evaluation, suppose our data consists of 10 exactly collinear (X, Y) points. Consider the predictive method of a least-mean-squared-error (LMSE) best-fit line. Given some input data, the procedure is to find the line that minimizes the sum of the squared differences between the known outcomes (Y) and the corresponding points on the line, then using that line to predict unknown outcomes for other values of X.[^7] Now, whether or not the best-fit-line predictive method was used to make any predictions prior to these 10 data points being known, it *could have* successfully predicted the Y values of any held-out evaluation set, as long as the training set contains at least two points.
+Setting the ravens aside for a moment to more simply demonstrate the concept of hold-out evaluation, suppose our data consists of 10 exactly collinear (X, Y) points. Consider the predictive method of a least-mean-squared-error (LMSE) best-fit line. Given some input data, the procedure is to find the line that minimizes the sum of the squared differences between the known outcomes (Y) and the corresponding points on the line, then using that line to predict outcomes for other values of X.[^7] Now, whether or not the best-fit-line predictive method was used to make any predictions prior to these 10 data points being known, it *could have* successfully predicted the Y values of any held-out evaluation set, as long as the training set contains at least two points.
 
 [^7]: In some previous literature, it is a "family of curves" (or models) that is under evaluation. This LMSE best-fit line "predictive method" is analogous to the family of all straight lines, as defined in [@forster1994], for example. But a predictive method must also specify how the specific curve is chosen from among the family, given some input data. And the concept of a predictive method is also broader than that of a family of curves, encompassing the application of concepts and theories that cannot be represented as a family of curves, such as the ravens example.
 
@@ -128,7 +128,7 @@ If two equally successful predictive methods give different predictions about un
 
 ## Choosing among uncertain predictive methods {#sec-prob}
 
-The previous section addresses predictive methods with a perfect track record of making predictions---with no uncertainty. Often, however, the available methods for a given prediction have only been able to make predictions with error. For example, returning to curve-fitting, suppose the available data are not perfectly collinear but rather appear to be linear plus a Gaussian error.
+The previous section addresses predictive methods with a perfect track record of making predictions---with no uncertainty. Often, however, the available methods for a given prediction have only been able to make predictions with error. For example, returning to curve-fitting, suppose the available data are not perfectly collinear but rather appear to be linear plus a Gaussian error. No method will be able to predict such data with certainty. Instead, uncertain predictive methods specify a probability distribution over possible outcomes. And the best predictive method is the on which maximizes the predicted likelihood of the predicted outcomes.
 
 When we only have uncertain predictive methods to choose from, our choice should be guided by the following generalization of @prp-worked (which is likewise justified by @prp-same and our pragmatic need for prediction):
 
