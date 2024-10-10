@@ -23,9 +23,7 @@ Many machine learning researchers already seem to regard successful predictions 
 
 [^1]: [@romeijn2022].
 
-The argument proceeds as follows. @sec-under shows how thinking in terms of "predictive methods" alleviates the problem of underdetermination. Given that, @sec-prag lays out the pragmatic justification for the case of deterministic predictions. @sec-prob extends the argument to probabilistic predictions. @sec-induct addresses the major arguments against Reichenbach's pragmatic justification of induction, which is closely related to this argument.[^2] @sec-schurz relates the framework of this paper to a prominent recent attempt to justify induction with reference to prediction.
-
-[^2]: See [@henderson2022].
+The argument proceeds as follows. @sec-under shows how thinking in terms of "predictive methods" alleviates the problem of underdetermination. Given that, @sec-prag lays out the pragmatic justification for the case of deterministic predictions. @sec-prob extends the argument to probabilistic predictions. @sec-induct addresses the major arguments against Reichenbach's pragmatic justification of induction, which is closely related to this argument. @sec-schurz relates the framework of this paper to a prominent recent attempt to justify induction with reference to prediction.
 
 ## Predictive methods help tame underdetermination {#sec-under}
 
@@ -192,13 +190,21 @@ Amidst the apparent noise, one can see a general pattern of simpler models perfo
 
 ## The objections to Reichenbach's pragmatic justification {#sec-induct}
 
-Situate within recent literature: Stanford entry, contrasting with Reichenbach and more recent pragmatic attempt (ML-inspired formulation that doesn't actually fit with ML practice)
+This rationale for using successful predictive methods shares some things in common with Reichenbach's pragmatic vindication of induction. This section clarifies how the two arguments are related and addresses the most prominent objections to Reichenbach's argument, as summarized by [@henderson2022].
+
+The key commonality is that Reichenbach, while clearly acknowledging that using induction is not sufficient for success, argued that it is *necessary*. "I do not know whether an operation will save the man, but if there is any remedy, it is an operation."^[(Reichenbach 1938 [2006: 349]), as quoted in [@henderson2022].] 
+
+-   Reply to Lange fisherman argument
+
+In terms of the principle he was trying to justify, what is sometimes referred to as "straight rule" induction, it can be thought of as a special case of @prp-same: predict the future frequency of a boolean event to be within a small interval of the observed relative frequency, $m/n$. 
+
+Reichenbach differed, however, in how he defined success: "to find series of events whose frequency of occurrence converges towards a limit."^[(Reichenbach 1938 [2006: 350]), as quoted in [@henderson2022].] Defining success as convergence toward a limit obstructs Reichenbach from demonstrating that straight-rule induction is necessary for success. As he acknowledges himself, infinitely many successful alternative rules can be constructed as the straight-rule plus some $c_n$, as long as the $c_n$ which converges to zero as $n$ increases.^[His main attempt to nevertheless salvage a unique status for straight-rule induction is to claim that it has the "smallest risk" of delaying convergence, that it is most likely to approximate the limit well for smaller values of $n$.((Reichenbach 1938 [2006: 355-356]), as quoted in [@henderson2022]) This alternative measure of success is more akin to that of @prp-best, but Reichenbach did not have the benefit of cross-validation being an established concept in the statistics of his time.] By contrast, @prp-best identifies a unique best predictive method, based on its currently known predictive track record.
+
+-   Add concluding paragraph re short run vs. long run.
 
 ## Schurz's justification for induction {#sec-schurz}
 
-::: callout-note
-June 2024: Address the critique of "most successful" in that induction paper.
-:::
+- and contrast with more recent pragmatic attempt (ML-inspired formulation that doesn't actually fit with ML practice), addressing its critique of simply adopting the "most successful" predictive method
 
 ## Induction {#sec-hume}
 
