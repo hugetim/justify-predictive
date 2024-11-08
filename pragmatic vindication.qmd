@@ -74,60 +74,31 @@ Spelled out as a predictive procedure, however, "All ravens are blite" means: Fi
 
 It is difficult to imagine a legit Case 2 predictive method that would match the best-fit line in the example at hand, and that is the case for many other predictive methods. When thinking in terms of predictive methods rather than hypotheses, it is quite plausible that there be a uniquely successful predictive method for a given purpose. But there will also be situations in which equally successful predictive methods diverge in their predictions, and such situations will also be addressed in the following section.
 
-## A justification for perfectly successful predictive methods {#sec-prag}
+## A justification for deterministic predictive methods {#sec-prag}
 
-We never know whether a successful predictive method will continue working, but there is a justification for acting as if it will. For starters, let us consider the case of a predictive method with a perfect track record of categorical predictions, leaving to the next section the question of probabilistic predictive methods. And, for the moment, suppose that this method is uniquely successful, that there is no other known method that made or could have made the same predictions.[^ More precisely, suppose there are no "Case 2" alternatives in the sense discussed in the previous section.] Suppose also that its predictions are practically relevant to an impactful choice facing us.
+We never know whether a successful predictive method will continue working, but there is a justification for acting as if it will. For starters, let us consider the case of a predictive method with a perfect track record of categorical predictions, leaving to the next section the question of probabilistic predictive methods. And, for the moment, suppose that this method is uniquely successful, that there is no other known method that made or could have made the same predictions.[^ More precisely, suppose there are no "Case 2" alternatives in the sense discussed in the previous section.]
 
-- Maybe I should frame the question in terms of a well-defined set of past/potential predictions similar to a prediction of interest?
+The justification begins by distinguishing two possibilities: either reliable predictive methods exist for a given class of predictanda or not. In the first case, having made successful predictions so far is a necessary prerequisite for a reliable predictive method. In the second case, reliable prediction is impossible, so using a so-far successful method does not harm to your chances of reliable prediction. So one ought to use the uniquely so-far-successful predictive method because, in the case in which reliable prediction is possible, it is the only known method that has a chance of being generally reliable. [15]
 
-The justification begins by distinguishing two possibilities: either generally successful predictive methods exist or they don't. In the first case, adopting a so-far-successful method is a prerequisite for successful prediction [[But what about an as-yet-untried method?]] [15]
-[^15]: This argument follows Reichenbach's pragmatic vindication of induction (see [@henderson2022]), except that he attempted to justify the use of "straight rule" induction, which lacks the protection against underdetermination of validated predictive methods. See @sec-induct.
+[^15]: This argument is akin to Reichenbach's pragmatic vindication of induction (see [@henderson2022]). One major difference is that he attempted to justify the use of "straight rule" induction (for non-deterministic cases as well), which lacks the protection against underdetermination of validated predictive methods. See @sec-induct.
 
-The general principle this section aims to defend is that we ought to *act as if there were* uniformity of nature in a specific sense: that successful predictive methods will continue to work. Otherwise prediction (and thus purposeful action) is impossible. One can choose to act in this way (or consciously assent in good faith to one’s natural inductive tendencies) despite acknowledging intellectually not knowing whether nature is reliably uniform in any sense. Again, there’s nothing to lose by acting in this way, and there is potentially something to gain. If past experience offers usable information, this approach will use it. If not, purposeful action was impossible anyway.
+In other words, we ought to *act as if there were* uniformity of nature in a specific sense: that a uniquely successful predictive method will continue to work. Otherwise prediction (and thus purposeful action) is impossible. One can choose to act in this way (or consciously assent in good faith to one’s natural inductive tendencies) despite intellectually acknowledging not knowing whether nature is reliably uniform in any sense. There’s nothing to lose by acting in this way, and there is potentially something to gain. If past experience offers usable information, this approach will use it. If not, purposeful action was impossible anyway.
 
-A key feature of predictive methods is that they are repeatable: their procedures can be replicated, checking the outcome each time. To apply a predictive method is to reproduce the same procedure that has been (or could have been) found successful in the past. Past outcomes of predictive methods are of the same kind as intended future outcomes, commensurable.[^13] So there is a uniquely natural generalization of past to future performance.[^14]
+Implicit in the above discussion is a pre-determined set of past predictions in the same class as the future predictions of interest. There may be situations in which different approaches to a given future prediction disagree on which past predictions are properly analogous and thus relevant for evaluating the success of candidate predictive methods. Such a situation is outside of the scope here. An agreed set of past predictions is here considered part of the setup of the prediction context.
+
+As a general guideline for the reference class of predictions, though, the goal is a Baconian exhaustiveness in evaluating a predictive method's past success. One should not leap to conclusions based on a blinkered consideration of small number of successes without considering whether the method would have worked in all other known instances.
+
+Given an appropriately specified set of analogous predictions, the repeatable nature of predictive methods is what enables generalization to new instances: their procedures can be replicated, checking the outcome the same way each time. To apply a predictive method is to reproduce the same procedure that has been (or could have been) found successful in the past. Past outcomes of predictive methods are of the same kind as intended future outcomes, commensurable.[^13] So there is a uniquely natural generalization of past to future performance.[^14]
 
 [^13]: By contrast, if the goal is arriving at the truth (or higher probability) of a hypothesis, an observation "confirming" the hypothesis is not the same kind of thing as the desired outcome.
 
 [^14]: The investing disclaimer that “past performance is not indicative of future results” does not apply here in the same way (though it is true that future results are not guaranteed by a so-far successful predictive method). What is meant by “past performance” in the investment context is different from assessing the performance of a predictive method. On the contrary, research has shown that mutual funds’ past “performance” in the ROI sense is *not* predictive of future returns. That is, the investing disclaimer could be restated as “naively extrapolating past returns forward is a poor predictive method.”
 
-
-
-Another way to put @prp-worked is that 
-
-assuming past performance is informative of future success: otherwise, prediction is simply not possible. Prior predictive performance is our only source of information about whether a predictive method will work going forward. The basis for this claim is empiricism: our only possible way to judge whether a method works is whether it has (or could have) worked in the past.[^12] So we have nothing to lose by assuming that it is possible to use known information to predict the unknown.
-
-[^12]: Suppose there were some other way of identifying a reliable predictive method: using a Ouija board, say. The only way we could assess whether the Ouija board reveals reliable predictive methods is to check whether the methods it dictates work.
-
-
-
-::: {#prp-same}
-It is reasonable to expect that a predictive method's future performance will match its past performance for similar predictions.
-:::
-
-What counts as "similar" predictions here may be considered to be part of the predictive method itself, without vicious circularity. A method characterizes its scope of applicability, and its past success is judged accordingly.
-
-Implicit here, by the way, is a Baconian exhaustiveness in evaluating a predictive method's past success. One should not leap to conclusions based on a blinkered consideration of small number of successes without considering whether it would have worked in all other known instances, according to its defined scope of applicability.
-
-Given @prp-same, we can make a stronger statement that using successful predictive methods is rationally compelled:
-
-::: {#prp-worked}
-A prediction should be made using a predictive method that has worked---or could have worked---to make similar predictions.
-:::
-
-Not only do we have nothing to lose by making predictions, but we have something to gain: predictions are necessary for purposeful action. That is, forming expectations of the outcomes of our actions---however provisional or implicit those expectations may be---is required. To have any basis for choosing one action over another, we need a way of using known information to predict the unknown outcomes, a predictive method. If one is available, and given @prp-same, we should use it.
-
-
-
-Again, I am not saying that we *know* a successful method will continue to work for future predictions. There are no such guarantees.[^16] And when a previously successful method fails, we should revise it. But unless or until that happens, we ought to use a predictive method that has worked.
-
-[^16]: In this sense Hume's problem of induction remains unsolved and presumably unsolvable. See @sec-hume.
-
-To clarify the nature of this claim, consider an example even simpler than a best-fit line. Imagine a child letting go of a spoon she was holding. Will it fall to the ground? Yes, it does. She tries again, with the same result. She surely should predict, going forward, that spoons will fall if she lets go of them. That is what I mean by “use what works.”
+To make things concrete, consider an example even simpler than a best-fit line. Imagine a child letting go of a spoon she was holding. Will it fall to the ground? Yes, it does. She tries again, with the same result. She surely should predict, going forward, that spoons will fall if she lets go of them. Basically, “use what works.”
 
 Thought of as a hypothesis, of course, the statement that a spoon always falls is false. An adult handing her a spoon tied to a large helium balloon will know that the result will be different. But until something like that happens, the child’s predictive method will have been useful. And even the final, doomed prediction involving the helium balloon is rationally justified. She should of course revise her predictive method after that failure (coming one step closer to the adult’s more sophisticated predictive method for the motion of spoons). But her “always falls” prediction, considered *a priori*, was sound---and even rationally compelled.
 
-- As another example, consider an engineer designing a bridge. Is she justified in using techniques grounded in Newtonian physics to do so?[^ Within its scope, contexts in which both relativistic and quantum effects are negligible, let us posit that Newtonian mechanics has a (uniquely) flawless track record, hypothetically at least.] If a colleague disagrees with the design based on his interpretation of astrology, is there a solid philosophical reason to overrule him?
+For a more grown-up example, consider an engineer designing a bridge. Is she justified in using techniques grounded in Newtonian physics to do so?[^ Within its scope, contexts in which both relativistic and quantum effects are negligible, let us posit that Newtonian mechanics has a (uniquely) flawless track record, hypothetically at least.] If a colleague disagrees with the design based on his interpretation of astrology, is there a solid philosophical reason to overrule him? Yes, Newtonian physics has a track record of reliably making the relevant predictions. Astrology does not. We rightfully insist that engineers use physics rather than astrology to design bridges because, in case we do live in a world in which bridges can be designed in a reliable way, engineers ought to use a method that could work reliably. No one will blame them if the so-called laws of physics stop working tomorrow. But if they do keep working, any astrologer engineers should be blamed for their bridges failing.
 
 ### How to distinguish insufficiently tested methods?
 
@@ -139,7 +110,31 @@ If two equally successful predictive methods give different predictions about un
 
 -   Clarify Popper relationship
 
+### Outtakes
+
+::: {#prp-same}
+It is reasonable to expect that a predictive method's future performance will match its past performance for similar predictions.
+:::
+
+Given @prp-same, we can make a stronger statement that using successful predictive methods is rationally compelled:
+
+::: {#prp-worked}
+A prediction should be made using a predictive method that has worked---or could have worked---to make similar predictions.
+:::
+
+Not only do we have nothing to lose by making predictions, but we have something to gain: predictions are necessary for purposeful action. That is, forming expectations of the outcomes of our actions---however provisional or implicit those expectations may be---is required. To have any basis for choosing one action over another, we need a way of using known information to predict the unknown outcomes, a predictive method. If one is available, and given @prp-same, we should use it.
+
+Again, I am not saying that we *know* a successful method will continue to work for future predictions. There are no such guarantees.[^16] And when a previously successful method fails, we should revise it. But unless or until that happens, we ought to use a predictive method that has worked.
+
+[^16]: In this sense Hume's problem of induction remains unsolved and presumably unsolvable. See @sec-hume.
+
+
 ## Choosing among uncertain predictive methods {#sec-prob}
+
+
+[^12]
+
+[^12]: Suppose there were some other way of identifying a reliable predictive method: using a Ouija board, say. Such a "meta" Well, the way we assess whether the Ouija board reveals reliable predictive methods is to check whether the methods it dictates work.
 
 The previous section addresses predictive methods with a perfect track record of making predictions---with no uncertainty. Often, however, the available methods for a given prediction have only been able to make predictions with error. For example, returning to curve-fitting, suppose the available data are not perfectly collinear but rather appear to be linear plus a Gaussian error. No method will be able to predict such data with certainty. Instead, uncertain predictive methods specify a probability distribution over possible outcomes. And the best predictive method is the one which maximizes the predicted likelihood of the predicted outcomes.[^18]
 
