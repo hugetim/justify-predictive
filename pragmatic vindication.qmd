@@ -79,10 +79,10 @@ We never know whether a successful predictive method will continue working, but 
 
 [^11]: More precisely, suppose there are no "Case 2" alternatives in the sense discussed in the previous section.
 
-It will also be helpful to define a prediction problem more explicitly:
+What it means to have a perfect track record for predictions of the same type as a prediction task of interest is something we will treat as part of the specification of a prediction problem. 
 
 ::: {#def-class}
-A *prediction class* is a set of prediction tasks, inclusive of both the $J$ prediction tasks for which the outcome is already known and a potentially infinite number of similar tasks for which it is not. Each prediction task $j$ involves predicting outcome(s) $B_j$ using input information $A_j$.
+A *prediction class* is a set of similar prediction tasks, inclusive of both any prediction tasks for which the outcome is already known (the count of which let us call $J$) and a potentially infinite number of similar tasks for which it is not. (Each prediction task $j$ involves predicting outcome(s) $B_j$ using input information $A_j$, with $j = 1, ..., J$ denoting the tasks for which the outcome is known.) 
 :::
 
 The justification for using a so-far successful predictive method begins by distinguishing two possibilities: either reliable predictive methods exist for a given prediction class or not. In the first case, having made successful predictions so far is a necessary prerequisite for a reliable predictive method. In the second case, reliable prediction is impossible, so using a so-far successful method does not harm your chances of reliable prediction. Therefore one ought to use the uniquely so-far-successful predictive method because, in the case in which reliable prediction is possible, it is the only known method that has a chance of being generally reliable.[^12]
