@@ -124,24 +124,6 @@ In this respect, there is a strong parallel with Karl Popper's conception of fal
 
 [^17]: [@salmon1981]
 
-### Outtakes
-
-::: {#prp-same}
-It is reasonable to expect that a predictive method's future performance will match its past performance for similar predictions.
-:::
-
-Given @prp-same, we can make a stronger statement that using successful predictive methods is rationally compelled:
-
-::: {#prp-worked}
-A prediction should be made using a predictive method that has worked---or could have worked---to make similar predictions.
-:::
-
-Not only do we have nothing to lose by making predictions, but we have something to gain: predictions are necessary for purposeful action. That is, forming expectations of the outcomes of our actions---however provisional or implicit those expectations may be---is required. To have any basis for choosing one action over another, we need a way of using known information to predict the unknown outcomes, a predictive method. If one is available, and given @prp-same, we should use it.
-
-Again, I am not saying that we *know* a successful method will continue to work for future predictions. There are no such guarantees.[^18] And when a previously successful method fails, we should revise it. But unless or until that happens, we ought to use a predictive method that has worked.
-
-[^18]: In this sense Hume's problem of induction remains unsolved and presumably unsolvable. See @sec-hume.
-
 ## Choosing among uncertain predictive methods {#sec-prob}
 
 The previous section addresses predictive methods with a perfect track record of making predictions---with no uncertainty. Often, however, the available methods for a given prediction have only been able to make predictions with error. For example, returning to curve-fitting, suppose the available data are not perfectly collinear but rather appear to be linear plus a Gaussian error. No method will be able to predict such data with certainty. Instead, uncertain predictive methods specify a probability distribution over possible outcomes. And the best method is the one which maximizes the (predicted) likelihood of the predicted outcomes.[^19]
