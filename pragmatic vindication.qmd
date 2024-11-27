@@ -60,7 +60,7 @@ To be merely a hypothesis *consistent* with the known observations is much lower
 Yet, what if there were a predictive method that could have plausibly predicted any held out point but differs from the best-fit line in its predictions for unknown points?
 
 -   "subfamily problem" as @forster1994 call it
--   Add curve-fitting analog of grue, with discussion of grue in footnote.
+-   Add curve-fitting analog of grue (maybe thrine, and nee), with discussion of grue in footnote. (introduce notion of "successful" in this section---the new thing in the next section is not that but rather the generalization to future)
 
 For now, what of that particular form of Case 2 predictive method that, while unlikely to arise in practice, has some prominence within philosophical discussion of prediction in terms of hypotheses? I am referring to hypotheses that include words like "blite," defined as "black and first observed before the year 3000, or white and first observed after 3000."[^8] In terms of hypotheses, it has proven difficult to explain our natural preference for "All ravens are black" over the equally-consistent-with-the-data hypothesis "All ravens are blite." In terms of predictive methods, the riddle is that we seem to have two methods that are equally successful at predicting the color of ravens but that predict different things about the future---and similar "Case 2" predictive methods could be created for *any* predictive method.
 
