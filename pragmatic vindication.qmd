@@ -57,7 +57,18 @@ To be merely a hypothesis *consistent* with the known observations is much lower
 
 [^6]: Confusingly, it is common in econometrics to speak of how well a model can "predict" the values it was trained on, but that is not a true "prediction." As [[who? not @forster1994, it seems]\] explain, \[\[such measures of model fit are biased estimates of true predictive accuracy because such data points are used both for training the model and checking its predictions.\]\]
 
---- Maybe move this section down to the following, so the justification can be referred to in discussing grue? Or how better to clarify this Occam's razor?
+Yet, what if there were a predictive method that could have plausibly predicted any held out point but differs from the best-fit line in its predictions for unknown points?
+
+-   "subfamily problem" as @forster1994 call it
+-   Add curve-fitting analog of grue, with discussion of grue in footnote.
+
+For now, what of that particular form of Case 2 predictive method that, while unlikely to arise in practice, has some prominence within philosophical discussion of prediction in terms of hypotheses? I am referring to hypotheses that include words like "blite," defined as "black and first observed before the year 3000, or white and first observed after 3000."[^8] In terms of hypotheses, it has proven difficult to explain our natural preference for "All ravens are black" over the equally-consistent-with-the-data hypothesis "All ravens are blite." In terms of predictive methods, the riddle is that we seem to have two methods that are equally successful at predicting the color of ravens but that predict different things about the future---and similar "Case 2" predictive methods could be created for *any* predictive method.
+
+[^8]: This follows the presentation in [@strevens2017, p. 64] of Nelson Goodman’s "new riddle of induction."
+
+Spelled out as a predictive procedure, however, "All ravens are blite" means: First, determine whether something is a raven (as identified by characteristics other than color); second, check whether it is observed before the year 3000; predict that it will appear black if so, and white otherwise.[^9] Well, being prior to the year 3000, that second step is irrelevant for this procedure's track record. It has not really been part of the predictive method at all, properly speaking. Rather, the effective predictive method was simply determining whether something is a raven and, if so, predicting black as its color. Implicit in the definition of a predictive method, then, is a certain form of “Occam’s razor”: if a step or input in a predictive method can be identified as having no effect on any predictions it has (or could have) made, it should not be considered part of the predictive method that has or could have made those predictions.
+
+[^9]: The color observation could be instrumentalized in terms of the RGB values of a digital photograph, say, something independent of one’s preference between the words “black” and “blite.”
 
 Still, we cannot necessarily conclude that the best-fit line is the unique predictive method capable of predicting any held-out subset of this data. Let's consider such potential alternative predictive methods in two categories:
 
@@ -68,17 +79,7 @@ When the goal is making predictions, Case 1 is no problem. The same predictions 
 
 [^7]: [@forster2002]\[p. S131\] similarly points out that selection of a model with more parameters than the minimum necessary to represent the true curve is irrelevant in the limit as $N \to \infty$ "with respect to the goal of predictive accuracy*."*
 
-Yet, what if there were a predictive method that could have plausibly predicted any held out point but differs from the best-fit line in its predictions for unknown points?
-
--   Add curve-fitting analog of grue, with discussion of grue in footnote.
-
-For now, what of that particular form of Case 2 predictive method that, while unlikely to arise in practice, has some prominence within philosophical discussion of prediction in terms of hypotheses? I am referring to hypotheses that include words like "blite," defined as "black and first observed before the year 3000, or white and first observed after 3000."[^8] In terms of hypotheses, it has proven difficult to explain our natural preference for "All ravens are black" over the equally-consistent-with-the-data hypothesis "All ravens are blite." In terms of predictive methods, the riddle is that we seem to have two methods that are equally successful at predicting the color of ravens but that predict different things about the future---and similar "Case 2" predictive methods could be created for *any* predictive method.
-
-[^8]: This follows the presentation in [@strevens2017, p. 64] of Nelson Goodman’s "new riddle of induction."
-
-Spelled out as a predictive procedure, however, "All ravens are blite" means: First, determine whether something is a raven (as identified by characteristics other than color); second, check whether it is observed before the year 3000; predict that it will appear black if so, and white otherwise.[^9] Well, being prior to the year 3000, that second step is irrelevant for this procedure's track record. It has not really been part of the predictive method at all, properly speaking. Rather, the effective predictive method was simply determining whether something is a raven and, if so, predicting black as its color. Implicit in the definition of a predictive method, then, is a certain form of “Occam’s razor”: if a step or input in a predictive method can be identified as having no effect on any predictions it has (or could have) made, it should not be considered part of the predictive method that has or could have made those predictions.[^10]
-
-[^9]: The color observation could be instrumentalized in terms of the RGB values of a digital photograph, say, something independent of one’s preference between the words “black” and “blite.”
+[^10]
 
 [^10]: In the 10 linear points example above, this "razor" provides another way to handle the "Case 1" best-fit quadratic curve predictive method. More generally, though, there are situations in practice in which this "razor" does not strictly apply, particularly in the context of the probabilistic predictions we turn to in @sec-prob below. Then when we have two similarly successful predictive methods, the distinction between "Case 1" (both predict the same thing for the purpose at hand) and "Case 2" (the choice matters for the purpose at hand) will matter more.
 
