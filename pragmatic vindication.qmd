@@ -73,22 +73,11 @@ Somewhat related is the challenge of ruling out "grue"-like predicates: how does
 
 Well, spelled out as a predictive procedure, "The dumbbell weighs thrine pounds" means: First, determine whether the thing being weighed is the dumbbell in question; second, check whether it is the same calendar year as when the weighings began, and predict that it will weigh 3 if so, and 9 otherwise. Prior to the end of the year, that second step is irrelevant for this procedure's track record. It has not really been part of the predictive method's success at all, properly speaking. Rather, the effective predictive method was simply determining whether something is the dumbbell and, if so, predicting 3 as its weight. Implicit in the definition of predictive success, we can say, is a certain form of “Occam’s razor”: if a step or input in a predictive method can be identified as having no effect on any predictions it has (or could have) made, it should not be considered part of the predictive method that has or could have made those predictions. Rather, the predictive success should be attributed solely to the simpler predictive method, excluding that extraneous step.
 
-Yet, what if there were a predictive method that could have plausibly predicted any held out point but differs from the best-fit line in its predictions for unknown points?
+Indeed, by that token, the linear best-fit line method is also not fully utilized in this case, in which the simpler method of a constant y-value can claim predictive success on its own. In this example, it is the uniquely successful, fully-utilized predictive method.
 
-Still, we cannot necessarily conclude that the best-fit line is the unique predictive method capable of predicting any held-out subset of this data. Let's consider such potential alternative predictive methods in two categories:
+More generally though, supposing a line with non-zero slope were required (or a method more complicated still), what if there were another predictive method that could have plausibly predicted any held out point?We cannot necessarily conclude that the best-fit line is the unique predictive method capable of predicting any held-out subset of the data. If the alternative would also make exactly the same predictions for all unknown tasks in the prediction class, that is of no concern because it is the predictions themselves that we care about. But we cannot rule out a non-equivalent alternative, a predictive method that is equally successful so far but potentially differs in its further predictions.
 
-1)  Those which, given all 10 data points as inputs, make exactly the same predictions for all unknown outcomes as the LMSE line.
-2)  Those which differ in their predictions of some unknown values.
-
-When the goal is making predictions, Case 1 is no problem. The same predictions are justified regardless. For example, the best-fit quadratic curve gives equivalent predictions in this example. There is no need to prefer one to the other if the purpose is the predictions themselves.[^7]
-
-[^7]: [@forster2002]\[p. S131\] similarly points out that selection of a model with more parameters than the minimum necessary to represent the true curve is irrelevant in the limit as $N \to \infty$ "with respect to the goal of predictive accuracy*."*
-
-[^10]
-
-[^10]: In the 10 linear points example above, this "razor" provides another way to handle the "Case 1" best-fit quadratic curve predictive method. More generally, though, there are situations in practice in which this "razor" does not strictly apply, particularly in the context of the probabilistic predictions we turn to in @sec-prob below. Then when we have two similarly successful predictive methods, the distinction between "Case 1" (both predict the same thing for the purpose at hand) and "Case 2" (the choice matters for the purpose at hand) will matter more.
-
-It is difficult to imagine a legit Case 2 predictive method that would match the best-fit line in the example at hand, and that is the case for many other predictive methods. When thinking in terms of predictive methods rather than hypotheses, it is quite plausible that there be a uniquely successful predictive method for a given purpose. But there will also be situations in which equally successful predictive methods diverge in their predictions, and such situations will also be addressed in the following section.
+In many cases, though, it is difficult to imagine such a predictive method that would match the one we know in predictive success so far but differ in future predictions. When thinking in terms of predictive methods rather than hypotheses, it is quite plausible that there be a uniquely successful predictive method for a given purpose. But there will also be situations in which an equally successful, non-equivalent predictive method is known to exist. Such situations will also be addressed in the following section.
 
 ## A justification for deterministic predictive methods {#sec-prag}
 
