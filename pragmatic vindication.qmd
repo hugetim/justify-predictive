@@ -219,7 +219,9 @@ Reichenbach differed, however, in how he defined success: "to find series of eve
 
 -   and contrast with more recent pragmatic attempt (ML-inspired formulation that doesn't actually fit with ML practice), addressing its critique of simply adopting the "most successful" predictive method
 
-## Induction {#sec-hume}
+## Implications {#sec-implic}
+
+### Induction {#sec-hume}
 
 In his book *The Knowledge Machine*, Michael Strevens provides a compelling account of how science works, a lucid synthesis of decades of insights from history and philosophy of science, albeit with one unsettling limitation. Strevens makes the quandaries of philosophers actually fun to read about, including David Hume’s problem of induction, the lack of a reasoned justification for generalizing from experience. On the stakes of this problem, he quotes Bertrand Russell, who said that if inductive reasoning cannot be justified, “there is no intellectual difference between sanity and insanity” (p. 17) And Russell is not alone. As Strevens puts it, almost all philosophers of science “believe that induction is essential to human existence” (p. 21).[^28] Yet, “there is still no widely accepted justification for induction” (p. 17).
 
@@ -241,11 +243,11 @@ Strevens’ book goes on to argue that the power of modern science stems from ho
 
 [^29]: Strevens gestures toward “Baconian convergence” but does not attempt to explain why this seems to work so well rather than being defeated by the underdetermination that seems so inevitable when confirmation theory is considered in the abstract.
 
-## Probability {#sec-intprob}
+### Probability {#sec-intprob}
 
 As Wesley Salmon has observed, the philosophical interpretation of probability is the other side of the coin of Hume's problem of induction.\[\[cite, and maybe quote, from Foundations of Scientific Inference\]\] This is not the place for an in depth treatment of the philosophy of probability, but it is worth briefly noting that the notion of "best known predictive method" provides a new approach to the ascertainability criterion: essentially, define the probability as its predicted probability for a given event. That is, the probability distribution in a given predictive context is that indicated by the predictive method with the highest average log-likelihood. It may be defined in principle as the probability distribution of the true best predictive method, that which would be selected as the number of instances goes to infinity. In practice, it may be ascertained according to the best known predictive method.
 
-## Science {#sec-science}
+### Science {#sec-science}
 
 More tentatively, I would like to propose that how theory confirmation works in science could be better understand in terms of predictive methods.
 
@@ -253,6 +255,11 @@ In many cases, especially in the softer sciences, we have no hope of correctly s
 
 -   Maybe use [@myrvold2002] orbital period chart example
 
-## Statistics {#sec-stats}
+### Statistics {#sec-stats}
 
 There are still judgments to be made, but these judgments can be made based on criteria of clear relevance to the prediction task at hand. In contrast, the choice between Adjusted R^2^ and BIC, for instance, would generally be based on more abstract criteria unconnected to the specific question of interest.
+
+## References {.appendix} {.unnumbered}
+
+::: {#refs}
+:::
