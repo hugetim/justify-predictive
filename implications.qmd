@@ -1,0 +1,11 @@
+## Science {#sec-science}
+
+More tentatively, I would like to propose that how theory confirmation works in science could be better understand in terms of predictive methods.
+
+Demarcation, explanation
+
+In many cases, especially in the softer sciences, we have no hope of correctly specifying the true model anyhow.
+
+## Statistics {#sec-stats}
+
+There are still judgments to be made, but these judgments can be made based on criteria of clear relevance to the prediction task at hand. In contrast, the choice between Adjusted R^2^ and BIC, for instance, would generally be based on more abstract criteria unconnected to the specific question of interest.
