@@ -99,7 +99,7 @@ In other words, we ought to *act as if there were* uniformity of nature in a spe
 
 [^10]: Suppose there were some other way of identifying a reliable predictive method: using a Ouija board, say. Such a "meta" method can itself be considered a predictive method. And if the Ouija board really did reveal reliable predictive methods, the methods it dictates would work reliably.
 
-Again, the above discussion presumes a well-defined prediction class uniting a set of past predictions to the future predictions of interest. There may be situations in which different approaches to a given future prediction disagree on which past predictions are properly analogous and thus relevant for evaluating the success of candidate predictive methods. Such a situation is outside of the scope here. An agreed set of past predictions is here considered part of the setup of the prediction context.
+Again, the above discussion presumes a well-defined prediction class uniting a set of past predictions to the future predictions of interest. There may be situations in which different approaches to a given future prediction disagree on which past predictions are properly analogous and thus relevant for evaluating the success of candidate predictive methods. Such a situation is addressed below in @sec-class. For now, suppose a context in which the prediction class is agreed upon.
 
 As a general guideline for defining the reference prediction class, though, the goal is a Baconian exhaustiveness in evaluating a predictive method's past success. One should not leap to conclusions based on a blinkered consideration of a small number of successes without considering whether the method would have worked in all other known instances.
 
@@ -139,12 +139,12 @@ When a choice depends on an outcome for which we do not have a successful determ
 
 [^17]: The phrase "predictive accuracy" here is used analogously to how it is defined in [@forster1994]: average (or "expected") log-likelihood, which can also be interpreted as a measure of closeness to the true probability distribution in terms of the Kullback-Liebler divergence, the average difference in log-likelihoods.
 
-Again, what counts as "similar predictions" is specified as part of the definition of the prediction task at hand, the relevant prediction class.[^18] In addition, for probabilistic predictions, the $J$ prediction tasks for which the outcome is already known may be weighted according to their similarity to the task at hand, specifying $w_j$ for $j=1, ..., J$. Equal weights may be appropriate in certain circumstances, but generally not if the prediction task at hand is other than a random sample of the same distribution of tasks that generated the known outcomes. Then the weights should be used to better estimate the model's predictive accuracy for the task at hand, as discussed in an example with real data below.
+Again, what counts as "similar predictions" is specified as part of the definition of the prediction task at hand, the relevant prediction class.[^18] In addition, for probabilistic predictions, the $J$ prediction tasks for which the outcome is already known may be weighted according to their similarity to the task at hand, specifying $w_j$ for $j=1, ..., J$ (with $\sum w_j = 1$) to define a *weighted prediction class*. Equal weights may be appropriate in certain circumstances, but generally not if the prediction task at hand is other than a random sample of the same distribution of tasks that generated the known outcomes. Then the weights should be used to better estimate the model's predictive accuracy for the task at hand, as discussed in an example with real data below.
 
-[^18]: This setup is closely related to what is sometimes referred to as the Common Task Framework in the machine learning literature.
+[^18]: This setup is closely related to what is sometimes referred to as the Common Task Framework in the machine learning literature.[@donoho2017]
 
 ::: {#def-success}
-Given a prediction class and weights $w_j$ (with $\sum w_j = 1$), *predictive success* is $\sum_{j=1}^{J} w_j \cdot \log f(B_j \mid A_j)$, where f is the probability the predictive method assigns to $B_j$, given $A_j$. (This assumes the predictive method is fully-utilized with respect to the $J$ prediction tasks. If not, if a step or input in the predictive method can be identified as having no effect on any of the $J$ predictions, assign $-\infty$.)
+Given a weighted prediction class, *predictive success* is $\sum_{j=1}^{J} w_j \cdot \log f(B_j \mid A_j)$, where f is the probability the predictive method assigns to $B_j$, given $A_j$. (This assumes the predictive method is fully-utilized with respect to the $J$ prediction tasks. If not, if a step or input in the predictive method can be identified as having no effect on any of the $J$ predictions, assign $-\infty$.)
 :::
 
 For our linear curve-fitting example, fitting a Gauss Linear model to the data is most likely to be the most successful predictive method. The method of instead, given *n* known data points, fitting a polynomial *p* of degree *n – 1* will fit the known data exactly but will tend to fluctuate wildly up and down in between the known points and thus predict unknown data poorly. We can reject other alternative hypotheses in the same way, often leaving the Gauss Linear model as the most successful predictive method.
@@ -195,6 +195,10 @@ Generalize these ideas, after exploring via the example above:
 
 -   how different are the predictions of the rivals?
 -   if each method's predicted probabilities were used to simulate new outcomes, how likely is it that a rival method would have been chosen? (or, more crudely put, what is the estimated variance of the predictive success metric?)
+
+## Justifying a weighted prediction class {#sec-class}
+
+Expand the prediction class out to the whole world, weighting according to importance. Starting from default, can evaluate changes to it. More narrow prediction classes can be evaluated by how well their selected predictive methods perform in terms of this universal metric of predictive success.
 
 ## Answering objections to Reichenbach's pragmatic justification {#sec-induct}
 
