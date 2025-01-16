@@ -250,7 +250,17 @@ Strevens’ book goes on to argue that the power of modern science stems from ho
 
 ### Probability {#sec-intprob}
 
-As Wesley Salmon has observed, the philosophical interpretation of probability is the other side of the coin of Hume's problem of induction.\[\[cite, and maybe quote, from Foundations of Scientific Inference\]\] This is not the place for an in depth treatment of the philosophy of probability, but it is worth briefly noting that the notion of "best known predictive method" provides a new approach to the ascertainability criterion: essentially, define the probability as its predicted probability for a given event. That is, the probability distribution in a given predictive context is that indicated by the predictive method with the highest average log-likelihood. It may be defined in principle as the probability distribution of the true best predictive method, that which would be selected as the number of instances goes to infinity. In practice, it may be ascertained according to the best known predictive method.
+As Wesley Salmon put it, the challenge of providing an adequate philosophical interpretation of probability is "Hume's problem of induction all over again in slightly different terminology."[^29] So, while this is not the place for an in-depth treatment of the philosophy of probability, it is worth briefly noting that the concept of "best predictive method" described above also provides an interpretation of probability.
+
+[^29]: [@salmon2017] (p. 65)
+
+According to Salmon, the fundamental challenge in interpreting probability is "to satisfy simultaneously the criteria of ascertainability and applicability."[^30] Ascertainability means it is possible to determine what the value of a particular probability is, at least in principle, whereas applicability means that a probability should have practical significance. In brief, ascertainability is the primary challenge for the frequency interpretation of probability, whereas more subjective conceptions of probability as degree of belief tend to fall short on applicability. The predictive method approach advocated here, defining probability as the predicted probability for a given event, straightforwardly meets the criteria of applicability, and it also provides a new angle on ascertainability. The probability distribution in a given predictive context is that indicated by the predictive method with the greatest predictive success, the highest average log-likelihood for the cases in a predictive class. In principle, it may be defined as the probability distribution of the true best predictive method, that which would be most successful for as-yet unobserved instances as well as those already known. In practice, it may be ascertained according to the best known predictive method.
+
+[^30]: Ibid.
+
+The predictive approach improves upon the frequency interpretation in its handling of the single case, unrepeated or unrepeatable events.[^31]
+
+[^31]: See [@hájek2023] for further discussion.
 
 -   Maybe use [@myrvold2002] orbital period chart example
 
