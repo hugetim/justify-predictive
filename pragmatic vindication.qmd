@@ -201,7 +201,7 @@ Generalize these ideas, after exploring via the example above:
 
 Thus far, the argument has presumed an agreed-upon weighted prediction class, relative to which predictive success is assessed and with reference to which the use of a successful predictive method is justified. But where does this prediction class come from and how can it be justified, in turn. It is not hard to imagine situations in which a given prediction of unknown information could be conceived of as part of multiple alternative prediction classes, with conflicting implications for which predictive method should be used. It this apparent incommensurability, then, fatal to the argument as a whole?
 
-No, when in doubt, we can expand the prediction class out to the whole world, weighting according to importance. More narrow prediction classes can ultimately be evaluated by how well their selected predictive methods perform in terms of this universal metric of predictive success.
+No, when in doubt, we can expand the prediction class out to the whole world, weighting according to importance. The prediction tasks are to predict the next observation, using all past observations. More narrow prediction classes can ultimately be evaluated by how well their selected predictive methods perform in terms of this universal metric of predictive success.
 
 ## Answering objections to Reichenbach's pragmatic justification {#sec-induct}
 
