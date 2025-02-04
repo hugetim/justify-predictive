@@ -188,6 +188,7 @@ Amidst the apparent noise, one can see a general pattern of simpler models perfo
 [^23]: The (relatively simple) model selected by LOO R^2^ runs counter to this pattern. (And this disconnect underscores the importance of differentiating between within-sample prediction and generalization when assessing a model specification.)
 
 -   Make point that concern about generalization is purely a problem of the data available. Our intuition is that fitting to one dataset won't generalize, but that is based on our awareness of different data. The thing to do is to train on that extra data. Once trained on all available data, we have nothing else to go on to generalize.
+-   Maybe use [@myrvold2002] orbital period chart example for an alternative generalization example
 
 ### Assessing whether a probabilistic model is sufficiently tested
 
@@ -224,31 +225,19 @@ Reichenbach differed, however, in how he defined success: "to find series of eve
 
 -   and contrast with more recent pragmatic attempt (ML-inspired formulation that doesn't actually fit with ML practice), addressing its critique of simply adopting the "most successful" predictive method
 
-## Implications {#sec-implic}
-
-### Induction {#sec-hume}
+## Conclusion {#sec-conclude}
 
 In his book *The Knowledge Machine*, Michael Strevens provides a compelling account of how science works, a lucid synthesis of decades of insights from history and philosophy of science, albeit with one unsettling limitation. Strevens makes the quandaries of philosophers actually fun to read about, including David Hume’s problem of induction, the lack of a reasoned justification for generalizing from experience. On the stakes of this problem, he quotes Bertrand Russell, who said that if inductive reasoning cannot be justified, “there is no intellectual difference between sanity and insanity” (p. 17) And Russell is not alone. As Strevens puts it, almost all philosophers of science “believe that induction is essential to human existence” (p. 21).[^27] Yet, “there is still no widely accepted justification for induction” (p. 17).
 
 [^27]: “Some believe that Hume’s problem must have a solution—that is, a philosophical argument showing that it is reasonable to suppose that nature is uniform in certain respects... Some believe, like Hume himself, that it has no solution but that we must go on thinking inductively regardless, both in our science and in our everyday lives” (p. 21). Strevens does not make clear to which camp he himself belongs.
 
-Any inductive inference from known information to unknown can be thought of as a prediction, broadly construed, so the argument of @sec-prag and @sec-prob above amounts to a pragmatic justification for induction.
+Any inductive inference from known information to unknown can be thought of as a prediction, broadly construed, so the argument above amounts to a pragmatic justification for induction. Aside from providing a foundational rationale for our common-sense attitudes, something that perhaps only philosophers care about, this refined grounding for inductive reasoning has practical implications for how science should be conducted and interpreted. But such implications are for future work. For now I would just situate the relevance of these philosophical considerations in the context of Strevens’ account of science in *The Knowledge Machine.*
 
-------------------------------------------------------------------------
-
-To sum up, my claim is that the underlying logic of inductive reasoning is, essentially, “use a predictive method that works.” I have provided an *a priori* justification for this principle. And I have shown how it accounts for the three features of the natural human approach to inductive reasoning that Strevens identifies.
-
-\[Brief note re brain as predictive machine, citing a recent article\]
-
-------------------------------------------------------------------------
-
-Still, perhaps you are thinking, “So what?” Perhaps only a philosopher could care whether common-sense attitudes can be grounded in a more foundational rationale. Well, elsewhere I argue that this refined grounding for inductive reasoning does have wide-reaching practical implications for how science should be conducted and interpreted. But for now I would just situate the relevance of these considerations by returning to Strevens’ *The Knowledge Machine* (which you really have to read to appreciate his novel, incisive account of what is unique about modern science and how it originated)*.*
-
-Strevens’ book goes on to argue that the power of modern science stems from how it forces scientists to relentlessly prioritize tedious empirical observations over the aesthetic, religious, or philosophical considerations to which pre-modern students of the natural world dedicated the bulk of their attention and writing. But Strevens never returns to the basic question of how generalizing from all those meticulous observations can be justified in the first place.[^28] Strevens’ readers, despite his forceful presentation of Hume’s problem of induction in the first chapter, will probably have safely forgotten this disturbing quandary by the end of his subsequent thirteen chapters. But the justification of inductive reasoning presented here allows a proper appreciation of why all that careful observation Strevens celebrates matters: by eliminating rival predictive methods, we are left not with a bewildering infinitude of theories yet capable of fitting our still-finite observations but rather, for so many practical purposes, a single relevant predictive method, enabling our ever-expanding technical mastery.
+Strevens’ book goes on to argue that the power of modern science stems from how it directs scientists to relentlessly prioritize tedious empirical observations over the aesthetic, religious, or philosophical considerations to which pre-modern students of the natural world dedicated the bulk of their attention and writing. But Strevens never returns to the basic question of how generalizing from all those meticulous observations can be justified in the first place.[^28] It almost seems as if Strevens hopes his readers, despite his forceful presentation of Hume’s problem of induction in the first chapter, will have safely forgotten this disturbing quandary by the end of the subsequent thirteen chapters. The justification of inductive reasoning presented here aims to provide a more satisfying account for why all that careful observation Strevens celebrates matters: by eliminating rival predictive methods, we are left not with a bewildering infinitude of theories yet capable of fitting our still-finite observations but rather, for so many practical purposes, a single relevant predictive method, enabling our ever-expanding technical mastery.
 
 [^28]: Strevens gestures toward “Baconian convergence” but does not attempt to explain why this seems to work so well rather than being defeated by the underdetermination that seems so inevitable when confirmation theory is considered in the abstract.
 
-### Probability {#sec-intprob}
+## Probability {#sec-intprob}
 
 As Wesley Salmon put it, the challenge of providing an adequate philosophical interpretation of probability is "Hume's problem of induction all over again in slightly different terminology."[^29] So, while this is not the place for an in-depth treatment of the philosophy of probability, it is worth briefly noting that the concept of "best predictive method" described above also provides an interpretation of probability.
 
@@ -261,8 +250,6 @@ According to Salmon, the fundamental challenge in interpreting probability is "t
 The predictive approach improves upon the frequency interpretation in its handling of the single case, unrepeated or unrepeatable events.[^31]
 
 [^31]: See [@hájek2023] for further discussion.
-
--   Maybe use [@myrvold2002] orbital period chart example
 
 ## References {.appendix} {.unnumbered}
 
