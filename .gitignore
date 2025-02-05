@@ -2,7 +2,6 @@
 ~*
 *.html
 *.png
-*.ipynb
 **/.ipynb_checkpoints/
 **/*.pyc
 *.quarto_ipynb
