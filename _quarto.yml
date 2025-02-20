@@ -1,0 +1,24 @@
+project:
+  type: manuscript
+
+manuscript:
+  notebooks:
+    - notebook: notebooks/forster2000_partial_replication.ipynb
+      title: Forster (2000) replication
+
+execute:
+  freeze: auto
+
+format: 
+  html:
+    toc: true
+    embed-resources: true
+    comments:
+      hypothesis: true
+  typst:
+    toc: false
+    number-sections: true
+  docx:
+    toc: false
+    number-sections: true
+theme: default

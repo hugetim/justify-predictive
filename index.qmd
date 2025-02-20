@@ -2,21 +2,14 @@
 title: "A pragmatic justification for predictive methods"
 author:
   - name: Tim Huegerich
+    orcid: 0000-0002-9496-7823
+    email: thuegerich@uwalumni.com
 abstract: There is a pragmatic justification for expecting a predictive method to perform the same in the future as in the past. This justified expectation of continued predictive ability resolves Hume's problem of induction. It can also be used to assess scientific theories and provide a sound basis for statistical inference, though a full exploration of these broader applications is beyond the scope of this paper.
 
-format: 
-  html:
-    toc: true
-    embed-resources: true
-  typst:
-    toc: false
-    number-sections: true
-  docx:
-    toc: false
-    number-sections: true
-theme: default
 fig-cap-location: top
+date: last-modified
 bibliography: references.bib
+jupyter: python3
 ---
 
 ## Introduction

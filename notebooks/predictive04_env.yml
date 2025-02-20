@@ -1,0 +1,12 @@
+name: predictive04
+channels:
+  - conda-forge
+  - defaults  # Include defaults for other potential dependencies
+dependencies:
+  - python=3.11
+  - numpy=2.2
+  - matplotlib=3.10
+  - statsmodels=0.14
+  - pandas=2.2
+  - jupyter
+  - great_tables=0.16
