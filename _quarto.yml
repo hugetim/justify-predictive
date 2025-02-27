@@ -5,6 +5,8 @@ manuscript:
   notebooks:
     - notebook: notebooks/forster2000_partial_replication.ipynb
       title: Forster (2000) replication
+    - notebook: notebooks/forster2000_adapted.ipynb
+      title: Forster (2000) adapted
 
 execute:
   freeze: auto
