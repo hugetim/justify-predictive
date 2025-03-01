@@ -9,3 +9,5 @@
 *.pdf
 
 /.quarto/
+
+/_manuscript
