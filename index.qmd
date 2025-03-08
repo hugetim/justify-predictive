@@ -170,26 +170,23 @@ By contrast, the linear, 1st degree method, which performs best on this task, lo
 
 {{< embed notebooks/forster2000_adapted.ipynb#fig-poly1-eval >}}
 
-The linear method performs better both because the central tendency it predicts is closer to the true data and because it predicts a wider standard deviation. In other words, the close fit of Poly-4 to the training data actually hurts it's predictive performance by being "overconfident."
+The linear method performs better both because the central tendency it predicts is closer to the true data and because it predicts a wider standard deviation. In other words, the close fit of Poly-4 to the training data actually hurts its predictive performance by being "overconfident."
 
-So, among these candidate methods, Poly-1 is best at the hold-out predictive task. And that is why it should be used for the prediction of interest. It is closest to the method for reliably predicting the relevant probabilities, if such a method exists. 
+So, among these candidate methods, Poly-1 is best at the hold-out predictive task.[^22] And that is why it should be used for the prediction of interest. It is closest to the method for reliably predicting the relevant probabilities, if such a method exists.
 
-In this case, Poly-1 is the clear winner, but what if there were another method with similar performance? That situation would be analogous to the deterministic prediction case discussed in @sec-multi above. Similar performance is analogous to two deterministic methods being equally successful, but here that is a fuzzy measure rather than a binary one.^[One possible measure: if one method's predicted probabilities were used to simulate new outcomes for the known prediction tasks, how likely is it that the alternative method would have been chosen?] Likewise, the question of whether the alternative method produces equivalent predictions is also fuzzy here, and the right way to quantify it is not immediately clear.^[] Still, an analogous principle holds: the justification for using Poly-1 presupposes that there is not a similarly successful alternative with substantially non-equivalent predictions for the task of interest. 
+[^22]: This is a form of "generalization test," with reference to [@busemeyer2000]. 
+
+In this case, Poly-1 is the clear winner, but what if there were another method with similar performance? That situation would be analogous to the deterministic prediction case discussed in @sec-multi above. Similar performance is analogous to two deterministic methods being equally successful, but here that is a fuzzy measure rather than a binary one.^[One possible measure: if one method's predicted probabilities were used to simulate new outcomes for the known prediction tasks, how likely is it that the alternative method would have been chosen?] Likewise, the question of whether the alternative method produces equivalent predictions is also fuzzy here, and the right way to quantify it is not immediately clear. Generally, though, an analogous principle holds: the justification for using Poly-1 presupposes that there is not a similarly successful alternative with substantially non-equivalent predictions for the task of interest. 
 
 Now, if one thought to try fitting the function $a_1 + \tanh (x + a_2)$ to the data, that would perform even better than Poly-1 for this prediction class, and so *that* should be used (even if it were not known that such a function was used to simulate these data, as it was).
-
-Now suppose we’re interested in generalizing from this data,[^22] which is limited to ages 20-74. Suppose we want to use it to predict the height of someone aged 75-85, randomly selected from this population. The leave-one-out prediction measure used above is less suitable for evaluating a method’s ability to predict the heights of other ages because it is less closely analogous to the prediction task of interest. The table below shows the mean squared predictive error for 15 more similar prediction tasks that can be checked with the available data (so here, lower is better). (A) involves predicting heights for ages 73-74 using data on only ages 20-72. Among these 15 alternatives, it is most like the prediction task of interest in terms of how much data it has available to fit the model. (J), predicting ages 64-74 using data for ages 20-63, is most like the desired prediction task in terms of how many years out it is extrapolating, but it differs in that it has 11 fewer years of data with which to fit the model. There are a range of prediction assessments between (A) and (J). (K)-(O) are also included as alternative assessments of extrapolating 11 years out, though they differ increasingly from the desired prediction task in other respects (both in terms of the predicted age range and the amount of data available to fit the model) and should thus be given less weight. It’s not clear which of these alternatives is the best single test of predictive performance akin to extrapolating from ages 20-74 to ages 75-85. But each of them is more closely analogous to the desired prediction task than is the leave-one-out prediction used above.
-
-[^22]: Here "generalization" is used with reference to [@busemeyer2000].
-
--   Try model averaging? Or just acknowledge it as a possibility, something that may or may not improve predictive success.
 
 But the best predictive method for a given purpose will not necessarily correspond to the true data-generating process. Suppose the data were actually generated by a regular zigzag curve of high frequency: $f(x) = \left| \left( \frac{2}{\lambda} \cdot x \bmod 2 \right) - 1 \right|$) Unless we have a very large number of observations, the available data will not be sufficient to distinguish the zigzag curve from a linear model with uniformly distributed errors—even if it occurred to us to try fitting a zigzag curve. And attempting to fit a zigzag to a small data sample will likely result in worse predictions than the simple linear model.
 
 Identifying the true data-generating process (given limited data) is not in itself our goal. Rather, the goal is making predictions as accurate as possible in the context at hand. In many cases, especially in the softer sciences, we have no hope of correctly specifying the true model anyhow. Let's look at an example using real data for which that is the case.
 
 -   Add example with real data (height?)
--   Make point that concern about generalization is purely a problem of the data available. Our intuition is that fitting to one dataset won't generalize, but that is based on our awareness of different data. The thing to do is to train on that extra data. Once trained on all available data, we have nothing else to go on to generalize.
+-   Try model averaging? Or just acknowledge it as a possibility, something that may or may not improve predictive success.
+-   Make point that concern about generalization is purely a problem of the data available. Our intuition is that fitting to one dataset won't generalize, but that is based on "leakage": our awareness of different data. The thing to do is to train on that extra data as well. Once trained on all available data, we have nothing else to go on to generalize.
 -   Maybe use [@myrvold2002] orbital period chart example for an alternative generalization example
 
 ## Justifying a weighted prediction class {#sec-class}
@@ -234,7 +231,7 @@ According to Salmon, the fundamental challenge in interpreting probability is "t
 
 [^28]: Ibid.
 
-The predictive approach improves upon the frequency interpretation in its handling of the single case, unrepeated or unrepeatable events.[^29]
+The predictive approach improves upon the frequency interpretation in its handling of the single case, unrepeated or unrepeatable events.[^29] ...
 
 [^29]: See [@hájek2023] for further discussion.
 
@@ -250,7 +247,7 @@ Strevens’ book goes on to argue that the power of modern science stems from ho
 
 [^31]: Strevens gestures toward “Baconian convergence” but does not attempt to explain why this seems to work so well rather than being defeated by the underdetermination that seems so inevitable when confirmation theory is considered in the abstract.
 
-## References {.appendix} {.unnumbered}
+## References {.appendix .unnumbered}
 
 ::: {#refs}
 :::
