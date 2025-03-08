@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tim Huegerich">
+<meta name="dcterms.date" content="2025-03-08">
+
+<title>A pragmatic justification for predictive methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-32162a2fca7cb0439643f2faaab1edf3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta name="citation_title" content="A pragmatic justification for predictive methods">
+<meta name="citation_abstract" content="There is a pragmatic justification for expecting a predictive method to perform the same in the future as in the past. This justified expectation of continued predictive ability provides a new angle on Hume&amp;amp;#039;s problem of induction.">
+<meta name="citation_author" content="Tim Huegerich">
+<meta name="citation_publication_date" content="2025-03-08">
+<meta name="citation_cover_date" content="2025-03-08">
+<meta name="citation_year" content="2025">
+<meta name="citation_online_date" content="2025-03-08">
+<meta name="citation_language" content="en">
+<meta name="citation_reference" content="citation_title=An Asymptotic Equivalence of Choice of Model by Cross-Validation and Akaike’s Criterion;,citation_author=M. Stone;,citation_publication_date=1977-09-01;,citation_cover_date=1977-09-01;,citation_year=1977;,citation_fulltext_html_url=https://academic.oup.com/jrsssb/article/39/1/44/7027527;,citation_issue=1;,citation_doi=10.1111/j.2517-6161.1977.tb01603.x;,citation_volume=39;,citation_language=en;,citation_journal_title=Journal of the Royal Statistical Society Series B: Statistical Methodology;">
+<meta name="citation_reference" content="citation_title=Challenges for econometric model selection;,citation_author=Bruce E. Hansen;,citation_publication_date=2005;,citation_cover_date=2005;,citation_year=2005;,citation_fulltext_html_url=https://www.cambridge.org/core/journals/econometric-theory/article/challenges-for-econometric-model-selection/EFC343EBB91A7CD60F9A79B0E9A7903F;,citation_issue=1;,citation_volume=21;,citation_journal_title=Econometric Theory;">
+<meta name="citation_reference" content="citation_title=Model Comparisons and Model Selections Based on Generalization Criterion Methodology;,citation_author=Jerome R Busemeyer;,citation_author=Yi-Min Wang;,citation_publication_date=2000-03;,citation_cover_date=2000-03;,citation_year=2000;,citation_fulltext_html_url=https://linkinghub.elsevier.com/retrieve/pii/S0022249699912828;,citation_issue=1;,citation_doi=10.1006/jmps.1999.1282;,citation_volume=44;,citation_language=en;,citation_journal_title=Journal of Mathematical Psychology;">
+<meta name="citation_reference" content="citation_title=Prediction;,citation_author=Malcolm Forster;,citation_publication_date=2008;,citation_cover_date=2008;,citation_year=2008;,citation_fulltext_html_url=https://www.taylorfrancis.com/chapters/edit/10.4324/9780203000502-47/prediction-malcolm-forster;,citation_inbook_title=undefined;">
+<meta name="citation_reference" content="citation_title=The problem of induction;,citation_author=Leah Henderson;,citation_editor=Edward N. Zalta;,citation_editor=Uri Nodelman;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://plato.stanford.edu/archives/win2022/entries/induction-problem/;,citation_inbook_title=undefined;">
+<meta name="citation_reference" content="citation_title=A Framework for Inductive Reasoning in Model-Based Science;,citation_author=Milagros Maribel Barroso Rojo;,citation_publication_date=2023-12-26;,citation_cover_date=2023-12-26;,citation_year=2023;,citation_fulltext_html_url=https://rhv.uv.cl/index.php/RHV/article/view/4058;,citation_issue=23;,citation_doi=10.22370/rhv2023iss23pp259-285;,citation_language=en;,citation_journal_title=Revista de Humanidades de Valparaíso;">
+<meta name="citation_reference" content="citation_title=The debate between whewell and mill on the nature of scientific induction;,citation_author=Malcolm Forster;,citation_publication_date=2011-12-31;,citation_cover_date=2011-12-31;,citation_year=2011;,citation_doi=10.1016/B978-0-444-52936-7.50003-3;,citation_volume=10;,citation_journal_title=Handbook of the History of Logic;">
+<meta name="citation_reference" content="citation_title=William Whewell’s Semantic Account of Induction;,citation_author=Corey Dethier;,citation_publication_date=2018-03;,citation_cover_date=2018-03;,citation_year=2018;,citation_fulltext_html_url=http://www.journals.uchicago.edu/doi/10.1086/695697;,citation_issue=1;,citation_doi=10.1086/695697;,citation_volume=8;,citation_language=en;,citation_journal_title=HOPOS: The Journal of the International Society for the History of Philosophy of Science;">
+<meta name="citation_reference" content="citation_title=Model Selection, Simplicity, and Scientific Inference;,citation_author=Wayne C. Myrvold;,citation_author=William L. Harper;,citation_publication_date=2002-09;,citation_cover_date=2002-09;,citation_year=2002;,citation_fulltext_html_url=https://www.cambridge.org/core/product/identifier/S0031824800000520/type/journal_article;,citation_issue=S3;,citation_doi=10.1086/341841;,citation_volume=69;,citation_language=en;,citation_journal_title=Philosophy of Science;">
+<meta name="citation_reference" content="citation_title=Predictive Accuracy as an Achievable Goal of Science;,citation_author=Malcolm Forster;,citation_publication_date=2002-09;,citation_cover_date=2002-09;,citation_year=2002;,citation_fulltext_html_url=https://www.cambridge.org/core/product/identifier/S0031824800000519/type/journal_article;,citation_issue=S3;,citation_doi=10.1086/341840;,citation_volume=69;,citation_language=en;,citation_journal_title=Philosophy of Science;">
+<meta name="citation_reference" content="citation_title=Econometrics;,citation_author=Bruce Hansen;,citation_publication_date=2021-03-11;,citation_cover_date=2021-03-11;,citation_year=2021;">
+<meta name="citation_reference" content="citation_title=Notes on Bayesian Confirmation Theory;,citation_author=Michael Strevens;,citation_publication_date=2017-06;,citation_cover_date=2017-06;,citation_year=2017;,citation_language=en;">
+<meta name="citation_reference" content="citation_title=How to Tell When Simpler, More Unified, or Less Ad Hoc Theories Will Provide More Accurate Predictions;,citation_author=Malcolm Forster;,citation_author=Elliott Sober;,citation_publication_date=1994;,citation_cover_date=1994;,citation_year=1994;,citation_fulltext_html_url=http://www.jstor.org/stable/687960;,citation_issue=1;,citation_volume=45;,citation_language=en;,citation_journal_title=The British Journal for the Philosophy of Science;">
+<meta name="citation_reference" content="citation_title=Philosophy of statistics;,citation_author=Jan-Willem Romeijn;,citation_editor=Edward N. Zalta;,citation_editor=Uri Nodelman;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://plato.stanford.edu/archives/fall2022/entries/statistics/;,citation_inbook_title=undefined;">
+<meta name="citation_reference" content="citation_title=Prediction versus accommodation;,citation_author=Eric Christian Barnes;,citation_editor=Edward N. Zalta;,citation_editor=Uri Nodelman;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://plato.stanford.edu/archives/win2022/entries/prediction-accommodation/;,citation_inbook_title=undefined;">
+<meta name="citation_reference" content="citation_title=Rational Prediction;,citation_author=Wesley C. Salmon;,citation_publication_date=1981-06-01;,citation_cover_date=1981-06-01;,citation_year=1981;,citation_fulltext_html_url=https://www.journals.uchicago.edu/doi/10.1093/bjps/32.2.115;,citation_issue=2;,citation_doi=10.1093/bjps/32.2.115;,citation_volume=32;,citation_language=en;,citation_journal_title=The British Journal for the Philosophy of Science;">
+<meta name="citation_reference" content="citation_title=Leakage in data mining: Formulation, detection, and avoidance;,citation_author=Shachar Kaufman;,citation_author=Saharon Rosset;,citation_author=Claudia Perlich;,citation_author=Ori Stitelman;,citation_publication_date=2012-12;,citation_cover_date=2012-12;,citation_year=2012;,citation_fulltext_html_url=https://dl.acm.org/doi/10.1145/2382577.2382579;,citation_issue=4;,citation_doi=10.1145/2382577.2382579;,citation_volume=6;,citation_language=en;,citation_journal_title=ACM Transactions on Knowledge Discovery from Data;">
+<meta name="citation_reference" content="citation_title=50 Years of Data Science;,citation_author=David Donoho;,citation_publication_date=2017-10-02;,citation_cover_date=2017-10-02;,citation_year=2017;,citation_fulltext_html_url=https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734;,citation_issue=4;,citation_doi=10.1080/10618600.2017.1384734;,citation_volume=26;,citation_language=en;,citation_journal_title=Journal of Computational and Graphical Statistics;">
+<meta name="citation_reference" content="citation_title=The foundations of scientific inference: 50th anniversary edition;,citation_author=Wesley C. Salmon;,citation_publication_date=2017;,citation_cover_date=2017;,citation_year=2017;,citation_fulltext_html_url=https://www.jstor.org/stable/j.ctt1s475s3;">
+<meta name="citation_reference" content="citation_title=Interpretations of probability;,citation_author=Alan Hájek;,citation_editor=Edward N. Zalta;,citation_editor=Uri Nodelman;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://plato.stanford.edu/archives/win2023/entries/probability-interpret/;,citation_inbook_title=undefined;">
+<meta name="citation_reference" content="citation_title=Key concepts in model selection: Performance and generalizability;,citation_author=Malcolm R. Forster;,citation_publication_date=2000;,citation_cover_date=2000;,citation_year=2000;,citation_fulltext_html_url=https://www.sciencedirect.com/science/article/pii/S0022249699912841;,citation_issue=1;,citation_volume=44;,citation_journal_title=Journal of mathematical psychology;">
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A pragmatic justification for predictive methods</h1>
+          </div>
+
+    
+    <div class="quarto-title-meta-container">
+      <div class="quarto-title-meta-column-start">
+        
+        <div class="quarto-title-meta">
+
+                <div>
+            <div class="quarto-title-meta-heading">Author</div>
+            <div class="quarto-title-meta-contents">
+                        <p>Tim Huegerich <a href="mailto:thuegerich@uwalumni.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-9496-7823" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+                      </div>
+          </div>
+                
+                <div>
+            <div class="quarto-title-meta-heading">Published</div>
+            <div class="quarto-title-meta-contents">
+              <p class="date">March 8, 2025</p>
+            </div>
+          </div>
+          
+                
+              </div>
+      </div>
+      <div class="quarto-title-meta-column-end quarto-other-formats-target">
+      <div class="quarto-alternate-formats"><div class="quarto-title-meta-heading">Other Formats</div><div class="quarto-title-meta-contents"><p><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></p></div><div class="quarto-title-meta-contents"><p><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></p></div></div></div>
+    </div>
+
+    <div>
+      <div class="abstract">
+        <div class="block-title">Abstract</div>
+        There is a pragmatic justification for expecting a predictive method to perform the same in the future as in the past. This justified expectation of continued predictive ability provides a new angle on Hume’s problem of induction.
+      </div>
+    </div>
+
+
+    <div class="quarto-other-links-text-target">
+    </div>  </div>
+</header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#sec-under" id="toc-sec-under" class="nav-link" data-scroll-target="#sec-under">Predictive evaluation tames underdetermination</a>
+  <ul class="collapse">
+  <li><a href="#predictive-methods" id="toc-predictive-methods" class="nav-link" data-scroll-target="#predictive-methods">Predictive methods</a></li>
+  <li><a href="#hold-out-evaluation" id="toc-hold-out-evaluation" class="nav-link" data-scroll-target="#hold-out-evaluation">Hold-out evaluation</a></li>
+  <li><a href="#prediction-classes" id="toc-prediction-classes" class="nav-link" data-scroll-target="#prediction-classes">Prediction classes</a></li>
+  <li><a href="#the-subfamily-problem" id="toc-the-subfamily-problem" class="nav-link" data-scroll-target="#the-subfamily-problem">The subfamily problem</a></li>
+  <li><a href="#ruling-out-non-fully-utilized-methods" id="toc-ruling-out-non-fully-utilized-methods" class="nav-link" data-scroll-target="#ruling-out-non-fully-utilized-methods">Ruling out non-fully-utilized methods</a></li>
+  <li><a href="#non-equivalent-alternatives-may-remain" id="toc-non-equivalent-alternatives-may-remain" class="nav-link" data-scroll-target="#non-equivalent-alternatives-may-remain">Non-equivalent alternatives may remain</a></li>
+  </ul></li>
+  <li><a href="#sec-prag" id="toc-sec-prag" class="nav-link" data-scroll-target="#sec-prag">A justification for deterministic predictive methods</a>
+  <ul class="collapse">
+  <li><a href="#sec-multi" id="toc-sec-multi" class="nav-link" data-scroll-target="#sec-multi">How to determine whether a method is sufficiently tested?</a></li>
+  </ul></li>
+  <li><a href="#sec-prob" id="toc-sec-prob" class="nav-link" data-scroll-target="#sec-prob">Choosing among uncertain predictive methods</a>
+  <ul class="collapse">
+  <li><a href="#example-predicting-the-continuation-of-an-unknown-curve" id="toc-example-predicting-the-continuation-of-an-unknown-curve" class="nav-link" data-scroll-target="#example-predicting-the-continuation-of-an-unknown-curve">Example: Predicting the continuation of an unknown curve</a></li>
+  </ul></li>
+  <li><a href="#sec-class" id="toc-sec-class" class="nav-link" data-scroll-target="#sec-class">Justifying a weighted prediction class</a></li>
+  <li><a href="#sec-induct" id="toc-sec-induct" class="nav-link" data-scroll-target="#sec-induct">Answering objections to Reichenbach’s pragmatic justification</a></li>
+  <li><a href="#sec-schurz" id="toc-sec-schurz" class="nav-link" data-scroll-target="#sec-schurz">Schurz’s justification for induction</a></li>
+  <li><a href="#sec-intprob" id="toc-sec-intprob" class="nav-link" data-scroll-target="#sec-intprob">Probability</a></li>
+  <li><a href="#sec-conclude" id="toc-sec-conclude" class="nav-link" data-scroll-target="#sec-conclude">Conclusion</a></li>
+  
+  </ul>
+<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="notebooks\forster2000_adapted-preview.html"><i class="bi bi-journal-code"></i>Forster (2000) adapted</a></li><li><a href="notebooks\forster2000_partial_replication-preview.html"><i class="bi bi-journal-code"></i>Forster (2000) replication</a></li></ul></div></nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+  
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The aim of this paper is to provide a self-standing philosophical justification for continuing to use methods of prediction that have proven successful. That is, this justification of predictive methods is intended to be independent of claims about the confirmation of broader theories—or the truth of narrower inductive inferences—upon which predictions may otherwise be thought to derive from. Simply stated, to predict some unknown outcome, one should use a predictive method that has, or could have, been successful at similar predictions.</p>
+<p>This is about “predictions” broadly conceived, inclusive of statements about the yet-unknown consequents of past events.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Predictions, so construed, are ubiquitous. They range from the everyday projections made automatically by our brains as we navigate the world to the sophisticated scientific predictions of particle physicists.</p>
+<p>Many machine learning researchers already seem to regard successful predictions (under the rubric of “cross-validation” and related approaches) as a direct rationale for using a given model, so that embracing the argument here would have little or no impact on their practice. Others (such as most economists, in my experience) regard the use of cross-validation for model selection as an ad hoc approach that could only be justified in terms of more traditional statistics concepts, if at all. In the philosophy literature, despite various close parallels discussed below, I am not aware of a precedent for directly justifying the use of successful predictive methods, in themselves. As a recent review article on “Philosophy of Statistics” puts it, in a section discussing some approaches to model selection: “methods that use cross-validation…have, unduly, not received as much attention in the philosophical literature.”<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>The argument proceeds as follows. <a href="#sec-under" class="quarto-xref">Section&nbsp;2</a> shows how thinking in terms of predictive methods alleviates the problem of underdetermination. Given that, <a href="#sec-prag" class="quarto-xref">Section&nbsp;3</a> lays out a pragmatic justification for the case of deterministic predictions. <a href="#sec-prob" class="quarto-xref">Section&nbsp;4</a> extends that justification to probabilistic predictions. <a href="#sec-class" class="quarto-xref">Section&nbsp;5</a> discusses a possible weak point in the preceding sections. <a href="#sec-induct" class="quarto-xref">Section&nbsp;6</a> addresses the major arguments against Reichenbach’s closely related pragmatic justification of induction. <a href="#sec-schurz" class="quarto-xref">Section&nbsp;7</a> relates the framework of this paper to a prominent recent attempt to justify induction with reference to prediction. The final section concludes by sketching out the philosophical interpretation of probability that emerges from <a href="#sec-prob" class="quarto-xref">Section&nbsp;4</a>.</p>
+</section>
+<section id="sec-under" class="level2">
+<h2 class="anchored" data-anchor-id="sec-under">Predictive evaluation tames underdetermination</h2>
+<p>The problem of underdetermination is a central issue in the philosophical assessment of any form of inductive inference: multiple hypotheses can always be found which fit past data equally well, so which should we prefer? This section explains how thinking in terms of predictive methods, rather than hypotheses, largely alleviates the otherwise crippling issue of underdetermination. In brief, it is much more difficult to find alternative ways to predict well than it is to generate alternative ways to “fit” data after the fact. Success in genuine predictions thus provides a descriptive account of the intution we follow in practice without appealing to simplicity or other secondary criteria.</p>
+<section id="predictive-methods" class="level3">
+<h3 class="anchored" data-anchor-id="predictive-methods">Predictive methods</h3>
+<p>To begin, though, let us clarify what is meant by a “predictive method.”</p>
+<div id="def-predictive" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> A <em>predictive method</em> is a procedure for using some input information <span class="math inline">\(A\)</span> to predict some observable outcome <span class="math inline">\(B\)</span>. It includes any tacit knowledge required to carry out the steps, such as operational definitions of relevant concepts.</p>
+</div>
+<p>Whereas a theory requires additional “auxiliary assumptions” to generate predictions, and a statistical model can yield different results depending on the estimation procedure used, a properly defined predictive method is a function from input data <span class="math inline">\(A\)</span> to prediction <span class="math inline">\(B\)</span>. Of course, fully specifying the method used for many predictions, whether of the everyday or scientific variety, would generally be quite difficult. Even for an apparently basic prediction like “All ravens are black,” to fully spell out how to determine whether something is a raven may be quite involved. Imagine trying to program a robot to do so.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> That is the kind of specificity inherent in a “predictive method.”</p>
+</section>
+<section id="hold-out-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="hold-out-evaluation">Hold-out evaluation</h3>
+<p>So-defined, a predictive method has an unambiguous track record in terms of whether its predictions have been successful. Even if it has not been used to make predictions of then-unknown observations, a method can be assessed by how well it <em>could have</em> predicted already-known data.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> In this “hold-out evaluation” approach, <span class="math inline">\(m\)</span> of the <span class="math inline">\(N\)</span> known outcomes are “held out” for evaluation, with the predictive method only allowed to use the remaining data, a “training set” of size <span class="math inline">\(n=N-m\)</span>, as inputs for predicting the <span class="math inline">\(m\)</span> held-out outcomes.</p>
+<p>To illustrate hold-out evaluation, let us look at an example simpler than ravens, one involving numerical data. Suppose our known data consists of 10 exactly collinear <span class="math inline">\((x, y)\)</span> points. Consider the predictive method of a least-mean-squared-error (LMSE) best-fit line. Given some input data, the procedure is to find the line that minimizes the sum of the squared differences between the training outcomes (<span class="math inline">\(y\)</span>) and the corresponding points on the line. That line can then be used to predict other outcomes.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> Now, whether or not the best-fit-line predictive method was used to make any predictions temporally prior to these 10 data points being known, it <em>could have</em> successfully predicted the <span class="math inline">\(y\)</span> values of any held-out evaluation set, as long as the training set contains at least two points.</p>
+<p>To be merely a hypothesis consistent with the known observations is a much lower bar than to be a successful predictive method. There are innumerably many functions consistent with those 10 observations, most of which vary wildly for <span class="math inline">\(x\)</span> values other than those 10 points. But predictive methods corresponding to those nonlinear functions would not plausibly have been able to predict the <span class="math inline">\(y\)</span> values of held-out data. Predictive ability, even in just the hold-out evaluation sense, is sufficient to differentiate the line from at least the vast majority of alternatives in this case.</p>
+</section>
+<section id="prediction-classes" class="level3">
+<h3 class="anchored" data-anchor-id="prediction-classes">Prediction classes</h3>
+<p>To be more precise about the claim here, let us define more explicitly what predictive ability means in a given context. We can specify the predictive problem at hand in terms of a “prediction class”:</p>
+<div id="def-class" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> A <em>prediction class</em> is a set of similar prediction tasks, inclusive of both the <span class="math inline">\(J\)</span> tasks for which the outcome is already known and an indefinite number of tasks for which it is not. (Each prediction task <span class="math inline">\(j\)</span> involves predicting outcome(s) <span class="math inline">\(B_j\)</span> using input information <span class="math inline">\(A_j\)</span>, with <span class="math inline">\(j = 1, ..., J\)</span> denoting the tasks for which the outcome <span class="math inline">\(B_j\)</span> is known.)</p>
+</div>
+<p>In the case of our best-fit line example with 10 known data points, suppose we define the prediction class as the set of all tasks predicting a single <span class="math inline">\(y\)</span> outcome for a given <span class="math inline">\(x\)</span> value, given also at least eight known outcomes. One such task: <span class="math inline">\(A = {(x_1, y_1), \ldots, (x_8, y_8), x_9}\)</span>, <span class="math inline">\(B = {y_9}\)</span>. With 10 known data points, the total count of prediction tasks in this class for which the outcome is known can be calculated as <span class="math inline">\(J = \sum_{k=8}^{9} \binom{10}{k} \cdot (10 - k) = (45)(2) + (10)(1) = 100\)</span>.</p>
+</section>
+<section id="the-subfamily-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-subfamily-problem">The subfamily problem</h3>
+<p>Now, one potential objection to the claim that thinking in terms of predictive methods distinguishes the best-fit line from all other curves that pass through the 10 known data points is what <span class="citation" data-cites="forster1994">M. Forster and Sober (<a href="#ref-forster1994" role="doc-biblioref">1994</a>)</span> termed the “subfamily problem.” Take any one of those innumerable curves that pass through the 10 known points but are not straight lines, and suppose someone proposed one of those as a “predictive method.” It would perform just as well on all 100 of the predictive tasks in our specified class with known outcomes we can check. The problem, of course, is that it is not credible that someone would have been able to pick such a curve without knowing all 10 outcomes in advance,<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> without some “leakage” of information about the supposedly predicted outcome.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p>Consider a more concrete form of our example: An elementary student has been given an assignment to weigh an item 10 times and plot the weight against the time of day. She chooses a 3 lb. dumbbell and weighs it on a balance, using a set of standard weights that allow her to determine its weight to a precision of 0.1 lb. (and a range from 0 to 10). The result is a measurement of 3.0 lbs. She weighs it seven more times throughout the day and finds the same result each time. Suppose she is sufficiently clever and whimsical to imagine a curve that fits those eight data points exactly but varies wildly in between them. On the one hand, there are a huge number of possible curves that would turn out to successfully predict her 9th measurement exactly.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> On the other hand, there are many more curves (99x more, in this discrete case) fitting the first eight points that will miss the 9th. The former is how the situation looks from the standpoint of accomodation, the latter from the perspective of prediction.</p>
+</section>
+<section id="ruling-out-non-fully-utilized-methods" class="level3">
+<h3 class="anchored" data-anchor-id="ruling-out-non-fully-utilized-methods">Ruling out non-fully-utilized methods</h3>
+<p>Somewhat related is the challenge of ruling out “grue”-like predicates: how does thinking in terms of predictive methods distinguish the best-fit line from predicting a weight of “thrine”? (As all speakers of the “grue” language know, “thrine” means the dumbbell will weigh in at 3 lbs. until after 11pm, at which time it will be 9.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>) This predictive method performs flawlessly on all 100 predictive tasks (in the class defined above) and would continue its success in any other predictions through well after the student’s bedtime. What distinguishes the best-fit line from it (not to mention the innumerable alternatives: threven, threight, thren, etc.)?</p>
+<p>Well, spelled out as a predictive procedure, “The dumbbell weighs thrine pounds” means: First, determine whether the thing being weighed is the dumbbell in question; second, check whether it is before 11pm, and predict that it will weigh 3 lbs. if so, and 9 otherwise. Prior to 11pm, that second step is irrelevant for this procedure’s track record. It has not really been part of the predictive method’s success at all, properly speaking. Rather, the predictive method actually used was to simply identify the dumbbell and predict 3 as its weight. Implicit in the definition of predictive success, then, is a specific form of “Occam’s razor”: if a step or input in a predictive method can be identified as having no effect on any predictions it has (or could have) made, it should not be considered part of the predictive method that made those predictions. Rather, the predictive success should be attributed solely to the simpler predictive method, excluding that extraneous step.</p>
+<p>Indeed, by that token, the linear best-fit line method is also not fully utilized in this case, in which the simpler method of a constant <span class="math inline">\(y\)</span> value can claim predictive success on its own. In this example, it is the uniquely successful, fully-utilized predictive method.</p>
+</section>
+<section id="non-equivalent-alternatives-may-remain" class="level3">
+<h3 class="anchored" data-anchor-id="non-equivalent-alternatives-may-remain">Non-equivalent alternatives may remain</h3>
+<p>Or is it? How can we be sure there is not another predictive method that could have plausibly predicted any held out point? It seems possible there is another fully-utilized predictive method capable of predicting any held-out subset of the data. If an alternative would also make exactly the same predictions for an unknown prediction task of interest, that is of no real concern because it is the prediction itself that matters. But it seems we cannot rule out a non-equivalent alternative, a predictive method that is equally successful so far but potentially differs in its further predictions.</p>
+<p>In many cases, though, it is difficult to imagine such a predictive method that would match the one we know in predictive success so far but differ in future predictions. When thinking in terms of predictive methods rather than hypotheses, it is quite plausible that there be a uniquely successful predictive method for a given purpose. But there will also be situations in which an equally successful, non-equivalent predictive method is known to exist, and the following section will also consider such cases.</p>
+</section>
+</section>
+<section id="sec-prag" class="level2">
+<h2 class="anchored" data-anchor-id="sec-prag">A justification for deterministic predictive methods</h2>
+<p>We never know whether a successful predictive method will continue working, but there is a justification for acting as if it will. For starters, let us consider the case of a predictive method with a perfect track record of categorical predictions, leaving to the next section the question of probabilistic predictive methods. And, for the moment, suppose that this method is uniquely successful, that there is no other (non-equivalent) method known that made or could have made the same predictions.</p>
+<p>The justification for using a so-far successful predictive method begins by distinguishing two possibilities: either reliable predictive methods exist for a given prediction class or not. In the first case, having made successful predictions so far is a necessary prerequisite for a reliable predictive method. In the second case, reliable prediction is impossible, so using a so-far successful method does not harm one’s chances of reliable prediction. Therefore one ought to use the uniquely so-far-successful predictive method because, in the case in which reliable prediction is possible, it is the only known method that has a chance of being generally reliable.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></p>
+<p>In other words, we ought to <em>act as if there were</em> uniformity of nature in a specific sense: that a uniquely successful predictive method will continue to work. Prediction (and thus purposeful action) is otherwise not possible for the prediction class in question. One can choose to act in this way (or consciously assent in good faith to one’s natural inductive tendencies) despite intellectually acknowledging not knowing whether nature is reliably uniform in any sense. There’s nothing to lose by acting in this way, and there is potentially something to gain. If past experience offers usable information, this approach will use it.<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> If not, purposeful action was impossible anyway.</p>
+<p>Again, the above discussion presumes a well-defined prediction class uniting a set of past predictions to the future predictions of interest. There may be situations in which different approaches to a given future prediction disagree on which past predictions are properly analogous and thus relevant for evaluating the success of candidate predictive methods. Such a situation is addressed below in <a href="#sec-class" class="quarto-xref">Section&nbsp;5</a>. For now, suppose a context in which the prediction class is agreed upon.</p>
+<p>As a general guideline for defining the reference prediction class, though, the goal is a Baconian exhaustiveness in evaluating a predictive method’s past success. One should not leap to conclusions based on a blinkered consideration of a small number of successes without considering whether the method would have worked in all other known instances.</p>
+<p>To make things concrete, consider an example even simpler than a best-fit line. Imagine a child letting go of a spoon she was holding. Will it fall to the ground? Yes, it does. She tries again, with the same result. She surely should predict, going forward, that spoons will fall if she lets go of them. Put simply, use what works.</p>
+<p>Thought of as a hypothesis, of course, the statement that a spoon always falls is false.<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a> An adult handing her a spoon tied to a large helium balloon knows that the result will be different. But until something like that happens, the child’s predictive method will have been useful. And even the final, doomed prediction involving the helium balloon is rationally justified. She should of course revise her predictive method after that failure (coming one step closer to the adult’s more sophisticated predictive method for the motion of spoons). But her “always falls” prediction, considered <em>a priori</em>, was sound—and even rationally compelled.</p>
+<p>For a more grown-up example, consider an engineer designing a bridge. Is she justified in using Newtonian physics to do so?<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a> If a colleague disagrees with the design based on his interpretation of astrology, is there a solid philosophical reason to overrule him? Yes, Newtonian physics has a track record of reliably making the relevant predictions. Astrology does not. We rightfully insist that engineers use physics rather than astrology to design bridges because, in case we do live in a world in which bridges can be designed in a reliable way, engineers ought to use a method that could work reliably. No one will blame them if the so-called laws of physics stop working tomorrow. But if they continue working, any astrologer engineers should be blamed for their bridges failing.</p>
+<section id="sec-multi" class="level3">
+<h3 class="anchored" data-anchor-id="sec-multi">How to determine whether a method is sufficiently tested?</h3>
+<p>In this way of thinking, a greater quantity of successes, in itself, does not increase the justification for using a predictive method. And that may seem like a problem: how can it be the case that the rational warrant for using a predictive method known to work just a few times is the same as for one used successfully thousands of times? Well, though a small number of instances is not a problem in itself, it is a problem to the extent the available evidence is not sufficient to distinguish alternative predictive methods and identify a uniquely successful one.</p>
+<p>If two equally successful predictive methods give different predictions about unknown data, <em>that</em> is the reason for caution before using either of them. This is the proper criterion for whether a predictive method has been “sufficiently tested.” In such situations, there is no good reason to rely on one method rather than the other, and there is a special impetus to test the conflicting predictions in the hopes of establishing a uniquely successful predictive method that should then be used.<a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a></p>
+<p>In other words, the justification for using a successful predictive method presupposes that no equally successful alternative is available, no fully-utilized alternative with non-equivalent predictions, that is. And, as with the specification of prediction classes, the consideration of potential alternative methods ought not be blinkered but rather reasonably exhaustive.</p>
+</section>
+</section>
+<section id="sec-prob" class="level2">
+<h2 class="anchored" data-anchor-id="sec-prob">Choosing among uncertain predictive methods</h2>
+<p>The previous section addresses predictive methods with a perfect track record of making predictions—with no uncertainty. Often, however, the available methods for a given prediction have only been able to make predictions with error. For example, returning to curve-fitting, suppose the available data are not perfectly collinear but rather appear to be linear plus a Gaussian error. No method will be able to predict such data with certainty. Instead, uncertain predictive methods specify a probability distribution over possible outcomes. And the best method is the one which maximizes the predicted probability of the outcomes.<a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a></p>
+<p>The implications of a probabilistic predictive method’s track record are not as clear-cut as that of a deterministic one. Choosing the method with the best track record is not a necessary condition for choosing a reliable method. Indeed, any successful probabilistic method will itself imply at least a small chance that another method would have been chosen if the past predicted outcomes had turned out differently, if different values of the predicted probability distribution had been realized. But using the most successful predictive method may nonetheless be justified by an argument analogous to that given above for deterministic predictive methods.</p>
+<p>When a choice depends on an outcome for which we do not have a successful deterministic predictive method, we still ought to act as if there were uniformity of nature in the following sense: that a predictive method exists which reliably indicates the true probabilities of the outcome in question.<a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a> Here, define “true” as the probability distribution that maximizes the average predicted log-likelihood for a prediction class.<a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a> Then the average log-likelihood of a given predictive method’s predictions (for the <span class="math inline">\(J\)</span> tasks with known outcomes) provides a measure of the predictive accuracy of that method.<a href="#fn18" class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a> One ought to use the best method according this measure because, according to the available information, it is closest to indicating the true probabilities, if a reliable method for predicting those probabilities exists. If, on the other hand, there is no way to reliably predict the probability distribution of interest, then no predictive method is better than any other for achieving that purpose.</p>
+<p>Again, what counts as “similar predictions” is specified as part of the definition of the prediction task at hand, the relevant prediction class.<a href="#fn19" class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a> And, for probabilistic predictions in which success is no longer an all-or-nothing matter, it may be appropriate to weight the <span class="math inline">\(J\)</span> prediction tasks (for which the outcome is known) according to their similarity to the task of interest, specifying <span class="math inline">\(w_j\)</span> for <span class="math inline">\(j=1, ..., J\)</span> (with <span class="math inline">\(\sum w_j = 1\)</span>) to define a <em>weighted prediction class</em>. Equal weights may be appropriate in certain circumstances, such as if the prediction task of interest is a random sample from the same distribution of tasks that generated the known outcomes. Otherwise the weights should be used to better estimate the model’s predictive accuracy for the task at hand, as illustrated in the examples below.</p>
+<div id="def-success" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> Given a weighted prediction class, <em>predictive success</em> is <span class="math inline">\(\sum_{j=1}^{J} w_j \cdot \log f(B_j \mid A_j)\)</span>, where f is the likelihood the predictive method assigns to <span class="math inline">\(B_j\)</span>, given <span class="math inline">\(A_j\)</span>. (This assumes the predictive method is fully-utilized with respect to the <span class="math inline">\(J\)</span> prediction tasks. Otherwise, if a step or input in the predictive method can be identified as having no effect on any of the <span class="math inline">\(J\)</span> predictions, assign <span class="math inline">\(-\infty\)</span>.)</p>
+</div>
+<p>For our linear curve-fitting example, fitting a Gauss Linear model to the data is most likely to be the most successful predictive method. The method of instead, given <em>n</em> known data points, fitting a polynomial <em>p</em> of degree <em>n – 1</em> will fit the known data exactly but will tend to fluctuate wildly up and down in between the known points and thus predict unknown data poorly. We can reject other alternative hypotheses in the same way, often leaving the Gauss Linear model as the most successful predictive method.</p>
+<ul>
+<li>Maybe show what actually happens with simulated data (and revise the previous paragraph accordingly, using a concept of how-different-the-predictions-are as well as comparative performance, and relating those to the corresponding concepts in the prior discussion of deterministic predictive methods)</li>
+</ul>
+<section id="example-predicting-the-continuation-of-an-unknown-curve" class="level3">
+<h3 class="anchored" data-anchor-id="example-predicting-the-continuation-of-an-unknown-curve">Example: Predicting the continuation of an unknown curve</h3>
+<p>As a slightly less simple example, consider the non-linear prediction task presented in <span class="citation" data-cites="forster2000">(<a href="#ref-forster2000" role="doc-biblioref">M. R. Forster 2000</a>)</span>. Suppose you observe 20 values of <span class="math inline">\(y\)</span> at each evenly spaced interval of <span class="math inline">\(x\)</span> from 0 to 3.5, the values shown in <a href="#fig-known-data" class="quarto-xref">Figure&nbsp;1</a>, and you want to predict <span class="math inline">\(y\)</span> for <span class="math inline">\(x\)</span> between 3.5 and 5.</p>
+<div class="quarto-embed-nb-cell">
+<div id="fig-known-data" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-known-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+<div aria-describedby="fig-known-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>And suppose your candidate methods for doing so are using Gaussian polynomial models up to degree 4, with the question being which degree to use. Although the higher degree models are clearly able to fit the known values of <span class="math inline">\(y\)</span> more closely, they are not necessarily better able to predict the unknown values. For example, here are the 4th degree polynomial method’s predictions:</p>
+<div class="quarto-embed-nb-cell">
+<div id="fig-poly4-predict" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-poly4-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+<div aria-describedby="fig-poly4-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Those predictions may not look intuitively plausible, but who is to say that that is not how the pattern would continue? Instead of relying on intuition, we ought to evaluate how well this and the other methods are able to make similar predictions for held-out data that we do know. For simplicity of exposition, consider a prediction class in which the only known prediction task is to predict <span class="math inline">\(y\)</span> for <span class="math inline">\(x\)</span> from 2.6 through 3.5, given the data for <span class="math inline">\(x\)</span> from 0 to 2.5.<a href="#fn20" class="footnote-ref" id="fnref20" role="doc-noteref"><sup>20</sup></a> Here is how the 4th degree method performs on this prediction task:</p>
+<div class="quarto-embed-nb-cell">
+<div id="fig-poly4-eval" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-poly4-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3
+</figcaption>
+<div aria-describedby="fig-poly4-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>By contrast, the linear, 1st degree method, which performs best on this task, looks like this:</p>
+<div class="quarto-embed-nb-cell">
+<div id="fig-poly1-eval" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-poly1-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4
+</figcaption>
+<div aria-describedby="fig-poly1-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>The linear method performs better both because the central tendency it predicts is closer to the true data and because it predicts a wider standard deviation. In other words, the close fit of Poly-4 to the training data actually hurts its predictive performance by being “overconfident.”</p>
+<p>So, among these candidate methods, Poly-1 is best at the hold-out predictive task.<a href="#fn21" class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a> And that is why it should be used for the prediction of interest. It is closest to the method for reliably predicting the relevant probabilities, if such a method exists.</p>
+<p>In this case, Poly-1 is the clear winner, but what if there were another method with similar performance? That situation would be analogous to the deterministic prediction case discussed in <a href="#sec-multi" class="quarto-xref">Section&nbsp;3.1</a> above. Similar performance is analogous to two deterministic methods being equally successful, but here that is a fuzzy measure rather than a binary one.<a href="#fn22" class="footnote-ref" id="fnref22" role="doc-noteref"><sup>22</sup></a> Likewise, the question of whether the alternative method produces equivalent predictions is also fuzzy here, and the right way to quantify it is not immediately clear. Generally, though, an analogous principle holds: the justification for using Poly-1 presupposes that there is not a similarly successful alternative with substantially non-equivalent predictions for the task of interest.</p>
+<p>Now, if one thought to try fitting the function <span class="math inline">\(a_1 + \tanh (x + a_2)\)</span> to the data, that would perform even better than Poly-1 for this prediction class, and so <em>that</em> should be used (even if it were not known that such a function was used to simulate these data, as it was).</p>
+<p>But the best predictive method for a given purpose will not necessarily correspond to the true data-generating process. Suppose the data were actually generated by a regular zigzag curve of high frequency: <span class="math inline">\(f(x) = \left| \left( \frac{2}{\lambda} \cdot x \bmod 2 \right) - 1 \right|\)</span>) Unless we have a very large number of observations, the available data will not be sufficient to distinguish the zigzag curve from a linear model with uniformly distributed errors—even if it occurred to us to try fitting a zigzag curve. And attempting to fit a zigzag to a small data sample will likely result in worse predictions than the simple linear model.</p>
+<p>Identifying the true data-generating process (given limited data) is not in itself our goal. Rather, the goal is making predictions as accurate as possible in the context at hand. In many cases, especially in the softer sciences, we have no hope of correctly specifying the true model anyhow. Let’s look at an example using real data for which that is the case.</p>
+<ul>
+<li>Add example with real data (height?)</li>
+<li>Try model averaging? Or just acknowledge it as a possibility, something that may or may not improve predictive success.</li>
+<li>Make point that concern about generalization is purely a problem of the data available. Our intuition is that fitting to one dataset won’t generalize, but that is based on “leakage”: our awareness of different data. The thing to do is to train on that extra data as well. Once trained on all available data, we have nothing else to go on to generalize.</li>
+<li>Maybe use <span class="citation" data-cites="myrvold2002">(<a href="#ref-myrvold2002" role="doc-biblioref">Myrvold and Harper 2002</a>)</span> orbital period chart example for an alternative generalization example</li>
+</ul>
+</section>
+</section>
+<section id="sec-class" class="level2">
+<h2 class="anchored" data-anchor-id="sec-class">Justifying a weighted prediction class</h2>
+<p>Thus far, the argument has presumed an agreed-upon weighted prediction class, relative to which predictive success is assessed and with reference to which the use of a successful predictive method is justified. But where does this prediction class come from and how can it be justified, in turn. It is not hard to imagine situations in which a given prediction of unknown information could be conceived of as part of multiple alternative prediction classes, with conflicting implications for which predictive method should be used. It this apparent incommensurability, then, fatal to the argument as a whole?</p>
+<p>No, when in doubt, we can expand the prediction class out to the agent’s whole world, weighting according to importance. The prediction tasks are to predict (all) future observation, using all past observations as inputs. More narrow prediction classes can ultimately be evaluated by how well their selected predictive methods perform in terms of this universal metric of predictive success.</p>
+<ul>
+<li>Yet how can cross-validation (or, the exchangeability-type assumptions involved) be justified?</li>
+</ul>
+</section>
+<section id="sec-induct" class="level2">
+<h2 class="anchored" data-anchor-id="sec-induct">Answering objections to Reichenbach’s pragmatic justification</h2>
+<p>This rationale for using successful predictive methods shares some things in common with Reichenbach’s pragmatic vindication of induction. This section clarifies how the two arguments are related and addresses the most prominent objections to Reichenbach’s argument, as summarized by <span class="citation" data-cites="henderson2022">(<a href="#ref-henderson2022" role="doc-biblioref">Henderson 2022</a>)</span>.</p>
+<p>The key commonality is that Reichenbach, while clearly acknowledging that using induction is not sufficient for success, argued that it is <em>necessary</em>. “I do not know whether an operation will save the man, but if there is any remedy, it is an operation.”<a href="#fn23" class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a></p>
+<ul>
+<li>Reply to Lange fisherman argument</li>
+</ul>
+<p>In terms of the principle he was trying to justify, what is sometimes referred to as “straight rule” induction, can be thought of as a particular form of predictive method: predict the future frequency of a boolean event to be within a small interval of the observed relative frequency, <span class="math inline">\(m/n\)</span>.</p>
+<p>Reichenbach differed, however, in how he defined success: “to find series of events whose frequency of occurrence converges towards a limit.”<a href="#fn24" class="footnote-ref" id="fnref24" role="doc-noteref"><sup>24</sup></a> Defining success as convergence toward a limit obstructs Reichenbach from demonstrating that straight-rule induction is necessary for success. As he acknowledges himself, infinitely many successful alternative rules can be constructed as the straight-rule plus some <span class="math inline">\(c_n\)</span>, as long as the <span class="math inline">\(c_n\)</span> which converges to zero as <span class="math inline">\(n\)</span> increases.<a href="#fn25" class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a> By contrast, the approach here identifies a unique best predictive method, based on its currently known predictive track record.</p>
+<ul>
+<li>Add concluding paragraph re short run vs.&nbsp;long run.</li>
+</ul>
+</section>
+<section id="sec-schurz" class="level2">
+<h2 class="anchored" data-anchor-id="sec-schurz">Schurz’s justification for induction</h2>
+<ul>
+<li>contrast with more recent pragmatic attempt (ML-inspired formulation that doesn’t actually fit with ML practice), addressing its critique of simply adopting the “most successful” predictive method</li>
+</ul>
+</section>
+<section id="sec-intprob" class="level2">
+<h2 class="anchored" data-anchor-id="sec-intprob">Probability</h2>
+<p>As Wesley Salmon put it, the challenge of providing an adequate philosophical interpretation of probability is “Hume’s problem of induction all over again in slightly different terminology.”<a href="#fn26" class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a> So, while this is not the place for an in-depth treatment of the philosophy of probability, it is worth briefly noting that the concept of “best predictive method” described above also provides an interpretation of probability.</p>
+<p>According to Salmon, the fundamental challenge in interpreting probability is “to satisfy simultaneously the criteria of ascertainability and applicability.”<a href="#fn27" class="footnote-ref" id="fnref27" role="doc-noteref"><sup>27</sup></a> Ascertainability means it is possible to determine what the value of a particular probability is, at least in principle, whereas applicability means that a probability should have practical significance. In brief, ascertainability is the primary challenge for the frequency interpretation of probability, whereas more subjective conceptions of probability as degree of belief tend to fall short on applicability. The predictive method approach advocated here, defining probability as the predicted probability for a given event, straightforwardly meets the criteria of applicability, and it also provides a new angle on ascertainability. The probability distribution in a given predictive context is that indicated by the predictive method with the greatest predictive success, the highest average log-likelihood for the cases in a predictive class. In principle, it may be defined as the probability distribution of the true best predictive method, that which would be most successful for as-yet unobserved instances as well as those already known. In practice, it may be ascertained according to the best known predictive method.</p>
+<p>The predictive approach improves upon the frequency interpretation in its handling of the single case, unrepeated or unrepeatable events.<a href="#fn28" class="footnote-ref" id="fnref28" role="doc-noteref"><sup>28</sup></a> …</p>
+</section>
+<section id="sec-conclude" class="level2">
+<h2 class="anchored" data-anchor-id="sec-conclude">Conclusion</h2>
+<p>In his book <em>The Knowledge Machine</em>, Michael Strevens provides a compelling account of how science works, a lucid synthesis of decades of insights from history and philosophy of science, albeit with one unsettling limitation. Strevens makes the quandaries of philosophers actually fun to read about, including David Hume’s problem of induction, the lack of a reasoned justification for generalizing from experience. On the stakes of this problem, he quotes Bertrand Russell, who said that if inductive reasoning cannot be justified, “there is no intellectual difference between sanity and insanity” (p.&nbsp;17) And Russell is not alone. As Strevens puts it, almost all philosophers of science “believe that induction is essential to human existence” (p.&nbsp;21).<a href="#fn29" class="footnote-ref" id="fnref29" role="doc-noteref"><sup>29</sup></a> Yet, “there is still no widely accepted justification for induction” (p.&nbsp;17).</p>
+<p>Any inductive inference from known information to unknown can be thought of as a prediction, broadly construed, so the argument above amounts to a pragmatic justification for induction. Aside from providing a foundational rationale for our common-sense attitudes, something that perhaps only philosophers care about, this refined grounding for inductive reasoning has practical implications for how science should be conducted and interpreted. But such implications are for future work. For now I would just situate the relevance of these philosophical considerations in the context of Strevens’ account of science in <em>The Knowledge Machine.</em></p>
+<p>Strevens’ book goes on to argue that the power of modern science stems from how it directs scientists to relentlessly prioritize tedious empirical observations over the aesthetic, religious, or philosophical considerations to which pre-modern students of the natural world dedicated the bulk of their attention and writing. But Strevens never returns to the basic question of how generalizing from all those meticulous observations can be justified in the first place.<a href="#fn30" class="footnote-ref" id="fnref30" role="doc-noteref"><sup>30</sup></a> It almost seems as if Strevens hopes his readers, despite his forceful presentation of Hume’s problem of induction in the first chapter, will have safely forgotten this disturbing quandary by the end of the subsequent thirteen chapters. The justification of inductive reasoning presented here aims to provide a more satisfying account for why all that careful observation Strevens celebrates matters: by eliminating rival predictive methods, we are left not with a bewildering infinitude of theories yet capable of fitting our still-finite observations but rather, for so many practical purposes, a single relevant predictive method, enabling our ever-expanding technical mastery.</p>
+</section>
+
+
+
+<div id="quarto-appendix" class="default"><section id="references" class="level2 appendix unnumbered"><h2 class="anchored quarto-appendix-heading">References</h2><div class="quarto-appendix-contents">
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-barnes2022" class="csl-entry" role="listitem">
+Barnes, Eric Christian. 2022. <span>“Prediction Versus Accommodation.”</span> In, edited by Edward N. Zalta and Uri Nodelman, Winter 2022. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/win2022/entries/prediction-accommodation/">https://plato.stanford.edu/archives/win2022/entries/prediction-accommodation/</a>.
+</div>
+<div id="ref-busemeyer2000" class="csl-entry" role="listitem">
+Busemeyer, Jerome R, and Yi-Min Wang. 2000. <span>“Model Comparisons and Model Selections Based on Generalization Criterion Methodology.”</span> <em>Journal of Mathematical Psychology</em> 44 (1): 171–89. <a href="https://doi.org/10.1006/jmps.1999.1282">https://doi.org/10.1006/jmps.1999.1282</a>.
+</div>
+<div id="ref-donoho2017" class="csl-entry" role="listitem">
+Donoho, David. 2017. <span>“50 Years of Data Science.”</span> <em>Journal of Computational and Graphical Statistics</em> 26 (4): 745–66. <a href="https://doi.org/10.1080/10618600.2017.1384734">https://doi.org/10.1080/10618600.2017.1384734</a>.
+</div>
+<div id="ref-forster2008" class="csl-entry" role="listitem">
+Forster, Malcolm. 2008. <span>“Prediction.”</span> In, 433441. Routledge. <a href="https://www.taylorfrancis.com/chapters/edit/10.4324/9780203000502-47/prediction-malcolm-forster">https://www.taylorfrancis.com/chapters/edit/10.4324/9780203000502-47/prediction-malcolm-forster</a>.
+</div>
+<div id="ref-forster2000" class="csl-entry" role="listitem">
+Forster, Malcolm R. 2000. <span>“Key Concepts in Model Selection: Performance and Generalizability.”</span> <em>Journal of Mathematical Psychology</em> 44 (1): 205231. <a href="https://www.sciencedirect.com/science/article/pii/S0022249699912841">https://www.sciencedirect.com/science/article/pii/S0022249699912841</a>.
+</div>
+<div id="ref-forster1994" class="csl-entry" role="listitem">
+Forster, Malcolm, and Elliott Sober. 1994. <span>“How to Tell When Simpler, More Unified, or Less Ad Hoc Theories Will Provide More Accurate Predictions.”</span> <em>The British Journal for the Philosophy of Science</em> 45 (1): 1–35. <a href="http://www.jstor.org/stable/687960">http://www.jstor.org/stable/687960</a>.
+</div>
+<div id="ref-hájek2023" class="csl-entry" role="listitem">
+Hájek, Alan. 2023. <span>“Interpretations of Probability.”</span> In, edited by Edward N. Zalta and Uri Nodelman, Winter 2023. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/win2023/entries/probability-interpret/">https://plato.stanford.edu/archives/win2023/entries/probability-interpret/</a>.
+</div>
+<div id="ref-henderson2022" class="csl-entry" role="listitem">
+Henderson, Leah. 2022. <span>“The Problem of Induction.”</span> In, edited by Edward N. Zalta and Uri Nodelman, Winter 2022. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/win2022/entries/induction-problem/">https://plato.stanford.edu/archives/win2022/entries/induction-problem/</a>.
+</div>
+<div id="ref-kaufman2012" class="csl-entry" role="listitem">
+Kaufman, Shachar, Saharon Rosset, Claudia Perlich, and Ori Stitelman. 2012. <span>“Leakage in Data Mining: Formulation, Detection, and Avoidance.”</span> <em>ACM Transactions on Knowledge Discovery from Data</em> 6 (4): 1–21. <a href="https://doi.org/10.1145/2382577.2382579">https://doi.org/10.1145/2382577.2382579</a>.
+</div>
+<div id="ref-myrvold2002" class="csl-entry" role="listitem">
+Myrvold, Wayne C., and William L. Harper. 2002. <span>“Model Selection, Simplicity, and Scientific Inference.”</span> <em>Philosophy of Science</em> 69 (S3): S135–49. <a href="https://doi.org/10.1086/341841">https://doi.org/10.1086/341841</a>.
+</div>
+<div id="ref-romeijn2022" class="csl-entry" role="listitem">
+Romeijn, Jan-Willem. 2022. <span>“Philosophy of Statistics.”</span> In, edited by Edward N. Zalta and Uri Nodelman, Fall 2022. Metaphysics Research Lab, Stanford University. <a href="https://plato.stanford.edu/archives/fall2022/entries/statistics/">https://plato.stanford.edu/archives/fall2022/entries/statistics/</a>.
+</div>
+<div id="ref-salmon1981" class="csl-entry" role="listitem">
+Salmon, Wesley C. 1981. <span>“Rational Prediction.”</span> <em>The British Journal for the Philosophy of Science</em> 32 (2): 115–25. <a href="https://doi.org/10.1093/bjps/32.2.115">https://doi.org/10.1093/bjps/32.2.115</a>.
+</div>
+<div id="ref-salmon2017" class="csl-entry" role="listitem">
+———. 2017. <em>The Foundations of Scientific Inference: 50th Anniversary Edition</em>. University of Pittsburgh Press. <a href="https://www.jstor.org/stable/j.ctt1s475s3">https://www.jstor.org/stable/j.ctt1s475s3</a>.
+</div>
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>As <span class="citation" data-cites="forster2008">M. Forster (<a href="#ref-forster2008" role="doc-biblioref">2008</a>)</span> put it, “Suppose I choose a card and place it face down on the table. You have to predict whether I chose a diamond. Even though the event you are predicting happened in the past, we are comfortable with using the word ‘predict,’ as opposed to ‘postdict.’” However, when a data point is used to determine the value of <em>that same data point</em>, that is not a prediction, properly speaking (which should go without saying, but the term “predict” is sometimes used loosely in this way in statistics).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><span class="citation" data-cites="romeijn2022">(<a href="#ref-romeijn2022" role="doc-biblioref">Romeijn 2022</a>)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Machine learning techniques could be used to train it to recognize a raven’s telltale visual characteristics (aside from color) and the sounds it produces. It is somewhat more difficult to imagine automating the process a human would use to ascertain a bird’s ancestry, whether by plucking a feather and analyzing its DNA or by somehow determining whether the bird could be traced back to known raven parents.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>The latter is sometimes called a “heuristic” prediction in the literature on assessing scientific theories, as contrasted with the former “temporal” predictions.<span class="citation" data-cites="barnes2022">(<a href="#ref-barnes2022" role="doc-biblioref">Barnes 2022</a>)</span> Whether something is a heuristic prediction of a scientific theory can be difficult to define, but thinking in terms of predictive methods from the outset helps eliminate the ambiguity between mere accommodation and prediction.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>In some previous literature, the curve-fitting problem is formulated in terms of a “family of curves” (or models). This LMSE best-fit line “predictive method” is analogous to the family of all straight lines, as defined in <span class="citation" data-cites="forster1994">(<a href="#ref-forster1994" role="doc-biblioref">M. Forster and Sober 1994</a>)</span>, for example (which notes that such families “are of interest because they are <em>instruments of prediction</em>.” (emphasis added)). By contrast though, a predictive method must also specify how the specific curve is chosen from among the family, given some input data. (The concept of a predictive method may also be broader than that of a family of curves, encompassing the application of broader concepts and theories, such as in the ravens example.)<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>When plausibility is in doubt, literal temporal predictions can settle the matter, in principle. But a mere thought experiment about temporal predictions may be sufficient.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>In the machine learning literature, the term “leakage” is sometimes used to refer to “the introduction of information about the target…that should not be legitimately available.”<span class="citation" data-cites="kaufman2012">(<a href="#ref-kaufman2012" role="doc-biblioref">Kaufman et al. 2012</a>)</span><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Discretizing the x-axis to even seconds, we can put a number on it: there are <span class="math inline">\(100^{3600*24-9}=10^{172782}\)</span> such functions that go through all nine points exactly.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>This is Nelson Goodman’s “new riddle of induction.”<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>This argument is akin to Reichenbach’s pragmatic vindication of induction (see <span class="citation" data-cites="henderson2022">(<a href="#ref-henderson2022" role="doc-biblioref">Henderson 2022</a>)</span>). He attempted to justify the use of “straight rule” induction (for non-deterministic cases as well), however, which lacks the protection against underdetermination of validated predictive methods. See <a href="#sec-induct" class="quarto-xref">Section&nbsp;6</a>.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>Suppose there were some other way of identifying a reliable predictive method: using a Ouija board, say. Such a “meta” method can itself be considered a predictive method. And if the Ouija board really did reveal reliable predictive methods, the methods it dictates would work reliably.<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>A counterexample to such an open-ended generalization tells us it is false, but an observation consistent with it can never tell us it is true. Thus it is not straightforward for a hypothesis to help us relate future instances to past positive instances. By contrast, the repeatable nature of predictive methods enables direct generalization to new instances: their procedures can be replicated, checking the outcome the same way each time. To apply a predictive method is to reproduce the same procedure that has been (or could have been) found successful in the past. Past outcomes of predictive methods are of the same kind as intended future outcomes, commensurable.<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>Within its scope, contexts in which both relativistic and quantum effects are negligible, let us posit that Newtonian mechanics has a (uniquely) flawless track record.<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>In this respect, there is a strong parallel with Karl Popper’s conception of falsification as the goal of science. But Popper explicitly denied giving an account of rational prediction.<span class="citation" data-cites="salmon1981">(<a href="#ref-salmon1981" role="doc-biblioref">Salmon 1981</a>)</span> He also focused on theories as the unit of analysis rather than predictive methods, and it is much more conceivable that there be just one of the latter that has proven successful (so far).<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p>In some contexts, one may instead want to choose the predictive method that minimizes some “loss” metric, and a partially-specified prediction may suffice: one which merely predicts a specific outcome rather than a probability distribution over all potential outcomes. Suppose there is money at stake on a specific prediction, for instance, and the loss is a function of the magnitude (and potentially the direction) of the error. Here, however, we will limit attention to the log-likelihood metric—and thus to methods that specify a full probability distribution.<a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p>This is akin to the first of three assumptions <span class="citation" data-cites="forster1994">M. Forster and Sober (<a href="#ref-forster1994" role="doc-biblioref">1994</a>)</span> enumerate for Akaike’s Theorem: “a ‘uniformity of nature’ assumption that says that the true curve, whatever it is, remains the same for both the old and the new data sets considered in the definition of predictive accuracy.”<a href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p>This actually suggests a distinctive philosophical interpretation of probability, as discussed below in <a href="#sec-intprob" class="quarto-xref">Section&nbsp;8</a>.<a href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p>The phrase “predictive accuracy” here is used analogously to how it is defined in <span class="citation" data-cites="forster1994">(<a href="#ref-forster1994" role="doc-biblioref">M. Forster and Sober 1994</a>)</span>: average (or “expected”) log-likelihood, which can also be interpreted as a measure of closeness to the true probability distribution in terms of the Kullback-Liebler divergence, the average difference in log-likelihoods.<a href="#fnref18" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p>This framing is closely related to what is sometimes referred to as the Common Task Framework in the machine learning literature.<span class="citation" data-cites="donoho2017">(<a href="#ref-donoho2017" role="doc-biblioref">Donoho 2017</a>)</span><a href="#fnref19" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p>Similar results are obtained using the following tasks as the known prediction class: given the data for <span class="math inline">\(x\)</span> between 0 and 3.4, predict <span class="math inline">\(y\)</span> for <span class="math inline">\(x=3.5\)</span> (the closest analogy to predicting for <span class="math inline">\(x=3.6\)</span> given all the known data); given the data for <span class="math inline">\(x\)</span> between 0 and 2.5, predict <span class="math inline">\(y\)</span> for <span class="math inline">\(x=3.5\)</span> (arguably the closest analogy for predicting <span class="math inline">\(y\)</span> at <span class="math inline">\(x=5\)</span>); and likewise the eight tasks in between of predicting <span class="math inline">\(y\)</span> for <span class="math inline">\(x=3.5\)</span> given the data for <span class="math inline">\(x\)</span> betwen 0 and 2.6, between 0 and 2.7, and so on; and, finally, given the data for <span class="math inline">\(x\)</span> between 0 and 2.4, predict <span class="math inline">\(y\)</span> for <span class="math inline">\(x\)</span> between 2.5 and 3.4, inclusive. Weighting each of these tasks equally provides a suite of tasks that is roughly representative of the tasks of interest: predicting <span class="math inline">\(y\)</span> for each of the <span class="math inline">\(x\)</span> values 3.6, 3.7, …, 4.9, 5.0. Even this is perhaps too small and simple a class. A different suite of tasks, with different weights, could just as well be chosen. Ideally, the selection of a predictive method will not depend on the choice among reasonable such prediction classes. If it does, that tells you something about uniqueness, which is discussed further below.<a href="#fnref20" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn21"><p>This is a form of “generalization test,” with reference to <span class="citation" data-cites="busemeyer2000">(<a href="#ref-busemeyer2000" role="doc-biblioref">Busemeyer and Wang 2000</a>)</span>.<a href="#fnref21" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22"><p>One possible measure: if one method’s predicted probabilities were used to simulate new outcomes for the known prediction tasks, how likely is it that the alternative method would have been chosen?<a href="#fnref22" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn23"><p>(Reichenbach 1938 [2006: 349]), as quoted in <span class="citation" data-cites="henderson2022">(<a href="#ref-henderson2022" role="doc-biblioref">Henderson 2022</a>)</span>.<a href="#fnref23" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn24"><p>(Reichenbach 1938 [2006: 350]), as quoted in <span class="citation" data-cites="henderson2022">(<a href="#ref-henderson2022" role="doc-biblioref">Henderson 2022</a>)</span>.<a href="#fnref24" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn25"><p>His main attempt to nevertheless salvage a unique status for straight-rule induction is to claim that it has the “smallest risk” of delaying convergence, that it is most likely to approximate the limit well for smaller values of <span class="math inline">\(n\)</span>.((Reichenbach 1938 [2006: 355-356]), as quoted in <span class="citation" data-cites="henderson2022">(<a href="#ref-henderson2022" role="doc-biblioref">Henderson 2022</a>)</span>) This alternative measure of success is more akin to that of <a href="#sec-prob" class="quarto-xref">Section&nbsp;4</a> above, but Reichenbach did not have the benefit of cross-validation being an established concept in the statistics of his time.<a href="#fnref25" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn26"><p><span class="citation" data-cites="salmon2017">(<a href="#ref-salmon2017" role="doc-biblioref">Salmon 2017</a>)</span> (p.&nbsp;65)<a href="#fnref26" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn27"><p>Ibid.<a href="#fnref27" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn28"><p>See <span class="citation" data-cites="hájek2023">(<a href="#ref-hájek2023" role="doc-biblioref">Hájek 2023</a>)</span> for further discussion.<a href="#fnref28" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn29"><p>“Some believe that Hume’s problem must have a solution—that is, a philosophical argument showing that it is reasonable to suppose that nature is uniform in certain respects… Some believe, like Hume himself, that it has no solution but that we must go on thinking inductively regardless, both in our science and in our everyday lives” (p.&nbsp;21). Strevens does not make clear to which camp he himself belongs.<a href="#fnref29" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn30"><p>Strevens gestures toward “Baconian convergence” but does not attempt to explain why this seems to work so well rather than being defeated by the underdetermination that seems so inevitable when confirmation theory is considered in the abstract.<a href="#fnref30" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
