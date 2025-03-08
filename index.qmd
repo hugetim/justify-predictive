@@ -116,7 +116,7 @@ For a more grown-up example, consider an engineer designing a bridge. Is she jus
 
 [^12]: Within its scope, contexts in which both relativistic and quantum effects are negligible, let us posit that Newtonian mechanics has a (uniquely) flawless track record.
 
-### How to determine whether a method is sufficiently tested?
+### How to determine whether a method is sufficiently tested? {#sec-multi}
 
 In this way of thinking, a greater quantity of successes, in itself, does not increase the justification for using a predictive method. And that may seem like a problem: how can it be the case that the rational warrant for using a predictive method known to work just a few times is the same as for one used successfully thousands of times? Well, though a small number of instances is not a problem in itself, it is a problem to the extent the available evidence is not sufficient to distinguish alternative predictive methods and identify a uniquely successful one.
 
@@ -154,17 +154,29 @@ For our linear curve-fitting example, fitting a Gauss Linear model to the data i
 
 ### Example: Predicting the continuation of an unknown curve
 
-As a slightly less simple example, consider the non-linear prediction task presented in [@forster2000]. Suppose you observe 20 values of $y$ at each evenly spaced interval of $x$ between 0 and 3.5, the values shown in @fig-known-data, and you want to predict $y$ for $x$ between 3.5 and 5.
+As a slightly less simple example, consider the non-linear prediction task presented in [@forster2000]. Suppose you observe 20 values of $y$ at each evenly spaced interval of $x$ from 0 to 3.5, the values shown in @fig-known-data, and you want to predict $y$ for $x$ between 3.5 and 5.
 
 {{< embed notebooks/forster2000_adapted.ipynb#fig-known-data >}}
 
-And suppose your candidate methods for doing so are using Gaussian polynomial models up to degree 4, with the question being which degree to use. @forster2000 explains that the higher degree models, though they are able to more closely fit the known values of $y$, are not necessarily better able to predict the unknown values. 
+And suppose your candidate methods for doing so are using Gaussian polynomial models up to degree 4, with the question being which degree to use. Although the higher degree models are clearly able to fit the known values of $y$ more closely, they are not necessarily better able to predict the unknown values. For example, here are the 4th degree polynomial method's predictions:
 
-Define the prediction class as including these tasks with known outcomes: given the data for $x$ between 0 and 3.4, predict $y$ for $x=3.5$ (the closest analogy to predicting for $x=3.6$ given all the known data); given the data for $x$ between 0 and 2.5, predict $y$ for $x=3.5$ (arguably the closest analogy for predicting $y$ at $x=5$); and likewise the eight tasks in between of predicting $y$ for $x=3.5$ given the data for $x$ betwen 0 and 2.6, between 0 and 2.7, and so on; and, finally, given the data for $x$ between 0 and 2.4, predict $y$ for $x$ between 2.5 and 3.4, inclusive. Weighting each of these tasks equally provides a suite of tasks that is roughly representative of the tasks of interest: predicting $y$ for each of the $x$ values 3.6, 3.7, ..., 4.9, 5.0.^[This is a fairly comprehensive class that is still relatively simple for ease of exposition. A different suite of tasks, with different weights, could just as well be chosen. Ideally, the selection of a predictive method will not depend on the choice among reasonable such prediction classes. If it does, that tells you something about uniqueness, which is discussed further below.]
+{{< embed notebooks/forster2000_adapted.ipynb#fig-poly4-predict >}}
 
-Though Poly-4 is best able to fit the known data, Poly-1 is best at these predictive tasks. And that is why it should be used for the predictions in question. It is closest to the method for reliably predicting the relevant probabilities, if such a method exists.
+Those predictions may not look intuitively plausible, but who is to say that that is not how the pattern would continue? Instead of relying on intuition, we ought to evaluate how well this and the other methods are able to make similar predictions for held-out data that we do know. For simplicity of exposition, consider a prediction class in which the only known prediction task is to predict $y$ for $x$ from 2.6 through 3.5, given the data for $x$ from 0 to 2.5.^[Similar results are obtained using the following tasks as the known prediction class: given the data for $x$ between 0 and 3.4, predict $y$ for $x=3.5$ (the closest analogy to predicting for $x=3.6$ given all the known data); given the data for $x$ between 0 and 2.5, predict $y$ for $x=3.5$ (arguably the closest analogy for predicting $y$ at $x=5$); and likewise the eight tasks in between of predicting $y$ for $x=3.5$ given the data for $x$ betwen 0 and 2.6, between 0 and 2.7, and so on; and, finally, given the data for $x$ between 0 and 2.4, predict $y$ for $x$ between 2.5 and 3.4, inclusive. Weighting each of these tasks equally provides a suite of tasks that is roughly representative of the tasks of interest: predicting $y$ for each of the $x$ values 3.6, 3.7, ..., 4.9, 5.0. Even this is perhaps too small and simple a class. A different suite of tasks, with different weights, could just as well be chosen. Ideally, the selection of a predictive method will not depend on the choice among reasonable such prediction classes. If it does, that tells you something about uniqueness, which is discussed further below.] Here is how the 4th degree method performs on this prediction task:
 
-If one thought to try fitting the function $a_1 + \tanh (x + a_2)$ to the data, that would perform even better than Poly-1 for this prediction class, and so *that* should be used (even if it were not known that such a function was used to simulate these data, as it was).
+{{< embed notebooks/forster2000_adapted.ipynb#fig-poly4-eval >}}
+
+By contrast, the linear, 1st degree method, which performs best on this task, looks like this:
+
+{{< embed notebooks/forster2000_adapted.ipynb#fig-poly1-eval >}}
+
+The linear method performs better both because the central tendency it predicts is closer to the true data and because it predicts a wider standard deviation. In other words, the close fit of Poly-4 to the training data actually hurts it's predictive performance by being "overconfident."
+
+So, among these candidate methods, Poly-1 is best at the hold-out predictive task. And that is why it should be used for the prediction of interest. It is closest to the method for reliably predicting the relevant probabilities, if such a method exists. 
+
+In this case, Poly-1 is the clear winner, but what if there were another method with similar performance? That situation would be analogous to the deterministic prediction case discussed in @sec-multi above. Similar performance is analogous to two deterministic methods being equally successful, but here that is a fuzzy measure rather than a binary one.^[One possible measure: if one method's predicted probabilities were used to simulate new outcomes for the known prediction tasks, how likely is it that the alternative method would have been chosen?] Likewise, the question of whether the alternative method produces equivalent predictions is also fuzzy here, and the right way to quantify it is not immediately clear.^[] Still, an analogous principle holds: the justification for using Poly-1 presupposes that there is not a similarly successful alternative with substantially non-equivalent predictions for the task of interest. 
+
+Now, if one thought to try fitting the function $a_1 + \tanh (x + a_2)$ to the data, that would perform even better than Poly-1 for this prediction class, and so *that* should be used (even if it were not known that such a function was used to simulate these data, as it was).
 
 Now suppose we’re interested in generalizing from this data,[^22] which is limited to ages 20-74. Suppose we want to use it to predict the height of someone aged 75-85, randomly selected from this population. The leave-one-out prediction measure used above is less suitable for evaluating a method’s ability to predict the heights of other ages because it is less closely analogous to the prediction task of interest. The table below shows the mean squared predictive error for 15 more similar prediction tasks that can be checked with the available data (so here, lower is better). (A) involves predicting heights for ages 73-74 using data on only ages 20-72. Among these 15 alternatives, it is most like the prediction task of interest in terms of how much data it has available to fit the model. (J), predicting ages 64-74 using data for ages 20-63, is most like the desired prediction task in terms of how many years out it is extrapolating, but it differs in that it has 11 fewer years of data with which to fit the model. There are a range of prediction assessments between (A) and (J). (K)-(O) are also included as alternative assessments of extrapolating 11 years out, though they differ increasingly from the desired prediction task in other respects (both in terms of the predicted age range and the amount of data available to fit the model) and should thus be given less weight. It’s not clear which of these alternatives is the best single test of predictive performance akin to extrapolating from ages 20-74 to ages 75-85. But each of them is more closely analogous to the desired prediction task than is the leave-one-out prediction used above.
 
@@ -179,13 +191,6 @@ Identifying the true data-generating process (given limited data) is not in itse
 -   Add example with real data (height?)
 -   Make point that concern about generalization is purely a problem of the data available. Our intuition is that fitting to one dataset won't generalize, but that is based on our awareness of different data. The thing to do is to train on that extra data. Once trained on all available data, we have nothing else to go on to generalize.
 -   Maybe use [@myrvold2002] orbital period chart example for an alternative generalization example
-
-### Assessing whether a probabilistic model is sufficiently tested
-
-Generalize these ideas, after exploring via the example above:
-
--   how different are the predictions of the rivals?
--   if each method's predicted probabilities were used to simulate new outcomes, how likely is it that a rival method would have been chosen? (or, more crudely put, what is the estimated variance of the predictive success metric?)
 
 ## Justifying a weighted prediction class {#sec-class}
 
