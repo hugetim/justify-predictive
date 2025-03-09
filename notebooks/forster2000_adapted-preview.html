@@ -309,12 +309,12 @@
 <div class="cell-output cell-output-display">
 <div id="fig-known-data" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-known-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Known Data
+</figcaption>
 <div aria-describedby="fig-known-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
 <a href="forster2000_adapted_files/figure-html/fig-known-data-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Known Data"><img src="forster2000_adapted_files/figure-html/fig-known-data-output-1.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-known-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Known Data
-</figcaption>
 </figure>
 </div>
 </div>
@@ -336,7 +336,13 @@ Figure&nbsp;1: Known Data
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)<span class="op">*</span>(ln(<span class="dv">2</span><span class="op">*</span>pi<span class="op">*</span>sigma2) <span class="op">+</span> MSE<span class="op">/</span>sigma2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <div id="cell-10" class="cell markdown">
-<p>statsmodels OLS documentation: https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html</p>
+<p>statsmodels documentation:</p>
+<ul>
+<li><a href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html">sm.OLS</a></li>
+<li><a href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.fit.html#statsmodels.regression.linear_model.OLS.fit">fit</a></li>
+<li><a href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.RegressionResults.predict.html#statsmodels.regression.linear_model.RegressionResults.predict">predict</a></li>
+<li><a href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.RegressionResults.mse_resid.html#statsmodels.regression.linear_model.RegressionResults.mse_resid">mse_resid</a></li>
+</ul>
 </div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="cell-11" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predicted_ll(model_name, task: PredictionTask) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
@@ -386,12 +392,12 @@ Figure&nbsp;1: Known Data
 <div class="cell-output cell-output-display">
 <div id="fig-poly4-predict" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-poly4-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: POLY-4 Prediction
+</figcaption>
 <div aria-describedby="fig-poly4-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
 <a href="forster2000_adapted_files/figure-html/fig-poly4-predict-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: POLY-4 Prediction"><img src="forster2000_adapted_files/figure-html/fig-poly4-predict-output-1.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-poly4-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: POLY-4 Prediction
-</figcaption>
 </figure>
 </div>
 </div>
@@ -415,12 +421,12 @@ Figure&nbsp;2: POLY-4 Prediction
 <div class="cell-output cell-output-display">
 <div id="fig-poly1-predict" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-poly1-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: POLY-1 Prediction
+</figcaption>
 <div aria-describedby="fig-poly1-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
 <a href="forster2000_adapted_files/figure-html/fig-poly1-predict-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: POLY-1 Prediction"><img src="forster2000_adapted_files/figure-html/fig-poly1-predict-output-1.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-poly1-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: POLY-1 Prediction
-</figcaption>
 </figure>
 </div>
 </div>
@@ -480,12 +486,12 @@ Figure&nbsp;3: POLY-1 Prediction
 <div class="cell-output cell-output-display">
 <div id="fig-poly4-eval" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-poly4-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: POLY-4 Hold-out Evaluation
+</figcaption>
 <div aria-describedby="fig-poly4-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
 <a href="forster2000_adapted_files/figure-html/fig-poly4-eval-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: POLY-4 Hold-out Evaluation"><img src="forster2000_adapted_files/figure-html/fig-poly4-eval-output-1.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-poly4-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: POLY-4 Hold-out Evaluation
-</figcaption>
 </figure>
 </div>
 </div>
@@ -495,12 +501,12 @@ Figure&nbsp;4: POLY-4 Hold-out Evaluation
 <div class="cell-output cell-output-display">
 <div id="fig-poly1-eval" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-poly1-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: POLY-1 Hold-out Evaluation
+</figcaption>
 <div aria-describedby="fig-poly1-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
 <a href="forster2000_adapted_files/figure-html/fig-poly1-eval-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: POLY-1 Hold-out Evaluation"><img src="forster2000_adapted_files/figure-html/fig-poly1-eval-output-1.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-poly1-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: POLY-1 Hold-out Evaluation
-</figcaption>
 </figure>
 </div>
 </div>
