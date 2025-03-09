@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tim Huegerich">
-<meta name="dcterms.date" content="2025-03-08">
+<meta name="dcterms.date" content="2025-03-09">
 
 <title>A pragmatic justification for predictive methods</title>
 <style>
@@ -45,7 +45,7 @@ div.csl-indent {
 }</style>
 
 
-<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -56,12 +56,18 @@ div.csl-indent {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-739378c0bda30779e554a5960cb6cecc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script async="" src="https://hypothes.is/embed.js"></script>
 <script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     document.body.classList.add('hypothesis-enabled');
   });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -96,10 +102,10 @@ window.Quarto = {
 <meta name="citation_title" content="A pragmatic justification for predictive methods">
 <meta name="citation_abstract" content="There is a pragmatic justification for expecting a predictive method to perform the same in the future as in the past. This justified expectation of continued predictive ability provides a new angle on Hume&amp;amp;#039;s problem of induction.">
 <meta name="citation_author" content="Tim Huegerich">
-<meta name="citation_publication_date" content="2025-03-08">
-<meta name="citation_cover_date" content="2025-03-08">
+<meta name="citation_publication_date" content="2025-03-09">
+<meta name="citation_cover_date" content="2025-03-09">
 <meta name="citation_year" content="2025">
-<meta name="citation_online_date" content="2025-03-08">
+<meta name="citation_online_date" content="2025-03-09">
 <meta name="citation_language" content="en">
 <meta name="citation_reference" content="citation_title=An Asymptotic Equivalence of Choice of Model by Cross-Validation and Akaike’s Criterion;,citation_author=M. Stone;,citation_publication_date=1977-09-01;,citation_cover_date=1977-09-01;,citation_year=1977;,citation_fulltext_html_url=https://academic.oup.com/jrsssb/article/39/1/44/7027527;,citation_issue=1;,citation_doi=10.1111/j.2517-6161.1977.tb01603.x;,citation_volume=39;,citation_language=en;,citation_journal_title=Journal of the Royal Statistical Society Series B: Statistical Methodology;">
 <meta name="citation_reference" content="citation_title=Challenges for econometric model selection;,citation_author=Bruce E. Hansen;,citation_publication_date=2005;,citation_cover_date=2005;,citation_year=2005;,citation_fulltext_html_url=https://www.cambridge.org/core/journals/econometric-theory/article/challenges-for-econometric-model-selection/EFC343EBB91A7CD60F9A79B0E9A7903F;,citation_issue=1;,citation_volume=21;,citation_journal_title=Econometric Theory;">
@@ -148,7 +154,7 @@ window.Quarto = {
                 <div>
             <div class="quarto-title-meta-heading">Published</div>
             <div class="quarto-title-meta-contents">
-              <p class="date">March 8, 2025</p>
+              <p class="date">March 9, 2025</p>
             </div>
           </div>
           
@@ -294,62 +300,70 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="example-predicting-the-continuation-of-an-unknown-curve">Example: Predicting the continuation of an unknown curve</h3>
 <p>As a slightly less simple example, consider the non-linear prediction task presented in <span class="citation" data-cites="forster2000">(<a href="#ref-forster2000" role="doc-biblioref">M. R. Forster 2000</a>)</span>. Suppose you observe 20 values of <span class="math inline">\(y\)</span> at each evenly spaced interval of <span class="math inline">\(x\)</span> from 0 to 3.5, the values shown in <a href="#fig-known-data" class="quarto-xref">Figure&nbsp;1</a>, and you want to predict <span class="math inline">\(y\)</span> for <span class="math inline">\(x\)</span> between 3.5 and 5.</p>
 <div class="quarto-embed-nb-cell">
-<div id="fig-known-data" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div id="cell-fig-known-data" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div id="fig-known-data" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-known-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-known-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Known Data
 </figcaption>
 <div aria-describedby="fig-known-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-
-</div>
+<a href="index_files/figure-html/notebooks-forster2000_adapted-fig-known-data-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Known Data"><img src="index_files/figure-html/notebooks-forster2000_adapted-fig-known-data-output-1.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
+</div>
+</div>
 </div>
 </div>
 <p>And suppose your candidate methods for doing so are using Gaussian polynomial models up to degree 4, with the question being which degree to use. Although the higher degree models are clearly able to fit the known values of <span class="math inline">\(y\)</span> more closely, they are not necessarily better able to predict the unknown values. For example, here are the 4th degree polynomial method’s predictions:</p>
 <div class="quarto-embed-nb-cell">
-<div id="fig-poly4-predict" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div id="cell-fig-poly4-predict" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div id="fig-poly4-predict" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-poly4-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-poly4-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: POLY-4 Prediction
 </figcaption>
 <div aria-describedby="fig-poly4-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-
-</div>
+<a href="index_files/figure-html/notebooks-forster2000_adapted-fig-poly4-predict-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: POLY-4 Prediction"><img src="index_files/figure-html/notebooks-forster2000_adapted-fig-poly4-predict-output-1.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
+</div>
+</div>
 </div>
 </div>
 <p>Those predictions may not look intuitively plausible, but who is to say that that is not how the pattern would continue? Instead of relying on intuition, we ought to evaluate how well this and the other methods are able to make similar predictions for held-out data that we do know. For simplicity of exposition, consider a prediction class in which the only known prediction task is to predict <span class="math inline">\(y\)</span> for <span class="math inline">\(x\)</span> from 2.6 through 3.5, given the data for <span class="math inline">\(x\)</span> from 0 to 2.5.<a href="#fn20" class="footnote-ref" id="fnref20" role="doc-noteref"><sup>20</sup></a> Here is how the 4th degree method performs on this prediction task:</p>
 <div class="quarto-embed-nb-cell">
-<div id="fig-poly4-eval" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div id="cell-fig-poly4-eval" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div id="fig-poly4-eval" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-poly4-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-poly4-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: POLY-4 Hold-out Evaluation
 </figcaption>
 <div aria-describedby="fig-poly4-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-
-</div>
+<a href="index_files/figure-html/notebooks-forster2000_adapted-fig-poly4-eval-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: POLY-4 Hold-out Evaluation"><img src="index_files/figure-html/notebooks-forster2000_adapted-fig-poly4-eval-output-1.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
+</div>
+</div>
 </div>
 </div>
 <p>By contrast, the linear, 1st degree method, which performs best on this task, looks like this:</p>
 <div class="quarto-embed-nb-cell">
-<div id="fig-poly1-eval" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div id="cell-fig-poly1-eval" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display">
+<div id="fig-poly1-eval" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-poly1-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-poly1-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: POLY-1 Hold-out Evaluation
 </figcaption>
 <div aria-describedby="fig-poly1-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-
-</div>
+<a href="index_files/figure-html/notebooks-forster2000_adapted-fig-poly1-eval-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: POLY-1 Hold-out Evaluation"><img src="index_files/figure-html/notebooks-forster2000_adapted-fig-poly1-eval-output-1.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
+</div>
+</div>
 </div>
 </div>
 <p>The linear method performs better both because the central tendency it predicts is closer to the true data and because it predicts a wider standard deviation. In other words, the close fit of Poly-4 to the training data actually hurts its predictive performance by being “overconfident.”</p>
@@ -905,6 +919,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

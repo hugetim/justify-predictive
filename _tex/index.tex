@@ -196,7 +196,7 @@
 
 \title{A pragmatic justification for predictive methods}
 \author{Tim Huegerich}
-\date{2025-03-08}
+\date{2025-03-09}
 
 \begin{document}
 \maketitle
@@ -736,6 +736,18 @@ task presented in (M. R. Forster 2000). Suppose you observe 20 values of
 shown in Figure~\ref{fig-known-data}, and you want to predict \(y\) for
 \(x\) between 3.5 and 5.
 
+\begin{figure}[H]
+
+\caption{\label{fig-known-data}Known Data}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-forster2000_adapted-fig-known-data-output-1.png}}
+
+}
+
+\end{figure}%
+
 \textsubscript{Source:
 \href{https://hugetim.github.io/justify-predictive/notebooks/forster2000_adapted-preview.html\#cell-fig-known-data}{Forster
 (2000) adapted}}
@@ -746,6 +758,18 @@ to use. Although the higher degree models are clearly able to fit the
 known values of \(y\) more closely, they are not necessarily better able
 to predict the unknown values. For example, here are the 4th degree
 polynomial method's predictions:
+
+\begin{figure}[H]
+
+\caption{\label{fig-poly4-predict}POLY-4 Prediction}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-forster2000_adapted-fig-poly4-predict-output-1.png}}
+
+}
+
+\end{figure}%
 
 \textsubscript{Source:
 \href{https://hugetim.github.io/justify-predictive/notebooks/forster2000_adapted-preview.html\#cell-fig-poly4-predict}{Forster
@@ -777,12 +801,36 @@ known prediction task is to predict \(y\) for \(x\) from 2.6 through
   something about uniqueness, which is discussed further below.} Here is
 how the 4th degree method performs on this prediction task:
 
+\begin{figure}[H]
+
+\caption{\label{fig-poly4-eval}POLY-4 Hold-out Evaluation}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-forster2000_adapted-fig-poly4-eval-output-1.png}}
+
+}
+
+\end{figure}%
+
 \textsubscript{Source:
 \href{https://hugetim.github.io/justify-predictive/notebooks/forster2000_adapted-preview.html\#cell-fig-poly4-eval}{Forster
 (2000) adapted}}
 
 By contrast, the linear, 1st degree method, which performs best on this
 task, looks like this:
+
+\begin{figure}[H]
+
+\caption{\label{fig-poly1-eval}POLY-1 Hold-out Evaluation}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-forster2000_adapted-fig-poly1-eval-output-1.png}}
+
+}
+
+\end{figure}%
 
 \textsubscript{Source:
 \href{https://hugetim.github.io/justify-predictive/notebooks/forster2000_adapted-preview.html\#cell-fig-poly1-eval}{Forster
