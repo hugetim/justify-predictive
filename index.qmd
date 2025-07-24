@@ -7,10 +7,14 @@ author:
 abstract: There is a pragmatic justification for expecting a predictive method to perform the same in the future as in the past. This justified expectation of continued predictive ability provides a new angle on Hume's problem of induction.
 
 fig-cap-location: top
-date: last-modified
+date: 2025-03-09
 bibliography: references.bib
 jupyter: python3
 ---
+
+::: {.wp-note}
+**Preliminary and incomplete, but comments welcome**
+:::
 
 ## Introduction
 
