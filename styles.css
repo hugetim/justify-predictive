@@ -1,0 +1,11 @@
+.wp-note {
+  text-align: center;   /* redundant */
+  font-weight: bold;
+  margin-top: 0em;
+  margin-bottom: 3em;
+  font-size: 1.1rem;
+}
+
+.quarto-title-banner {
+  margin-bottom: 0em;
+}
