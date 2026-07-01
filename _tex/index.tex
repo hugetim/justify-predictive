@@ -67,6 +67,7 @@
 
 
 \usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -210,10 +211,14 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-There is a pragmatic justification for expecting a predictive method to
-perform the same in the future as in the past. This justified
-expectation of continued predictive ability provides a new angle on
-Hume's problem of induction.
+There is a pragmatic justification for using predictive methods that
+have proven successful. Positing a specific form of uniformity is shown
+to be necessary for predicting based on the available track record.
+Approaching the available information in terms of what could have been
+predicted---combined with a razor stripping candidate methods of
+unutilized steps---is shown to eliminate the alternatives often thought
+to make underdetermination inevitable. This combination provides a new
+angle on Hume's problem of induction.
 \end{abstract}
 
 
@@ -222,16 +227,16 @@ Hume's problem of induction.
 \section{Introduction}\label{introduction}
 
 The aim of this paper is to provide a self-standing philosophical
-justification for continuing to use methods of prediction that have
-proven successful. That is, this justification of predictive methods is
-intended to be independent of claims about the confirmation of broader
-theories---or the truth of narrower inductive inferences---upon which
-predictions may otherwise be thought to derive from. Simply stated, to
-predict some unknown outcome, one should use a predictive method that
-has, or could have, been successful at similar predictions.
+justification for the use of successful predictive methods. That is,
+this justification of predictive methods is intended to be independent
+of claims about the confirmation of broader theories---or the truth of
+narrow inductive inferences---from which predictions may otherwise be
+thought to derive. Simply stated, to predict an unknown outcome, one
+should use a predictive method that has, or could have, been successful
+at similar predictions.
 
 This is about ``predictions'' broadly conceived, inclusive of statements
-about the yet-unknown consequents of past events.\footnote{As M. Forster
+about the yet-unknown consequents of past events.\footnote{As Forster
   (2008) put it, ``Suppose I choose a card and place it face down on the
   table. You have to predict whether I chose a diamond. Even though the
   event you are predicting happened in the past, we are comfortable with
@@ -248,16 +253,35 @@ Many machine learning researchers already seem to regard successful
 predictions (under the rubric of ``cross-validation'' and related
 approaches) as a direct rationale for using a given model, so that
 embracing the argument here would have little or no impact on their
-practice. Others (such as most economists, in my experience) regard the
-use of cross-validation for model selection as an ad hoc approach that
-could only be justified in terms of more traditional statistics
-concepts, if at all. In the philosophy literature, despite various close
-parallels discussed below, I am not aware of a precedent for directly
-justifying the use of successful predictive methods, in themselves. As a
+practice. Other practioners (such as most economists, in my experience)
+regard the use of cross-validation for model selection as an ad hoc
+approach that could only be justified in terms of more traditional
+statistics concepts, if at all.
+
+Philosophers often seem to regard cross-validation as an ad hoc approach
+that, at best, works because it approximates more philosophically
+grounded criteria such as Akaike's Information Criterion
+(AIC).\footnote{Partial exceptions that partially prove the rule include
+  (Forster 2002) and (Hitchcock and Sober 2004).} More generally, as a
 recent review article on ``Philosophy of Statistics'' puts it, in a
 section discussing some approaches to model selection: ``methods that
 use cross-validation\ldots have, unduly, not received as much attention
 in the philosophical literature.''\footnote{(Romeijn 2022).}
+
+Nonetheless, there are some close parallels to this paper in the
+philosophy literature. Perhaps most prominently in recent years, Gerhard
+Schurz's meta-inductive program (Schurz 2021) justifies a predictive
+strategy via optimality theorems from computational learning theory.
+But, as I argue in Section~\ref{sec-schurz}, those theorems turn out to
+provide no forward-looking, short-term warrant for adopting the
+prescribed strategy.
+
+Also of clear relevance is the literature summarized by {[}barnes2022{]}
+debating why, or whether, novel predictions should receive more weight
+than mere accomodation in assessing scientific theories. I regard the
+question of predictions versus accomodation as a false choice which
+dissolves once we re-frame past data from the perspective of whether
+part of it \emph{could have been predicted} using other past data.
 
 The argument proceeds as follows. Section~\ref{sec-under} shows how
 thinking in terms of predictive methods alleviates the problem of
@@ -348,9 +372,9 @@ and the corresponding points on the line. That line can then be used to
 predict other outcomes.\footnote{In some previous literature, the
   curve-fitting problem is formulated in terms of a ``family of curves''
   (or models). This LMSE best-fit line ``predictive method'' is
-  analogous to the family of all straight lines, as defined in (M.
-  Forster and Sober 1994), for example (which notes that such families
-  ``are of interest because they are \emph{instruments of prediction}.''
+  analogous to the family of all straight lines, as defined in (Forster
+  and Sober 1994), for example (which notes that such families ``are of
+  interest because they are \emph{instruments of prediction}.''
   (emphasis added)). By contrast though, a predictive method must also
   specify how the specific curve is chosen from among the family, given
   some input data. (The concept of a predictive method may also be
@@ -402,7 +426,7 @@ which the outcome is known can be calculated as
 
 Now, one potential objection to the claim that thinking in terms of
 predictive methods distinguishes the best-fit line from all other curves
-that pass through the 10 known data points is what M. Forster and Sober
+that pass through the 10 known data points is what Forster and Sober
 (1994) termed the ``subfamily problem.'' Take any one of those
 innumerable curves that pass through the 10 known points but are not
 straight lines, and suppose someone proposed one of those as a
@@ -668,28 +692,28 @@ successful deterministic predictive method, we still ought to act as if
 there were uniformity of nature in the following sense: that a
 predictive method exists which reliably indicates the true probabilities
 of the outcome in question.\footnote{This is akin to the first of three
-  assumptions M. Forster and Sober (1994) enumerate for Akaike's
-  Theorem: ``a `uniformity of nature' assumption that says that the true
-  curve, whatever it is, remains the same for both the old and the new
-  data sets considered in the definition of predictive accuracy.''}
-Here, define ``true'' as the probability distribution that maximizes the
+  assumptions Forster and Sober (1994) enumerate for Akaike's Theorem:
+  ``a `uniformity of nature' assumption that says that the true curve,
+  whatever it is, remains the same for both the old and the new data
+  sets considered in the definition of predictive accuracy.''} Here,
+define ``true'' as the probability distribution that maximizes the
 average predicted log-likelihood for a prediction class.\footnote{This
   actually suggests a distinctive philosophical interpretation of
   probability, as discussed below in Section~\ref{sec-intprob}.} Then
 the average log-likelihood of a given predictive method's predictions
 (for the \(J\) tasks with known outcomes) provides a measure of the
 predictive accuracy of that method.\footnote{The phrase ``predictive
-  accuracy'' here is used analogously to how it is defined in (M.
-  Forster and Sober 1994): average (or ``expected'') log-likelihood,
-  which can also be interpreted as a measure of closeness to the true
-  probability distribution in terms of the Kullback-Liebler divergence,
-  the average difference in log-likelihoods.} One ought to use the best
-method according this measure because, according to the available
-information, it is closest to indicating the true probabilities, if a
-reliable method for predicting those probabilities exists. If, on the
-other hand, there is no way to reliably predict the probability
-distribution of interest, then no predictive method is better than any
-other for achieving that purpose.
+  accuracy'' here is used analogously to how it is defined in (Forster
+  and Sober 1994): average (or ``expected'') log-likelihood, which can
+  also be interpreted as a measure of closeness to the true probability
+  distribution in terms of the Kullback-Liebler divergence, the average
+  difference in log-likelihoods.} One ought to use the best method
+according this measure because, according to the available information,
+it is closest to indicating the true probabilities, if a reliable method
+for predicting those probabilities exists. If, on the other hand, there
+is no way to reliably predict the probability distribution of interest,
+then no predictive method is better than any other for achieving that
+purpose.
 
 Again, what counts as ``similar predictions'' is specified as part of
 the definition of the prediction task at hand, the relevant prediction
@@ -742,10 +766,10 @@ model as the most successful predictive method.
 curve}\label{example-predicting-the-continuation-of-an-unknown-curve}
 
 As a slightly less simple example, consider the non-linear prediction
-task presented in (M. R. Forster 2000). Suppose you observe 20 values of
-\(y\) at each evenly spaced interval of \(x\) from 0 to 3.5, the values
-shown in Figure~\ref{fig-known-data}, and you want to predict \(y\) for
-\(x\) between 3.5 and 5.
+task presented in (Forster 2000). Suppose you observe 20 values of \(y\)
+at each evenly spaced interval of \(x\) from 0 to 3.5, the values shown
+in Figure~\ref{fig-known-data}, and you want to predict \(y\) for \(x\)
+between 3.5 and 5.
 
 \begin{figure}[H]
 
@@ -1099,11 +1123,11 @@ mastery.
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
 
-\phantomsection\label{refs}
-\begin{CSLReferences}{1}{0}
+\protect\phantomsection\label{refs}
+\begin{CSLReferences}{1}{1}
 \bibitem[\citeproctext]{ref-barnes2022}
-Barnes, Eric Christian. 2022. {``Prediction Versus Accommodation.''} In,
-edited by Edward N. Zalta and Uri Nodelman, Winter 2022. Metaphysics
+Barnes, Eric Christian. 2022. \emph{Prediction Versus Accommodation}.
+Winter 2022. Edited by Edward N. Zalta and Uri Nodelman. Metaphysics
 Research Lab, Stanford University.
 \url{https://plato.stanford.edu/archives/win2022/entries/prediction-accommodation/}.
 
@@ -1118,8 +1142,13 @@ Donoho, David. 2017. {``50 Years of Data Science.''} \emph{Journal of
 Computational and Graphical Statistics} 26 (4): 745--66.
 \url{https://doi.org/10.1080/10618600.2017.1384734}.
 
+\bibitem[\citeproctext]{ref-forster2002}
+Forster, Malcolm. 2002. {``Predictive Accuracy as an Achievable Goal of
+Science.''} \emph{Philosophy of Science} 69 (S3): S124--34.
+\url{https://doi.org/10.1086/341840}.
+
 \bibitem[\citeproctext]{ref-forster2008}
-Forster, Malcolm. 2008. {``Prediction.''} In, 433441. Routledge.
+Forster, Malcolm. 2008. \emph{Prediction}. Routledge.
 \url{https://www.taylorfrancis.com/chapters/edit/10.4324/9780203000502-47/prediction-malcolm-forster}.
 
 \bibitem[\citeproctext]{ref-forster2000}
@@ -1135,16 +1164,22 @@ Predictions.''} \emph{The British Journal for the Philosophy of Science}
 45 (1): 1--35. \url{http://www.jstor.org/stable/687960}.
 
 \bibitem[\citeproctext]{ref-huxe1jek2023}
-Hájek, Alan. 2023. {``Interpretations of Probability.''} In, edited by
-Edward N. Zalta and Uri Nodelman, Winter 2023. Metaphysics Research Lab,
+Hájek, Alan. 2023. \emph{Interpretations of Probability}. Winter 2023.
+Edited by Edward N. Zalta and Uri Nodelman. Metaphysics Research Lab,
 Stanford University.
 \url{https://plato.stanford.edu/archives/win2023/entries/probability-interpret/}.
 
 \bibitem[\citeproctext]{ref-henderson2022}
-Henderson, Leah. 2022. {``The Problem of Induction.''} In, edited by
-Edward N. Zalta and Uri Nodelman, Winter 2022. Metaphysics Research Lab,
+Henderson, Leah. 2022. \emph{The Problem of Induction}. Winter 2022.
+Edited by Edward N. Zalta and Uri Nodelman. Metaphysics Research Lab,
 Stanford University.
 \url{https://plato.stanford.edu/archives/win2022/entries/induction-problem/}.
+
+\bibitem[\citeproctext]{ref-hitchcock2004}
+Hitchcock, Christopher, and Elliott Sober. 2004. {``Prediction Versus
+Accommodation and the Risk of Overfitting.''} \emph{The British Journal
+for the Philosophy of Science} 55 (1): 1--34.
+\url{https://doi.org/10.1093/bjps/55.1.1}.
 
 \bibitem[\citeproctext]{ref-kaufman2012}
 Kaufman, Shachar, Saharon Rosset, Claudia Perlich, and Ori Stitelman.
@@ -1158,8 +1193,8 @@ Simplicity, and Scientific Inference.''} \emph{Philosophy of Science} 69
 (S3): S135--49. \url{https://doi.org/10.1086/341841}.
 
 \bibitem[\citeproctext]{ref-romeijn2022}
-Romeijn, Jan-Willem. 2022. {``Philosophy of Statistics.''} In, edited by
-Edward N. Zalta and Uri Nodelman, Fall 2022. Metaphysics Research Lab,
+Romeijn, Jan-Willem. 2022. \emph{Philosophy of Statistics}. Fall 2022.
+Edited by Edward N. Zalta and Uri Nodelman. Metaphysics Research Lab,
 Stanford University.
 \url{https://plato.stanford.edu/archives/fall2022/entries/statistics/}.
 
@@ -1169,9 +1204,15 @@ Journal for the Philosophy of Science} 32 (2): 115--25.
 \url{https://doi.org/10.1093/bjps/32.2.115}.
 
 \bibitem[\citeproctext]{ref-salmon2017}
----------. 2017. \emph{The Foundations of Scientific Inference: 50th
-Anniversary Edition}. University of Pittsburgh Press.
+Salmon, Wesley C. 2017. \emph{The Foundations of Scientific Inference:
+50th Anniversary Edition}. University of Pittsburgh Press.
 \url{https://www.jstor.org/stable/j.ctt1s475s3}.
+
+\bibitem[\citeproctext]{ref-schurz2021}
+Schurz, Gerhard. 2021. {``Meta-Induction over Unboundedly Many
+Prediction Methods: A Reply to Arnold and Sterkenburg.''}
+\emph{Philosophy of Science} 88 (2): 320--40.
+\url{https://doi.org/10.1086/711588}.
 
 \end{CSLReferences}
 
