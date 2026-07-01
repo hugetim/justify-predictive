@@ -8,6 +8,10 @@ abstract: There is a pragmatic justification for using predictive methods that h
 
 fig-cap-location: top
 date: 2025-03-09
+date-modified: last-modified
+language:
+  title-block-published: "First published"
+  title-block-modified: "Last updated"
 bibliography: references.bib
 jupyter: python3
 ---
