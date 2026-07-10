@@ -154,7 +154,7 @@ When a choice depends on an outcome for which we do not have a successful determ
 
 [^16]: This actually suggests a distinctive philosophical interpretation of probability, as discussed below in @sec-intprob.
 
-[^17]: The phrase "predictive accuracy" here is used analogously to how it is defined in [@forster1994]: average (or "expected") log-likelihood, which can also be interpreted as a measure of closeness to the true probability distribution in terms of the Kullback-Liebler divergence, the average difference in log-likelihoods.
+[^17]: The phrase "predictive accuracy" here is used analogously to how it is defined in [@forster1994]: average (or "expected") log-likelihood, which can also be interpreted as a measure of closeness to the true probability distribution in terms of the Kullback-Leibler divergence, the average difference in log-likelihoods.
 
 Again, what counts as "similar predictions" is specified as part of the definition of the prediction task at hand, the relevant prediction class.[^18] And, for probabilistic predictions in which success is no longer an all-or-nothing matter, it may be appropriate to weight the $J$ prediction tasks (for which the outcome is known) according to their similarity to the task of interest, specifying $w_j$ for $j=1, ..., J$ (with $\sum w_j = 1$) to define a *weighted prediction class*. Equal weights may be appropriate in certain circumstances, such as if the prediction task of interest is a random sample from the same distribution of tasks that generated the known outcomes. Otherwise the weights should be used to better estimate the model's predictive accuracy for the task at hand, as illustrated in the examples below.
 
@@ -207,7 +207,7 @@ Identifying the true data-generating process (given limited data) is not in itse
 
 ## Justifying a weighted prediction class {#sec-class}
 
-Thus far, the argument has presumed an agreed-upon weighted prediction class, relative to which predictive success is assessed and with reference to which the use of a successful predictive method is justified. But where does this prediction class come from and how can it be justified, in turn. It is not hard to imagine situations in which a given prediction of unknown information could be conceived of as part of multiple alternative prediction classes, with conflicting implications for which predictive method should be used. It this apparent incommensurability, then, fatal to the argument as a whole?
+Thus far, the argument has presumed an agreed-upon weighted prediction class, relative to which predictive success is assessed and with reference to which the use of a successful predictive method is justified. But where does this prediction class come from and how can it be justified, in turn? It is not hard to imagine situations in which a given prediction of unknown information could be conceived of as part of multiple alternative prediction classes, with conflicting implications for which predictive method should be used. Is this apparent incommensurability, then, fatal to the argument as a whole?
 
 No, when in doubt, we can expand the prediction class out to the agent's whole world, weighting according to importance. The prediction tasks are to predict (all) future observation, using all past observations as inputs. More narrow prediction classes can ultimately be evaluated by how well their selected predictive methods perform in terms of this universal metric of predictive success.
 
