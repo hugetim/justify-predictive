@@ -278,10 +278,10 @@ prescribed strategy.
 
 Also of clear relevance is the literature summarized by {[}barnes2022{]}
 debating why, or whether, novel predictions should receive more weight
-than mere accomodation in assessing scientific theories. I regard the
-question of predictions versus accomodation as a false choice which
-dissolves once we re-frame past data from the perspective of whether
-part of it \emph{could have been predicted} using other past data.
+than mere accomodation in assessing scientific theories. As explained
+below, my own view is that the evidential value of pre-existing
+``accomodated'' data becomes clearer once it is re-framed in terms of
+whether it \emph{could have been} predicted.
 
 The argument proceeds as follows. Section~\ref{sec-under} shows how
 thinking in terms of predictive methods alleviates the problem of
@@ -291,11 +291,9 @@ Section~\ref{sec-prob} extends that justification to probabilistic
 predictions. Section~\ref{sec-class} discusses a possible weak point in
 the preceding sections. Section~\ref{sec-induct} addresses the major
 arguments against Reichenbach's closely related pragmatic justification
-of induction. Section~\ref{sec-schurz} relates the framework of this
-paper to a prominent recent attempt to justify induction with reference
-to prediction. The final section concludes by sketching out the
-philosophical interpretation of probability that emerges from
-Section~\ref{sec-prob}.
+of induction. Section~\ref{sec-schurz} contrasts this approach with
+Schurz's meta-inductive program. A brief final section sketches the
+interpretation of probability suggested by this framework.
 
 \section{Predictive evaluation tames
 underdetermination}\label{sec-under}
@@ -308,7 +306,7 @@ predictive methods, rather than hypotheses, largely alleviates the
 otherwise crippling issue of underdetermination. In brief, it is much
 more difficult to find alternative ways to predict well than it is to
 generate alternative ways to ``fit'' data after the fact. Success in
-genuine predictions thus provides a descriptive account of the intution
+genuine predictions thus provides a descriptive account of the intuition
 we follow in practice without appealing to simplicity or other secondary
 criteria.
 
@@ -447,7 +445,7 @@ Consider a more concrete form of our example: An elementary student has
 been given an assignment to weigh an item 10 times and plot the weight
 against the time of day. She chooses a 3 lb. dumbbell and weighs it on a
 balance, using a set of standard weights that allow her to determine its
-weight to a precision of 0.1 lb. (and a range from 0 to 10). The result
+weight to a precision of 0.1 lb. (and a range from 0 to 9.9). The result
 is a measurement of 3.0 lbs. She weighs it seven more times throughout
 the day and finds the same result each time. Suppose she is sufficiently
 clever and whimsical to imagine a curve that fits those eight data
@@ -455,12 +453,13 @@ points exactly but varies wildly in between them. On the one hand, there
 are a huge number of possible curves that would turn out to successfully
 predict her 9th measurement exactly.\footnote{Discretizing the x-axis to
   even seconds, we can put a number on it: there are
-  \(100^{3600*24-9}=10^{172782}\) such functions that go through all
-  nine points exactly.} On the other hand, there are many more curves
-(99x more, in this discrete case) fitting the first eight points that
-will miss the 9th. The former is how the situation looks from the
-standpoint of accomodation, the latter from the perspective of
-prediction.
+  \(100^{3600 \cdot 24 - 9}=10^{172782}\) such functions that go through
+  all nine points exactly.} On the other hand, there are many more
+curves fitting the first eight points that will miss the 9th (99 times
+more, in this discrete case\footnote{There are 100 possible values for
+  each measurement, given the precision and range specified above}). The
+former is how the situation looks from the standpoint of accomodation,
+the latter from the perspective of prediction.
 
 \subsection{Ruling out non-fully-utilized
 methods}\label{ruling-out-non-fully-utilized-methods}
@@ -484,19 +483,32 @@ and predict that it will weigh 3 lbs. if so, and 9 otherwise. Prior to
 11pm, that second step is irrelevant for this procedure's track record.
 It has not really been part of the predictive method's success at all,
 properly speaking. Rather, the predictive method actually used was to
-simply identify the dumbbell and predict 3 as its weight. Implicit in
-the definition of predictive success, then, is a specific form of
-``Occam's razor'': if a step or input in a predictive method can be
-identified as having no effect on any predictions it has (or could have)
-made, it should not be considered part of the predictive method that
-made those predictions. Rather, the predictive success should be
+simply identify the dumbbell and predict 3 as its weight.\footnote{Note
+  that the corresponding reply for \emph{predicates} does not work in
+  the same way it does for predictive methods. In terms of predicates,
+  there is a linguistic symmetry between ``thrine'' and ``three'':
+  relative to the grue language, it is ``three'' that has a
+  gerrymandered definition (thrine before 11pm, ``nee'' afterwards).
+  Nothing about the the syntax of either language can break the tie. It
+  is thinking in terms of procedures, the operations involved in
+  applying a predictive method, that breaks the symmetry. A
+  thrine-predictor must consult a clock on every task, comparing against
+  the 11pm threshold, whereas the three-predictor performs no such
+  operation.}
+
+Implicit in the definition of predictive success, then, is a specific
+form of ``Occam's razor'': if a step or input in a predictive method can
+be identified as having no effect on any predictions it has (or could
+have) made, it should not be considered part of the predictive method
+that made those predictions. Rather, the predictive success should be
 attributed solely to the simpler predictive method, excluding that
 extraneous step.
 
 Indeed, by that token, the linear best-fit line method is also not fully
 utilized in this case, in which the simpler method of a constant \(y\)
-value can claim predictive success on its own. In this example, it is
-the uniquely successful, fully-utilized predictive method.
+value can claim predictive success on its own. In this example,
+predicting a constant value is the uniquely successful, fully-utilized
+predictive method.
 
 \subsection{Non-equivalent alternatives may
 remain}\label{non-equivalent-alternatives-may-remain}
@@ -706,7 +718,7 @@ predictive accuracy of that method.\footnote{The phrase ``predictive
   accuracy'' here is used analogously to how it is defined in (Forster
   and Sober 1994): average (or ``expected'') log-likelihood, which can
   also be interpreted as a measure of closeness to the true probability
-  distribution in terms of the Kullback-Liebler divergence, the average
+  distribution in terms of the Kullback-Leibler divergence, the average
   difference in log-likelihoods.} One ought to use the best method
 according this measure because, according to the available information,
 it is closest to indicating the true probabilities, if a reliable method
@@ -948,10 +960,10 @@ Thus far, the argument has presumed an agreed-upon weighted prediction
 class, relative to which predictive success is assessed and with
 reference to which the use of a successful predictive method is
 justified. But where does this prediction class come from and how can it
-be justified, in turn. It is not hard to imagine situations in which a
+be justified, in turn? It is not hard to imagine situations in which a
 given prediction of unknown information could be conceived of as part of
 multiple alternative prediction classes, with conflicting implications
-for which predictive method should be used. It this apparent
+for which predictive method should be used. Is this apparent
 incommensurability, then, fatal to the argument as a whole?
 
 No, when in doubt, we can expand the prediction class out to the agent's
